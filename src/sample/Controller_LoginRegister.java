@@ -8,10 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable{
+public class Controller_LoginRegister implements Initializable {
 
     @FXML private AnchorPane rootPane;
 
@@ -30,8 +31,8 @@ public class Controller implements Initializable{
         database.getAdminID();
     }
 
-    public void changeUserScene() throws Exception {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("GUI_LoginRegister.fxml"));
+    public void paneChangeToLogin() throws Exception {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("GUI_Login.fxml"));
         rootPane.getChildren().setAll(pane);
 
     }

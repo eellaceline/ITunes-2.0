@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <Button fx:id="userButton" layoutX="132.0" layoutY="209.0" mnemonicParsing="false" onAction="#changeUserScene" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="USER" />
+        <Button fx:id="userButton" layoutX="132.0" layoutY="209.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="USER" />
         <Button fx:id="adminButton" layoutX="132.0" layoutY="314.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="ADMIN" />
         <ImageView fx:id="logoView" fitHeight="97.0" fitWidth="159.0" layoutX="127.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
