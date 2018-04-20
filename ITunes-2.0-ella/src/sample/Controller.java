@@ -15,10 +15,6 @@ public class Controller implements Initializable{
 
     @FXML private AnchorPane rootPane;
 
-    @FXML private Button userButton;
-
-    @FXML private Button adminButton;
-
     @FXML private ImageView logoView;
 
     @Override
@@ -32,7 +28,8 @@ public class Controller implements Initializable{
 
     public void changeUserScene() throws Exception {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("GUI_LoginRegister.fxml"));
-        rootPane.getChildren().setAll(pane);
+        rootPane.getChildren().addAll(pane);
+
 
     }
 

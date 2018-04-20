@@ -16,11 +16,15 @@ public class Controller_LoginRegister implements Initializable {
 
     @FXML private AnchorPane rootPane;
 
-    @FXML private Button userButton;
-
-    @FXML private Button adminButton;
-
     @FXML private ImageView logoView;
+
+    @FXML private Button signInButton;
+
+    @FXML private Button registerButton;
+
+    @FXML private Button cancelButton;
+
+    @FXML private Button helpButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

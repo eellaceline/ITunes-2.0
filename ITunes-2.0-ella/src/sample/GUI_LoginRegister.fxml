@@ -10,19 +10,19 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: fffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <ImageView fitHeight="97.0" fitWidth="157.0" layoutX="127.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="logoView" fitHeight="97.0" fitWidth="157.0" layoutX="127.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@photos/logo.png" />
          </image></ImageView>
-        <Text fill="#797979" layoutX="153.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+        <Text fill="#797979" layoutX="137.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
             <font>
                 <Font name="Agency FB" size="22.0" />
             </font>
         </Text>
-        <Button fx:id="userButton" layoutX="132.0" layoutY="232.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
-        <Button fx:id="adminButton" layoutX="132.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="CREATE ACCOUNT" textFill="WHITE" />
-        <Button fx:id="adminButton1" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
-        <Button fx:id="adminButton11" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+        <Button fx:id="signInButton" layoutX="132.0" layoutY="232.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
+        <Button fx:id="registerButton" layoutX="132.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="CREATE ACCOUNT" textFill="WHITE" />
+        <Button fx:id="cancelButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
+        <Button fx:id="helpButton" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
       <Separator layoutX="100.0" layoutY="202.0" prefWidth="200.0" />
     </children>
 

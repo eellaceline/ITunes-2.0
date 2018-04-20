@@ -12,11 +12,11 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: fffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <ImageView fitHeight="97.0" fitWidth="157.0" layoutX="127.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="123.0" fitWidth="149.0" layoutX="116.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@photos/logo.png" />
          </image></ImageView>
-        <Text fill="#797979" layoutX="152.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+        <Text fill="#797979" layoutX="147.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
             <font>
                 <Font name="Agency FB" size="22.0" />
             </font>
@@ -24,7 +24,7 @@
         <Button layoutX="131.0" layoutY="377.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
         <Button fx:id="adminButton1" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
         <Button fx:id="adminButton11" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
-        <Text fill="#00000099" layoutX="147.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERNAME">
+        <Text fill="#00000099" layoutX="148.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERNAME">
             <font>
                 <Font name="Arial" size="15.0" />
             </font>
@@ -36,6 +36,6 @@
             </font>
         </Text>
         <TextField layoutX="115.0" layoutY="240.0" />
-      <Separator layoutX="100.0" layoutY="202.0" prefWidth="200.0" />
+      <Separator layoutX="100.0" layoutY="186.0" prefWidth="200.0" />
     </children>
 </AnchorPane>
