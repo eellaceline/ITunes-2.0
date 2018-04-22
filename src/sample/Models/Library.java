@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Library {
     ArrayList<Song> songs;
 
-        public Library(ArrayList<Song> songs) {
+    public Library(ArrayList<Song> songs) {
         this.songs = songs;
     }
 
