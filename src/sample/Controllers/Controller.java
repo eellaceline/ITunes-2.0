@@ -14,6 +14,11 @@ import sample.Models.*;
 
 public class Controller implements Initializable{
 
+
+    // this class will is most likely not of us.
+    // its still left in the project for compiling reasons that might not be a problem any more
+
+
     @FXML private AnchorPane rootPane;
 
     @FXML private Button userButton;
@@ -32,7 +37,6 @@ public class Controller implements Initializable{
     public void changeUserScene() throws Exception {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("GUI_LoginRegister.fxml"));
         rootPane.getChildren().setAll(pane);
-
     }
 
 }

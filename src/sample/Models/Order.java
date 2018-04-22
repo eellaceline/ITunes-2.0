@@ -2,13 +2,13 @@ package sample.Models;
 
 import java.util.ArrayList;
 
-public class Order_History {
+public class Order {
     private User user;
     private ArrayList<Song> songs;
     private int orderNumber;
-    private int orderDate;
+    private String orderDate;
 
-    public Order_History(User user, ArrayList<Song> songs, int orderNumber, int orderDate) {
+    public Order(User user, ArrayList<Song> songs, int orderNumber, String orderDate) {
         this.user = user;
         this.songs = songs;
         this.orderNumber = orderNumber;
@@ -53,11 +53,11 @@ public class Order_History {
         this.orderNumber = orderNumber;
     }
 
-    public int getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(int orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 }

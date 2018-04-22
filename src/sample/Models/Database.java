@@ -78,7 +78,6 @@ public class Database {
         catch (SQLException ex) {
             System.out.println("Failed to execute query password");
         }
-        System.out.println("pw: " + pw);
         return pw;
     }
 }
