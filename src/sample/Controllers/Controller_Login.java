@@ -1,39 +1,43 @@
 package sample.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutionException;
+
 import sample.Models.*;
 
-import javax.xml.crypto.Data;
-
 public class Controller_Login implements Initializable {
-
     @FXML
     private AnchorPane rootPane;
-
-    @FXML
-    private Button userButton;
-
-    @FXML
-    private Button adminButton;
 
     @FXML
     private ImageView logoView;
 
     @FXML
-    private TextField userNameTextField, passwordTextField;
+    private TextField userNameTextField;
+
+    @FXML
+    private PasswordField passwordTextField;
+
+    @FXML
+    private Button signInButton;
+
+    @FXML
+    private Button helpButton;
+
+    @FXML
+    private Button cancelButton;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -66,12 +70,27 @@ public class Controller_Login implements Initializable {
 
     public void paneChangeToUserAdmin() {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_UserAdmin.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Admin.fxml"));
             rootPane.getChildren().setAll(pane);
         }
         catch (IOException ex) {
             System.out.println("IOException found in paneChangeToUserAdmin");
         }
+
+    }
+
+    @FXML
+    void handleCancel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleHelp(ActionEvent event) {
+
+    }
+
+    @FXML
+    void loginVerification(ActionEvent event) {
 
     }
 

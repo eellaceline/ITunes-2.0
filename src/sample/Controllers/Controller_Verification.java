@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller_Store implements Initializable {
+public class Controller_Verification implements Initializable {
 
     @FXML
     private AnchorPane rootPane;
@@ -19,26 +19,10 @@ public class Controller_Store implements Initializable {
     private ImageView logoView;
 
     @FXML
-    private Button purshaseButton;
+    private Button libraryButton;
 
     @FXML
-    private Button helpButton;
-
-    @FXML
-    private Button cancelButton;
-
-    @FXML
-    void handleCancel(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleCheckout(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleHelp(ActionEvent event) {
+    void paneToLibrary(ActionEvent event) {
 
     }
 

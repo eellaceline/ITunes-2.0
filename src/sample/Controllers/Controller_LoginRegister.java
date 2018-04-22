@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,13 +17,27 @@ import java.util.ResourceBundle;
 
 public class Controller_LoginRegister implements Initializable {
 
-    @FXML private AnchorPane rootPane;
+    @FXML
+    private AnchorPane rootPane;
 
-    @FXML private Button userButton;
+    @FXML
+    private ImageView logoView;
 
-    @FXML private Button adminButton;
+    @FXML
+    private Button signInButton;
 
-    @FXML private ImageView logoView;
+    @FXML
+    private Button createAccButton;
+
+    @FXML
+    private Button cancelButton;
+
+    @FXML
+    private Button helpButton;
+
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,6 +54,16 @@ public class Controller_LoginRegister implements Initializable {
         catch (IOException ex) {
             System.out.println("IOException found in paneChangeToUserAdmin");
         }
+    }
+
+    @FXML
+    void handleCancel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleHelp(ActionEvent event) {
+
     }
 
 }

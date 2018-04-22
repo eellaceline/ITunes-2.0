@@ -27,6 +27,8 @@ public class Controller implements Initializable{
 
         Image image = new Image(getClass().getResourceAsStream("../photos/logo.png"));
         logoView.setImage(image);
+
+        System.out.println("test");
     }
 
     public void changeUserScene() throws Exception {
