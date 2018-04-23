@@ -28,7 +28,8 @@ public class Controller implements Initializable{
         Image image = new Image(getClass().getResourceAsStream("../photos/logo.png"));
         logoView.setImage(image);
 
-        System.out.println("test");
+        System.out.println("kram från ella");
+
     }
 
     public void changeUserScene() throws Exception {
