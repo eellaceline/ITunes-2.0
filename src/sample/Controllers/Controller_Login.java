@@ -17,26 +17,20 @@ import java.util.ResourceBundle;
 import sample.Models.*;
 
 public class Controller_Login implements Initializable {
-    @FXML
-    private AnchorPane rootPane;
 
-    @FXML
-    private ImageView logoView;
+    @FXML private AnchorPane rootPane;
 
-    @FXML
-    private TextField userNameTextField;
+    @FXML private ImageView logoView;
 
-    @FXML
-    private PasswordField passwordTextField;
+    @FXML private TextField userNameTextField;
 
-    @FXML
-    private Button signInButton;
+    @FXML private PasswordField passwordTextField;
 
-    @FXML
-    private Button helpButton;
+    @FXML private Button signInButton;
 
-    @FXML
-    private Button cancelButton;
+    @FXML private Button helpButton;
+
+    @FXML private Button cancelButton;
 
 
     @Override

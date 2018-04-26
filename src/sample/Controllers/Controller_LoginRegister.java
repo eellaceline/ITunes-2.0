@@ -50,11 +50,21 @@ public class Controller_LoginRegister implements Initializable {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
             rootPane.getChildren().setAll(pane);
-        }
-        catch (IOException ex) {
-            System.out.println("IOException found in paneChangeToUserAdmin");
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToLogin");
         }
     }
+
+        public void paneChangeToRegister(){
+            try {
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Register.fxml"));
+                rootPane.getChildren().setAll(pane);
+            } catch (IOException ex) {
+                System.out.println("IOException found in paneChangeToRegister");
+            }
+
+    }
+
 
     @FXML
     void handleCancel(ActionEvent event) {
