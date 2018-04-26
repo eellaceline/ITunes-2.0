@@ -46,7 +46,7 @@
             <Image url="@../photos/logo.png" />
          </image>
       </ImageView>
-      <Text fill="#797979" layoutX="153.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+      <Text fill="#797979" layoutX="137.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
          <font>
             <Font name="Agency FB" size="22.0" />
          </font>
