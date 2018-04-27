@@ -30,5 +30,4 @@ public class User extends Account {
         this.library.addSong(song);
     }
 
-
 }
