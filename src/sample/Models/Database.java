@@ -28,10 +28,13 @@ public class Database {
         return database;
     }
 
+    // might not be of use
     public void getAdminID() {
 
     }
 
+    // checks if the user that logs in is an admin and returns a boolean
+    // for the purpose of notifying if the user was an admin or not
     public boolean isAdmin(String userName) {
         boolean isAdmin = false;
         int ID = 0;
@@ -41,7 +44,7 @@ public class Database {
 
             while(rs.next()) {
                 ID = rs.getInt(1);
-                System.out.println("ID23: " + ID);
+                //System.out.println("ID: " + ID);
             }
         }
         catch (SQLException ex) {
@@ -59,14 +62,15 @@ public class Database {
             System.out.println("Failed to execute query compare adminID");
         }
 
-        System.out.println("ID :" + ID);
-        System.out.println("AdminID :" + adminID);
+        //System.out.println("ID :" + ID);
+        //System.out.println("AdminID :" + adminID);
         if (ID == adminID)
             isAdmin = true;
 
         return isAdmin;
     }
 
+    // returns the password from the database dependant on user name
     public String getPassword(String userName) {
         String pw = "";
         try {
@@ -77,6 +81,9 @@ public class Database {
         }
         catch (SQLException ex) {
             System.out.println("Failed to execute query password");
+        }
+        catch (NullPointerException ex) {
+            System.out.println("no database connection");
         }
         return pw;
     }

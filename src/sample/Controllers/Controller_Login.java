@@ -14,6 +14,8 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
+
+import sample.Handlers.Handler_Password;
 import sample.Models.*;
 
 import javax.xml.crypto.Data;
@@ -38,17 +40,16 @@ public class Controller_Login implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //Image image = new Image(getClass().getResourceAsStream("photos/logo.png"));
-        //logoView.setImage(image);
     }
 
     // missing encryption
+    // wtty
     public void loginVerification() {
-        String compare1 = Database.getInstance().getPassword(userNameTextField.getText());
+        String compare1 = Handler_Password.decryption(Database.getInstance().getPassword(userNameTextField.getText()));
         String compare2 = passwordTextField.getText();
 
         // checks if the textfields and values from database are matching
-        // will use decryption before
+        // will use decryption before use when its implemented
         if (compare1.equals(compare2)) {
             System.out.println("login success");
             if (Database.getInstance().isAdmin(userNameTextField.getText())) {
@@ -63,6 +64,7 @@ public class Controller_Login implements Initializable {
             System.out.println("login failed");
         }
     }
+
 
     public void paneChangeToUserAdmin() {
         try {
