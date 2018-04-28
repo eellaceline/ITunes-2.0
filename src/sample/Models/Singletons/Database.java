@@ -226,8 +226,7 @@ public class Database {
                     songDuration.get(i),
                     price.get(i),
                     artists,
-                    genreName.get(i)
-                    ));
+                    genreName.get(i)));
         }
 
         return songList;
