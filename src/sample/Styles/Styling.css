@@ -1,0 +1,8 @@
+#normalTextField {
+    -fx-border-width: 0px;
+}
+
+#wrongTextField {
+    -fx-border-width: 2px;
+    -fx-border-color: RED;
+}

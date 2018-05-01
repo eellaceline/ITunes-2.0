@@ -3,11 +3,13 @@ package sample.Models;
 public abstract class Account {
     private String userID;
     private String userName;
+    private String email;
     private String password;
 
-    public Account(String userID, String userName, String password) {
+    public Account(String userID, String userName, String email, String password) {
         this.userID = userID;
         this.userName = userName;
+        this.email = email;
         this.password = password;
     }
 
@@ -25,6 +27,14 @@ public abstract class Account {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

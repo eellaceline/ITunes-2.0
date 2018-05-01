@@ -4,8 +4,8 @@ public class User extends Account {
     private int balance;
     private Library library;
 
-    public User(String userID, String userName, String password, int balance, Library library) {
-        super(userID, userName, password);
+    public User(String userID, String userName, String email, String password, int balance, Library library) {
+        super(userID,email, userName, password);
         this.balance = balance;
         this.library = library;
     }

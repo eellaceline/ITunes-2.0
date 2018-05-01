@@ -56,6 +56,16 @@ public class Controller_LoginRegister implements Initializable {
         }
     }
 
+    public void paceChangeToCreateAcc() {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Register.fxml"));
+            rootPane.getChildren().setAll(pane);
+        }
+        catch (IOException ex) {
+            System.out.println("IOException found");
+        }
+    }
+
     @FXML
     void handleCancel(ActionEvent event) {
 

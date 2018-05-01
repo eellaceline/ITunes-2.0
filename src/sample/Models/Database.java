@@ -81,4 +81,13 @@ public class Database {
         System.out.println("pw: " + pw);
         return pw;
     }
+
+    public void createAccount() {
+        try {
+            ResultSet rs = statement.executeQuery("INSERT INTO user (userName, email) VALUES");
+        }
+        catch (SQLException ex) {
+            System.out.println("Failed to execute");
+        }
+    }
 }
