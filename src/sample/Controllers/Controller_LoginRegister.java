@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,13 +39,13 @@ public class Controller_LoginRegister implements Initializable {
         }
     }
 
-        public void paneChangeToRegister(){
-            try {
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Register.fxml"));
-                rootPane.getChildren().setAll(pane);
-            } catch (IOException ex) {
-                System.out.println("IOException found in paneChangeToRegister");
-            }
+    public void paneChangeToRegister(){
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Register.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToRegister");
+        }
 
     }
 
@@ -56,7 +57,11 @@ public class Controller_LoginRegister implements Initializable {
 
     @FXML
     void handleHelp(ActionEvent event) {
-    //Tooltips?
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Help");
+        alert.setHeaderText("I will show you what to do here ↓");
+        alert.setContentText("This is where you can either log in or create an account.");
+        alert.showAndWait();
     }
 
 }

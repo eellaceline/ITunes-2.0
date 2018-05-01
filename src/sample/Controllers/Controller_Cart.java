@@ -15,22 +15,13 @@ import java.util.ResourceBundle;
 
 public class Controller_Cart implements Initializable {
 
+    @FXML
+    private AnchorPane rootPane;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
-    @FXML
-    private AnchorPane rootPane;
-
-    @FXML
-    private ImageView logoView;
-
-    @FXML
-    private ListView<?> listView;
-
-    @FXML
-    private TextField totalPriceField;
 
     @FXML
     void buy(ActionEvent event) {

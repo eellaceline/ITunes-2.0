@@ -14,22 +14,35 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller_ForgotPassword implements Initializable{
+public class Controller_AccountSettings implements Initializable{
 
-    @FXML private AnchorPane rootPane;
+    @FXML
+    private AnchorPane rootPane;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
-    @FXML void handleCancel(ActionEvent event) {
+    }
+
+    @FXML
+    void changePasswordField(ActionEvent event) {
+
+    }
+
+    @FXML
+    void confirmPasswordField(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleCancel(ActionEvent event) {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Library.fxml"));
             rootPane.getChildren().setAll(pane);
         }
         catch (IOException ex) {
-            System.out.println("IOException found in handleCancel");
+            System.out.println("IOException found in handleLogOut");
         }
-    }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
     }
 
@@ -38,15 +51,14 @@ public class Controller_ForgotPassword implements Initializable{
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Help");
         alert.setHeaderText("I will show you what to do here ↓");
-        alert.setContentText("This scene is for you if you have forgotten your password. Enter your email address that you used when you registered your account and we will send you a random password which you can change later.");
+        alert.setContentText("This is where you can change your username and password. REMEMBER: You need to confirm your password.");
         alert.showAndWait();
 
     }
 
     @FXML
-    void loginVerification(ActionEvent event) {
+    void saveChanges(ActionEvent event) {
 
     }
-
 
 }

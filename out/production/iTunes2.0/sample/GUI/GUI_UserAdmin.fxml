@@ -12,16 +12,16 @@
     <children>
         <Button fx:id="userButton" layoutX="132.0" layoutY="232.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="USER" textFill="WHITE" />
         <Button fx:id="adminButton" layoutX="133.0" layoutY="325.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="ADMIN" textFill="WHITE" />
-      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/logo.png" />
-         </image>
-      </ImageView>
-      <Text fill="#797979" layoutX="139.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
-         <font>
-            <Font name="Agency FB" size="22.0" />
-         </font>
-      </Text>
-      <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
+        <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/logo.png" />
+            </image>
+        </ImageView>
+        <Text fill="#797979" layoutX="139.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+            <font>
+                <Font name="Agency FB" size="22.0" />
+            </font>
+        </Text>
+        <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

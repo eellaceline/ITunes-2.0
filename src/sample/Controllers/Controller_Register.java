@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -56,6 +57,11 @@ public class Controller_Register implements Initializable {
 
     @FXML
     void handleHelp(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Help");
+        alert.setHeaderText("I will show you what to do here↓");
+        alert.setContentText("This is where you create your account. Enter your desired username, your email address and your desired password. REMEMBER: You need to confirm your password.");
+        alert.showAndWait();
 
     }
 

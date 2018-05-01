@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,8 +26,6 @@ public class Controller_Library implements Initializable {
     @FXML
     private AnchorPane rootPane;
 
-    @FXML
-    private TableView tableView;
 
     @FXML
     private TableColumn<Song, String> columnSongName, columnArtist, columnGenre, columnDuration;
@@ -52,32 +51,43 @@ public class Controller_Library implements Initializable {
         tableView.setItems(data);
     }*/
     }
-        public void handleHelp () {
+    public void handleHelp () {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Help");
+        alert.setHeaderText("I will show you what to do here ↓");
+        alert.setContentText("This is your library. You have the option to go to store, settings, account and log out");
+        alert.showAndWait();
 
-        }
-
-        public void paneChangeToStore () {
-            try {
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Store.fxml"));
-                rootPane.getChildren().setAll(pane);
-            } catch (IOException ex) {
-                System.out.println("IOException found in paneChangeToStore");
-            }
-
-        }
-
-        public void handleLogOut () {
-            try {
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
-                rootPane.getChildren().setAll(pane);
-            } catch (IOException ex) {
-                System.out.println("IOException found in handleLogOut");
-            }
-
-        }
-
-        public void handleSettings () {
-
-        }
     }
+
+    public void paneChangeToStore () {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Store.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToStore");
+        }
+
+    }
+
+    public void handleLogOut () {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in handleLogOut");
+        }
+
+    }
+
+    public void handleAccountSettings () {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_AccountSettings.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in handleAccountSettings");
+        }
+
+    }
+}
 

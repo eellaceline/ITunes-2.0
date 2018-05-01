@@ -10,35 +10,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Library">
-   <children>
-      <Button fx:id="storeButton" mnemonicParsing="false" onAction="#paneChangeToStore" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #33adff;" text="STORE" textFill="WHITE" />
-      <Button layoutX="96.0" mnemonicParsing="false" onAction="#handleSettings" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="SETTINGS" textFill="WHITE" />
-      <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="ACCOUNT" textFill="WHITE" />
-      <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="LOG OUT" textFill="WHITE" />
-      <Separator layoutX="95.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
-      <Separator layoutX="190.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
-      <Separator layoutX="284.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="7.0" />
-      <ImageView fx:id="logoView" fitHeight="75.0" fitWidth="95.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Itunes2.0/src/sample/photos/logotrans.png" />
-         </image>
-      </ImageView>
-      <ScrollPane layoutY="105.0" prefHeight="358.0" prefWidth="380.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="378.0">
-               <children>
-                  <TableView layoutY="-1.0" prefHeight="464.0" prefWidth="380.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Title" />
-                      <TableColumn prefWidth="75.0" text="Artist" />
-                        <TableColumn prefWidth="75.0" text="Album" />
-                        <TableColumn prefWidth="75.0" text="🕒" />
-                        <TableColumn prefWidth="75.0" text="🛒" />
-                    </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-   </children>
+    <children>
+        <Button fx:id="storeButton" mnemonicParsing="false" onAction="#paneChangeToStore" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #33adff;" text="STORE" textFill="WHITE" />
+        <Button layoutX="96.0" mnemonicParsing="false" onAction="#handleAccountSettings" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="ACCOUNT" textFill="WHITE" />
+        <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="HELP" textFill="WHITE" />
+        <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="LOG OUT" textFill="WHITE" />
+        <Separator layoutX="95.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
+        <Separator layoutX="190.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
+        <Separator layoutX="284.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="7.0" />
+        <ImageView fx:id="logoView" fitHeight="75.0" fitWidth="95.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/logo.png" />
+            </image>
+        </ImageView>
+        <ScrollPane layoutY="105.0" prefHeight="358.0" prefWidth="380.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="378.0">
+                    <children>
+                        <TableView layoutY="-1.0" prefHeight="464.0" prefWidth="380.0">
+                            <columns>
+                                <TableColumn prefWidth="95.0" text="Title" />
+                                <TableColumn prefWidth="95.0" text="Artist" />
+                                <TableColumn prefWidth="95.0" text="Album" />
+                                <TableColumn prefWidth="95.0" text="🕒" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
 </AnchorPane>
