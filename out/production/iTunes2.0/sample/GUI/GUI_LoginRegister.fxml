@@ -8,22 +8,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: fffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_LoginRegister">
+<AnchorPane fx:id="rootPane" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_LoginRegister">
    <children>
-      <Button fx:id="signInButton" layoutX="143.0" layoutY="239.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
-      <Button fx:id="createAccButton" layoutX="143.0" layoutY="328.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="CREATE ACCOUNT" textFill="WHITE" />
-      <Button fx:id="cancelButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
+      <Button fx:id="signInButton" layoutX="132.0" layoutY="242.0" mnemonicParsing="false" onAction="#paneChangeToLogin" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
+      <Button fx:id="createAccButton" layoutX="132.0" layoutY="338.0" mnemonicParsing="false" onAction="#paneChangeToRegister" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="CREATE ACCOUNT" textFill="WHITE" />
+      <Button fx:id="cancelButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="EXIT" textFill="WHITE" />
       <Button fx:id="helpButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
-      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="117.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="106.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/logo.png" />
          </image>
       </ImageView>
-      <Text fill="#797979" layoutX="164.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+      <Text fill="#797979" layoutX="137.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
          <font>
             <Font name="Agency FB" size="22.0" />
          </font>
       </Text>
-      <Separator layoutX="101.0" layoutY="200.0" prefWidth="200.0" />
+      <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

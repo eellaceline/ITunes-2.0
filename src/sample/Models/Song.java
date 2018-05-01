@@ -5,18 +5,56 @@ import java.util.ArrayList;
 public class Song {
     private int songID;
     private String songName;
-    private int length;
+    private String length;
+    private int price;
     private ArrayList<Artist> artists;
     private String genre;
-    private int price;
 
-    public Song(int songID, String songName, int length, ArrayList<Artist> artists, String genre, int price) {
+    // hopefully temporary
+    private String artistNames;
+
+    public Song(int songID, String songName, String length, int price, ArrayList<Artist> artists, String genre) {
         this.songID = songID;
         this.songName = songName;
         this.length = length;
         this.artists = artists;
         this.genre = genre;
         this.price = price;
+        this.artistNames = combineArtistName();
+    }
+
+    public Song(Song song) {
+        this.songID = song.getSongID();
+        this.songName = song.getSongName();
+        this.length = song.getLength();
+        this.artists = song.getArtists();
+        this.genre = song.getGenre();
+        this.price = song.getPrice();
+        this.artistNames = combineArtistName();
+    }
+
+    public String combineArtistName() {
+        String finalString = "";
+        for (int i=0; i<artists.size(); i++) {
+            if (artists.size() == 1)
+                finalString += artists.get(i).toString();
+            else
+                finalString += artists.get(i).toString() + ", ";
+        }
+        return finalString;
+    }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "songID=" + songID +
+                ", songName='" + songName + '\'' +
+                ", length='" + length + '\'' +
+                ", price=" + price +
+                ", artists=" + artists +
+                ", genre='" + genre + '\'' +
+                ", artistNames='" + artistNames + '\'' +
+                '}';
     }
 
     public int getSongID() {
@@ -35,11 +73,11 @@ public class Song {
         this.songName = songName;
     }
 
-    public int getLength() {
+    public String getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(String length) {
         this.length = length;
     }
 
@@ -65,5 +103,9 @@ public class Song {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getArtistNames() {
+        return artistNames;
     }
 }

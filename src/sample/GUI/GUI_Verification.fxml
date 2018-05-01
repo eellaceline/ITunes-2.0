@@ -15,21 +15,21 @@
             <Image url="@../photos/logo.png" />
          </image>
       </ImageView>
-      <Text fill="#797979" layoutX="154.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+      <Text fill="#797979" layoutX="139.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
          <font>
             <Font name="Agency FB" size="22.0" />
          </font>
       </Text>
-      <Button fx:id="libraryButton" layoutX="113.0" layoutY="373.0" mnemonicParsing="false" onAction="#paneToLibrary" prefHeight="46.0" prefWidth="156.0" style="-fx-background-color: #33adff;" text="LIBRARY" textFill="WHITE" />
+      <Button fx:id="libraryButton" layoutX="114.0" layoutY="352.0" mnemonicParsing="false" onAction="#paneToLibrary" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #33adff;" text="LIBRARY" textFill="WHITE" />
       <Separator layoutX="99.0" layoutY="183.0" prefWidth="200.0" />
-      <Text fill="#797979" layoutX="40.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR YOUR PURSHASE!">
+      <Text fill="#797979" layoutX="24.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR YOUR PURSHASE!">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Text fill="#797979" layoutX="53.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your purshases songs are now in your library">
+      <Text fill="#797979" layoutX="63.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your purshases songs are now in your library">
          <font>
-            <Font size="14.0" />
+            <Font size="13.0" />
          </font>
       </Text>
    </children>
