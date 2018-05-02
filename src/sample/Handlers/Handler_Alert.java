@@ -16,4 +16,17 @@ public class Handler_Alert {
         else
             alert.show();
     }
+
+    public static void information(String title, String headerText, String contentText, boolean showAndWait) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+
+        if (showAndWait)
+            alert.showAndWait();
+
+        else
+            alert.show();
+    }
 }
