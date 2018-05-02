@@ -60,7 +60,16 @@ public class Controller_ChangePrice implements Initializable {
 
     @FXML
     void saveChanges(ActionEvent event) {
+        try {
 
+        }catch (Exception ex){
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in saving",
+                    "You have not any changes to be saved.",
+                    false
+            );
+        }
     }
 
 }

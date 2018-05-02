@@ -14,6 +14,7 @@ import sample.Handlers.Handler_Alert;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Handler;
 
 public class Controller_AccountSettings implements Initializable{
 
@@ -28,11 +29,32 @@ public class Controller_AccountSettings implements Initializable{
     @FXML
     void changePasswordField(ActionEvent event) {
 
+        try {
+
+        } catch (Exception ex) {
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in changing password",
+                    "Choose a password between 1-8.",
+                    false
+            );
+
+        }
     }
 
     @FXML
     void confirmPasswordField(ActionEvent event) {
+        try {
 
+        } catch (Exception ex) {
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in confirming password",
+                    "Your passwords does not match",
+                    false
+            );
+
+        }
     }
 
     @FXML
@@ -49,17 +71,26 @@ public class Controller_AccountSettings implements Initializable{
 
     @FXML
     void handleHelp(ActionEvent event) {
-        Handler_Alert.information(
-                "Help",
-                "I will show you what to do here ↓",
-                "This is where you can chang your username and password. \n REMEMBER: You need to confirm your password.",
-                false
-        );
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Help");
+        alert.setHeaderText("I will show you what to do here ↓");
+        alert.setContentText("This is where you can change your username and password. REMEMBER: You need to confirm your password.");
+        alert.showAndWait();
+
     }
 
     @FXML
     void saveChanges(ActionEvent event) {
+        try {
 
+        }catch (Exception ex){
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in saving settings",
+                    "No changes have been done.",
+                    false
+            );
+        }
     }
 
 }

@@ -49,8 +49,18 @@ public class Controller_ForgotPassword implements Initializable{
     }
 
     @FXML
-    void loginVerification(ActionEvent event) {
+    void sendEmail(ActionEvent event) {
+        try {
 
+        }catch (Exception ex){
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in sending email",
+                    "The email you have entered is not connected to a user." +
+                            "\nPlease enter your email.",
+                    false
+            );
+        }
     }
 
 

@@ -2,6 +2,7 @@ package sample.Models.Singletons;
 
 import com.mysql.jdbc.Connection;
 import sample.Handlers.Handler_Alert;
+import sample.Handlers.Handler_Password;
 import sample.Models.Artist;
 import sample.Models.Song;
 import sample.Models.User;
@@ -66,7 +67,7 @@ public class Database {
     public User getUser(String userName, String email) {
         User user = null;
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM user, WHERE username = '" + userName + "' AND email = '" + email + "';");
+            ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + userName + "' AND email = '" + email + "';");
 
             while(rs.next()) {
                 user = new User(
@@ -86,6 +87,20 @@ public class Database {
                     false);
         }
         return user;
+    }
+
+    public void saveAccount(String username, String email, String password) {
+        password = Handler_Password.encryption(password);
+        try {
+            statement.executeUpdate("INSERT INTO user (username, email, password, isAnAdmin) VALUES ('" + username + "', '" + email + "', '" + password +"', 0);");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when inserting user",
+                    false
+            );
+        }
     }
 
     // checks if the user that logs in is an admin and returns a boolean
