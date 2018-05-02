@@ -41,14 +41,16 @@ public class Database {
     public User getUser(String userName) {
         User user = null;
         try {
-            ResultSet rs = statement.executeQuery("SELECT user_id,userName,password,balance FROM user WHERE username = '" + userName + "';");
+            ResultSet rs = statement.executeQuery("SELECT user_id,userName,email,password,balance,isAnAdmin FROM user WHERE username = '" + userName + "';");
 
             while(rs.next()) {
                 user = new User(
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getInt(4));
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getBoolean(6));
             }
         }
         catch (SQLException ex) {
@@ -65,13 +67,13 @@ public class Database {
     // for the purpose of notifying if the user was an admin or not
     public boolean isAdmin(String userName) {
         boolean isAdmin = false;
-        int ID = 0;
+        int isAnAdmin = 0;
 
         try {
-            ResultSet rs = statement.executeQuery("SELECT user_id FROM user WHERE username = '" + userName + "';");
+            ResultSet rs = statement.executeQuery("SELECT isAnAdmin FROM user WHERE username = '" + userName + "';");
 
             while(rs.next()) {
-                ID = rs.getInt(1);
+                isAnAdmin = rs.getInt(1);
                 //System.out.println("ID: " + ID);
             }
         }
@@ -79,25 +81,11 @@ public class Database {
             System.out.println("Failed to execute query isAdmin");
         }
 
-        int adminID = 0;
-        try {
-            ResultSet rs = statement.executeQuery("SELECT user_user_id FROM admin, user WHERE username = '" + userName + "';");
-            while(rs.next()) {
-                adminID = rs.getInt(1);
-            }
-        }
-        catch (SQLException ex) {
-            System.out.println("Failed to execute query compare adminID");
-        }
-
-        //System.out.println("ID :" + ID);
-        //System.out.println("AdminID :" + adminID);
-        if (ID == adminID)
+        if (isAnAdmin == 1)
             isAdmin = true;
 
         return isAdmin;
     }
-
 
     // returns the password from the database dependant on user name
     public String getPassword(String userName) {
@@ -117,8 +105,10 @@ public class Database {
         return pw;
     }
 
+
+    // not optimised for new database
     // fetching the songs to be displayed in a library
-    public ArrayList<Song> fetchLibraryForUser(String userName) {
+    public ArrayList<Song> getLibraryForUser(String userName) {
         ArrayList<Song> songList = new ArrayList<>();
         String userID = "";
 
@@ -127,7 +117,7 @@ public class Database {
         ArrayList<String> songName = new ArrayList<>();
         ArrayList<String> songDuration = new ArrayList<>();
         ArrayList<Integer> price = new ArrayList<>();
-        ArrayList<Artist> artists = new ArrayList<>();
+        ArrayList<ArrayList<Artist>> artists = new ArrayList<>();
         ArrayList<String> genreName = new ArrayList<>();
 
         // Selects the userID needed to find songs in the library
@@ -149,9 +139,7 @@ public class Database {
         // fetches songID's dependent on the users library
         try {
             ResultSet rs = statement.executeQuery(
-                    "SELECT DISTINCT songs_song_id " +
-                            "FROM library_has_songs " +
-                            "WHERE library_user_user_id = " + userID + ";"
+                    "SELECT DISTINCT songs_song_id FROM user_has_songs WHERE user_user_id = " + userID + ";"
             );
 
             while(rs.next()) {
@@ -163,7 +151,7 @@ public class Database {
             Handler_Alert.alert(
                     "Error",
                     "SQLExeception",
-                    "Error reading from DB",
+                    "Error finding song_id's based on user_id",
                     false
             );
         }
@@ -193,7 +181,7 @@ public class Database {
             Handler_Alert.alert(
                     "Error",
                     "SQLExeception",
-                    "Error reading from DB",
+                    "Error fecthing song data",
                     false
             );
         }
@@ -201,9 +189,11 @@ public class Database {
         // Gathering the data from artists through the DB
         for (int i=0; i<songID.size(); i++) {
             try {
-                ResultSet rs = statement.executeQuery("SELECT DISTINCT artist_id, artistName FROM artist, songs_has_artist WHERE songs_song_id = " + songID.get(i) + ";");
+                ResultSet rs = statement.executeQuery(
+                        "SELECT DISTINCT artist_id, artistName FROM artist, songs_has_artist WHERE songs_song_id = " + songID.get(i) + ";");
                 while(rs.next()) {
-                    artists.add(new Artist(
+                    artists.add(artists.size(), new ArrayList<>());
+                    artists.get(i).add(new Artist(
                             rs.getInt(1),
                             rs.getString(2)));
                 }
@@ -212,7 +202,7 @@ public class Database {
                 Handler_Alert.alert(
                         "Error",
                         "SQLExeception",
-                        "Error reading from DB",
+                        "Error fecthing artist data",
                         false
                 );
             }
@@ -225,7 +215,7 @@ public class Database {
                     songName.get(i),
                     songDuration.get(i),
                     price.get(i),
-                    artists,
+                    artists.get(i),
                     genreName.get(i)));
         }
 

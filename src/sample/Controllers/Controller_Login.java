@@ -69,7 +69,7 @@ public class Controller_Login implements Initializable, Handler_HelpCancel {
 
     public void paneChangeToUserAdmin() {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_UserAdmin.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_UserOrAdmin.fxml"));
             rootPane.getChildren().setAll(pane);
         }
         catch (IOException ex) {

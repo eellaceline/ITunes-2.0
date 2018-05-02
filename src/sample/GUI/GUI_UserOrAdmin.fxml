@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_UserAdmin">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_UserOrAdmin">
     <children>
         <Button fx:id="userButton" layoutX="132.0" layoutY="209.0" mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="USER" />
         <Button fx:id="adminButton" layoutX="132.0" layoutY="314.0" mnemonicParsing="false" onAction="#paneChangeToAdmin" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="ADMIN" />

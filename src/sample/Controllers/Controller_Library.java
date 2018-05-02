@@ -34,18 +34,19 @@ public class Controller_Library implements Initializable, Handler_HelpCancel {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         User user = LoggedInUser.getInstance().getUser();
-        this.songList = Database.getInstance().fetchLibraryForUser(user.getUserName());
-
-        System.out.println(songList.get(0));
+        this.songList = Database.getInstance().getLibraryForUser(user.getUserName());
 
         final ObservableList<Song> data = FXCollections.observableArrayList();
         for (Song song: songList) {
             data.add(song);
         }
+
         columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
         columnGenre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
+
+        columnDuration.visibleProperty().setValue(false);
 
         tableView.setItems(data);
     }

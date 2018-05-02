@@ -3,14 +3,14 @@ package sample.Models.Singletons;
 import sample.Models.User;
 
 public class LoggedInUser {
-    private static LoggedInUser ourInstance = new LoggedInUser();
+    private static LoggedInUser loggedInUser = new LoggedInUser();
     private User user;
 
     public static LoggedInUser getInstance() {
-        if (ourInstance == null)
-            return ourInstance = new LoggedInUser();
+        if (loggedInUser == null)
+            return loggedInUser = new LoggedInUser();
         else
-            return ourInstance;
+            return loggedInUser;
     }
 
     private LoggedInUser() {
