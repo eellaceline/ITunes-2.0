@@ -1,0 +1,34 @@
+/** things with . will apply to all types of for example .button automatically in case the style sheet is applied to
+ *  the anchor pane of that scene, which is done by going to scene builder, clicking on the anchor pane in the bottom
+ *  left part under Hierarchy, and then opening the first tab Properties on the right side, and then under Stylesheets
+ *  giving the path to this .css file
+ *  The # gives a id to specific stylings. To apply this to a specific for example textfield, you do:
+ *  TextFieldNameThatWePut.setId("nameOfStyle"); Must be noted, you don't have to write the hashtag in the code
+ */
+
+/*It is set as 0px so that the border will not show, therefore we do not need to change it back to WHITE or anything */
+#normalTextField {
+    -fx-border-width: 0px;
+}
+
+/* Set up with RED colour so it looks like an error, plus adding 2 pixels in border, it looks good enough*/
+#wrongTextField {
+    -fx-border-width: 2px;
+    -fx-border-color: RED;
+}
+
+/* Adds NOTHING to the normal button, so it knows that nothing should happen when it's not in the "pressed" state*/
+.button {
+    -fx-border-width: 0px;
+}
+
+/* Adds a small BLACK (For now) color around buttons when pressed, to add some visual feedback that he button works*/
+.button:pressed {
+    -fx-border-width: 2px;
+    -fx-border-color: BLACK;
+}
+
+/* Can also do something cool with hovered in the future */
+.button:hovered {
+    /* do stuff */
+}

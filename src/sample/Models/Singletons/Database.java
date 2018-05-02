@@ -41,7 +41,7 @@ public class Database {
     public User getUser(String userName) {
         User user = null;
         try {
-            ResultSet rs = statement.executeQuery("SELECT user_id,userName,email,password,balance,isAnAdmin FROM user WHERE username = '" + userName + "';");
+            ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + userName + "';");
 
             while(rs.next()) {
                 user = new User(
@@ -58,6 +58,31 @@ public class Database {
                     "Error",
                     "SQLEXception",
                     "Error exececuting getuser query",
+                    false);
+        }
+        return user;
+    }
+
+    public User getUser(String userName, String email) {
+        User user = null;
+        try {
+            ResultSet rs = statement.executeQuery("SELECT * FROM user, WHERE username = '" + userName + "' AND email = '" + email + "';");
+
+            while(rs.next()) {
+                user = new User(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getBoolean(6));
+            }
+        }
+        catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLEXception",
+                    "Error exececuting query based on username and email",
                     false);
         }
         return user;
@@ -106,7 +131,7 @@ public class Database {
     }
 
 
-    // not optimised for new database
+    //TODO not optimised for new database
     // fetching the songs to be displayed in a library
     public ArrayList<Song> getLibraryForUser(String userName) {
         ArrayList<Song> songList = new ArrayList<>();

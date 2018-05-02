@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Admin">
+<AnchorPane fx:id="rootPane" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Admin">
     <children>
         <Button fx:id="addSongButton" layoutX="312.0" layoutY="216.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
         <Button fx:id="cancelButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
-        <Button fx:id="settingsButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleSettings" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="SETTINGS" textFill="WHITE" />
+        <Button fx:id="settingsButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
         <Button fx:id="removeUserButton" layoutX="312.0" layoutY="314.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
         <Button fx:id="changePriceButton" layoutX="312.0" layoutY="366.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
         <TextField fx:id="addSongField" layoutX="127.0" layoutY="217.0" onAction="#addSongs" />
@@ -41,16 +41,16 @@
             </font>
         </Text>
         <Button fx:id="removeSongButton" layoutX="312.0" layoutY="266.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
-      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="106.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/logo.png" />
-         </image>
-      </ImageView>
-      <Text fill="#797979" layoutX="153.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
-         <font>
-            <Font name="Agency FB" size="22.0" />
-         </font>
-      </Text>
-      <Separator layoutX="90.0" layoutY="190.0" prefWidth="200.0" />
+        <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="106.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/logo.png" />
+            </image>
+        </ImageView>
+        <Text fill="#797979" layoutX="139.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+            <font>
+                <Font name="Agency FB" size="22.0" />
+            </font>
+        </Text>
+        <Separator layoutX="90.0" layoutY="190.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

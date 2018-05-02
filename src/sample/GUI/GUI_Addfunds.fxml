@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AddFunds">
+    <children>
+        <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/logo.png" />
+            </image>
+        </ImageView>
+        <Text fill="#797979" layoutX="139.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+            <font>
+                <Font name="Agency FB" size="22.0" />
+            </font>
+        </Text>
+        <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
+        <ButtonBar layoutX="90.0" layoutY="217.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f2f2f2;">
+            <buttons>
+                <Text fill="#00000099" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
+                <Button mnemonicParsing="false" onAction="#handleAdd5Dollar" style="-fx-background-color: #33adff;" text="5 $" textFill="WHITE" />
+            </buttons>
+        </ButtonBar>
+        <ButtonBar layoutX="90.0" layoutY="282.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f2f2f2;">
+            <buttons>
+                <Text fill="#00000099" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
+                <Button mnemonicParsing="false" onAction="#handleAdd15Dollar" style="-fx-background-color: #33adff;" text="15 $" textFill="WHITE" />
+            </buttons>
+        </ButtonBar>
+        <ButtonBar layoutX="90.0" layoutY="350.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f2f2f2;">
+            <buttons>
+                <Text fill="#00000099" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
+                <Button mnemonicParsing="false" onAction="#handleAdd25Dollar" style="-fx-background-color: #33adff;" text="25 $" textFill="WHITE" />
+            </buttons>
+        </ButtonBar>
+        <Button fx:id="helpButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+        <Button fx:id="cancelButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleBackToStore" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="STORE" textFill="WHITE" />
+    </children>
+</AnchorPane>
