@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AccountSettings">
     <children>
-        <Button layoutX="137.0" layoutY="377.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #33adff;" text="SAVE CHANGES" textFill="WHITE" />
+        <Button layoutX="137.0" layoutY="385.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #33adff;" text="SAVE CHANGES" textFill="WHITE" />
         <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../photos/logo.png" />
@@ -23,25 +23,10 @@
             </font>
         </Text>
         <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
-        <Text fill="#00000099" layoutX="55.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <Text fill="#00000099" layoutX="55.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change password">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <Text fill="#00000099" layoutX="55.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <TextField fx:id="firstNameField" layoutX="201.0" layoutY="213.0" />
-        <TextField layoutX="201.0" layoutY="272.0" onAction="#changePasswordField" />
-        <TextField layoutX="201.0" layoutY="330.0" onAction="#confirmPasswordField" />
-        <Button fx:id="helpButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
-        <Button fx:id="cancelButton" layoutX="316.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
+        <TextField alignment="CENTER" layoutX="118.0" layoutY="219.0" onAction="#changeUsernameField" promptText="USERNAME" />
+        <TextField alignment="CENTER" layoutX="118.0" layoutY="274.0" onAction="#changePasswordField" promptText="PASSWORD" />
+        <TextField alignment="CENTER" layoutX="118.0" layoutY="332.0" onAction="#confirmPasswordField" promptText="CONFIRM PASSWORD" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+        <Button layoutX="316.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
     </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,26 +24,44 @@ public class Controller_Admin implements  Handler_HelpCancel, Initializable {
 
     }
 
-    public boolean removeSongs() {
-        boolean success = false;
-
-        return success;
+    @FXML
+    void paneChangeToAddSong(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_AddSong.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToAddSong");
+        }
     }
 
-    public void addSongs() {
-
+    @FXML
+    void paneChangeToChangePrice(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_ChangePrice.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToChangePrice");
+        }
     }
 
-    public boolean removeUser() {
-        boolean success = false;
-
-        return success;
+    @FXML
+    void paneChangeToRemoveSong(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_RemoveSong.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToRemoveSong");
+        }
     }
 
-    public boolean changePrice() {
-        boolean success = false;
-
-        return success;
+    @FXML
+    void paneChangeToRemoveUser(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_RemoveUser.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToRemoveUser");
+        }
     }
 
     @Override
@@ -50,7 +69,8 @@ public class Controller_Admin implements  Handler_HelpCancel, Initializable {
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is for admins. Here you can remove and add songs, \n remove and add users and change price.",
+                "This is for admins. Here you can remove and add songs, " +
+                        "\nremove and add users and change price.",
                 false
         );
     }
