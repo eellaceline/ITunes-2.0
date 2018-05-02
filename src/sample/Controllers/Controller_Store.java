@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
@@ -21,6 +22,10 @@ public class Controller_Store implements Initializable {
 
     @FXML
     private ImageView logoView;
+
+    @FXML
+    private TableView tableView;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

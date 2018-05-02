@@ -103,7 +103,7 @@ public class Controller_Login implements Initializable {
     }
 
     @FXML
-    void forgotPassword (){
+    public void forgotPassword (){
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_ForgotPassword.fxml"));
             rootPane.getChildren().setAll(pane);

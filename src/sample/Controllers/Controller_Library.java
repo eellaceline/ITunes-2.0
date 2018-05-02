@@ -10,7 +10,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
-import sample.Handlers.Handler_HelpCancel;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
 import sample.Models.Song;
@@ -30,7 +29,7 @@ public class Controller_Library implements Initializable {
     private TableView tableView;
 
     @FXML
-    private TableColumn<Song, String> columnSongName, columnArtist, columnGenre, columnDuration, columnAlbum;
+    private TableColumn<Song, String> songNameColumn, artistColumn, genreColumn, durationColumn, albumColumn;
 
     private ArrayList<Song> songList;
 
@@ -44,12 +43,12 @@ public class Controller_Library implements Initializable {
             data.add(song);
         }
 
-        columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
-        columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
-        //columnGenre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
-        columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
+        songNameColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
+        artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
+        //genreColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
+        durationColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
 
-        //columnGenre.visibleProperty().setValue(false);
+        //genreColumn.visibleProperty().setValue(false);
 
         tableView.setItems(data);
     }
