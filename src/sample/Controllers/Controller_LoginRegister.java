@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import sample.Handlers.Handler_Alert;
 import sample.Models.*;
 
 import java.io.IOException;
@@ -57,11 +58,12 @@ public class Controller_LoginRegister implements Initializable {
 
     @FXML
     void handleHelp(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Help");
-        alert.setHeaderText("I will show you what to do here ↓");
-        alert.setContentText("This is where you can either log in or create an account.");
-        alert.showAndWait();
+        Handler_Alert.Information(
+                "Help",
+                "I will show you what to do here ↓",
+                "This is where you can either log in or create your new account.",
+                false
+        );
     }
 
 }

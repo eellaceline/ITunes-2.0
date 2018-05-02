@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_HelpCancel;
 //import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
@@ -52,12 +53,13 @@ public class Controller_Library implements Initializable {
     }*/
     }
     public void handleHelp () {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Help");
-        alert.setHeaderText("I will show you what to do here ↓");
-        alert.setContentText("This is your library. You have the option to go to store, settings, account and log out");
-        alert.showAndWait();
-
+        Handler_Alert.Information(
+                "Help",
+                "I will show you what to do here ↓",
+                "This is you library. You can either go to store, account " +
+                        "\nor log out from the application. ",
+                false
+        );
     }
 
     public void paneChangeToStore () {

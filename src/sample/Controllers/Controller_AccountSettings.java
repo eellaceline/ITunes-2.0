@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import sample.Handlers.Handler_Alert;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,12 +49,13 @@ public class Controller_AccountSettings implements Initializable{
 
     @FXML
     void handleHelp(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Help");
-        alert.setHeaderText("I will show you what to do here ↓");
-        alert.setContentText("This is where you can change your username and password. REMEMBER: You need to confirm your password.");
-        alert.showAndWait();
-
+        Handler_Alert.Information(
+                "Help",
+                "I will show you what to do here ↓",
+                "This is where you can chang your username and password. " +
+                        "\nREMEMBER: You need to confirm your password.",
+                false
+        );
     }
 
     @FXML

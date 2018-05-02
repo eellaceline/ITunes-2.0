@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import sample.Handlers.Handler_Alert;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,12 +36,16 @@ public class Controller_ForgotPassword implements Initializable{
 
     @FXML
     void handleHelp(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Help");
-        alert.setHeaderText("I will show you what to do here ↓");
-        alert.setContentText("This scene is for you if you have forgotten your password. Enter your email address that you used when you registered your account and we will send you a random password which you can change later.");
-        alert.showAndWait();
-
+        Handler_Alert.Information(
+                "Help",
+                "I will show you what to do here ↓",
+                "Here you can reviece a new password if you have forgotten " +
+                        "\nyour old password. " +
+                        "Enter your email address " +
+                        "\nthat you used when your registered your account and we will" +
+                        "\nsend you a new one. ",
+                false
+        );
     }
 
     @FXML
