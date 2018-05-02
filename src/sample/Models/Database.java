@@ -28,6 +28,30 @@ public class Database {
         return database;
     }
 
+    public User getUser(String userName, String email) {
+        User user = null;
+
+        try {
+            ResultSet rs = statement.executeQuery("SELECT * FROM user, WHERE username = '" + userName + "' AND email = '" + email + "';");
+
+            while(rs.next()) {
+                user = new User(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getBoolean(6));
+
+            }
+        }
+        catch(SQLException ex){
+            System.out.println("error getting user based on username and email");
+        }
+
+        return user;
+    }
+
     public void getAdminID() {
 
     }

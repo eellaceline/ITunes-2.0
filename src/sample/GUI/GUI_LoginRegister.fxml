@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: fffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_LoginRegister">
+<AnchorPane fx:id="rootPane" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_LoginRegister">
    <children>
       <Button fx:id="signInButton" onAction="#paneChangeToLogin" layoutX="132.0" layoutY="242.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
       <Button fx:id="createAccButton" onAction="#paceChangeToCreateAcc" layoutX="132.0" layoutY="326.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="CREATE ACCOUNT" textFill="WHITE" />

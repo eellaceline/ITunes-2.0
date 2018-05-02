@@ -1,23 +1,23 @@
 package sample.Models;
 
 public abstract class Account {
-    private String userID;
+    private int userID;
     private String userName;
     private String email;
     private String password;
 
-    public Account(String userID, String userName, String email, String password) {
+    public Account(int userID, String userName, String email, String password) {
         this.userID = userID;
         this.userName = userName;
         this.email = email;
         this.password = password;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 

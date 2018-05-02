@@ -8,17 +8,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import sample.Models.Database;
+import sample.Models.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller_Register implements Initializable {
 
-    String regexUserName = "[A-Za-z0-9]+";
+    String regexUserName = "[A-Za-z0-9]{1,8}";//1 to 8 characters, any letter and any number
     String regexEmail = "[^ ;]{1,}[@]{1}[^@ ;]{1,}[.]{1}[A-Za-z]{1,}";
-    String regexPassword = "[^ ;]{1,8}";
+    String regexPassword = "[^ ;]{1,8}";//NOT spaces, and only 1 to 8 characters
+    //These booleans are added to work along with the button to check if everything is fine before doing its action
+    boolean usernameBoolean = false;
+    boolean emailBoolean = false;
+    boolean passwordBoolean = false;
+    boolean repeatPasswordBoolean = false;
 
     @FXML
     private AnchorPane rootPane;
@@ -38,36 +43,27 @@ public class Controller_Register implements Initializable {
     private PasswordField confirmField;
     @FXML
     private ImageView logoView;
-    @FXML
-    private Label userNameLabel;
-    @FXML
-    private Label emailLabel;
-    @FXML
-    private Label passwordLabel;
-    @FXML
-    private Label confirmPasswordLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //This will request focus on the pane so the labels will update since they are updating the moment they lose focus
+        //This will request focus on the pane so the fields will update since they are updating the moment they lose focus
         rootPane.setOnMouseClicked(event -> rootPane.requestFocus());
-        //TODO Change all lines where it says (nameOfLabel.setText("X"); into the copy pasted emoji
-        //TODO Do not forget to replace the ".setTextFill(Color.RED);" with nothing, as it will serve no purpose once the emoji is there
         //userName
         userNameTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                //!newValue means that the focus will NOT be on the field anymore, therefore we want to update if it's correct or not
                 if (!newValue) {
-                    //set label with error since regex will not match
-                    if (!userNameTextField.equals(regexUserName)) {
-                        userNameLabel.setStyle("-fx-text-fill: red");
-                        userNameTextField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
-                    } else { //set label as correct, since the regex matches
-                        userNameLabel.setText("");
-                        userNameTextField.setStyle("-fx-border-color: red; -fx-border-width: 0px");
+                    //set boolean with error since regex will not match
+                    if (!userNameTextField.getText().matches(regexUserName)) {
+                        userNameTextField.setId("wrongTextField");
+                        usernameBoolean = false;
+                    } else { //set boolean as correct, since the regex matches
+                        userNameTextField.setId("normalTextField");
+                        usernameBoolean = true;
                     }
                 } else {
-
+                    //Do nothing specific when the focus actually goes to the TextField
                 }
             }
         });
@@ -76,18 +72,16 @@ public class Controller_Register implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (!newValue) {
-                    //set label with error since regex will not match
+                    //set boolean with error since regex will not match
                     if (!emailField.getText().matches(regexEmail)) {
-                        //emailLabel.setText("❌");
-                        //emailLabel.setTextFill(Color.RED);
-                        //emailLabel.setStyle("-fx-text-fill: red");
-                        //emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
-                        emailField.setStyle(".wrongTextField");
-                    } else { //set label as correct, since the regex matches
-                        emailLabel.setText("");
-                        emailField.setStyle("-fx-border-color: red; -fx-border-width: 0px");
+                        emailBoolean = false;
+                        emailField.setId("wrongTextField");
+                    } else { //set boolean as correct, since the regex matches
+                        emailBoolean = true;
+                        emailField.setId("normalTextField");
                     }
                 } else {
+                    //Do nothing specific when the focus actually goes to the TextField
                 }
             }
         });
@@ -96,16 +90,15 @@ public class Controller_Register implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (!newValue) {
-                    //set label with error since regex will not match
+                    //set boolean with error since regex will not match
                     if (!passwordField.getText().matches(regexPassword)) {
-                        //passwordLabel.setText("❌");
-                        passwordLabel.setStyle("-fx-text-fill: red");
-                        passwordField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
-                    } else { //set label as correct, since the regex matches
-                        passwordLabel.setText("");
-                        passwordField.setStyle("-fx-border-color: red; -fx-border-width: 0px");
+                        passwordField.setId("wrongTextField");
+                    } else { //set boolean as correct, since the regex matches
+                        passwordBoolean = true;
+                        passwordField.setId("normalTextField");
                     }
                 } else {
+                    //Do nothing specific when the focus actually goes to the TextField
                 }
             }
         });
@@ -114,16 +107,17 @@ public class Controller_Register implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (!newValue) {
-                    //set label with error since the password does not match
-                    if (!confirmField.getText().equals(passwordField)) {
-                        //confirmPasswordLabel.setText("❌");
-                        confirmPasswordLabel.setStyle("-fx-text-fill: red");
-                        confirmField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
-                    } else { //set label as correct, since the regex matches
-                        confirmPasswordLabel.setText("");
-                        confirmField.setStyle("-fx-border-color: red; -fx-border-width: 0px");
+                    //if it does not match the password OR if it IS equals to nothing, considered as RED
+                    if (!confirmField.getText().equals(passwordField.getText()) || confirmField.getText().equals("")) {
+                        confirmField.setId("wrongTextField");
+                        //set boolean with error since the password does not match
+                        repeatPasswordBoolean = false;
+                    } else { //set boolean as correct, since the regex matches
+                        repeatPasswordBoolean = true;
+                        confirmField.setId("normalTextField");
                     }
                 } else {
+                    //Do nothing specific when the focus actually goes to the TextField
                 }
             }
         });
@@ -145,23 +139,27 @@ public class Controller_Register implements Initializable {
     void registerAccount(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("ERROR!");
-        if (!userNameLabel.equals("") && !emailLabel.equals("")) {
+        if (!usernameBoolean && !emailBoolean) {
             alert.setContentText("The username and email is in wrong format!");
             alert.show();
-        } else if (!userNameLabel.equals("")) {
+        } else if (!usernameBoolean) {
             alert.setContentText("The username should consist of only alphabets and/or numbers!");
             alert.show();
-        } else if (!emailLabel.equals("")) {
+        } else if (!emailBoolean) {
             alert.setContentText("The email is in wrong format!");
             alert.show();
-        } else if (!passwordLabel.equals("")) {
+        } else if (!passwordBoolean) {
             alert.setContentText("The password must contain at least one character, and no spaces.");
             alert.show();
-        } else if (!confirmPasswordLabel.equals("")) {
+        } else if (!repeatPasswordBoolean) {
             alert.setContentText("The repeated password does not match your first password.");
             alert.show();
         } else {
+            //TODO actual function of the button, so far only regex checks
+            User user = Database.getInstance().getUser(userNameTextField.getText(), emailField.getText());
+            if(user == null) {
 
+            }
         }
     }
 }

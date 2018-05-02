@@ -61,6 +61,7 @@ public class Controller_Login implements Initializable {
             }
             else {
                 System.out.println("not admin");
+                paneChangeToUserLibrary();
             }
         }
         else {
@@ -77,6 +78,16 @@ public class Controller_Login implements Initializable {
             System.out.println("IOException found in paneChangeToUserAdmin");
         }
 
+    }
+
+    public void paneChangeToUserLibrary() {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Library.fxml"));
+            rootPane.getChildren().setAll(pane);
+        }
+        catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToUserAdmin");
+        }
     }
 
     @FXML
