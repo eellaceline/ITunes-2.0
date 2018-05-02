@@ -32,9 +32,9 @@ public class Controller_Store implements Initializable {
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is where you buy your desired songs. You can sort by the lowest " +
-                        "\n and highest price. Mark the song or songs that you want and " +
-                        "n click on the cart-button.",
+                "This is where you buy your desired songs. " +
+                        "\nMark the song or songs that you want and click on " +
+                        "\nthe cart-button.",
                 false
         );
     }
