@@ -1,9 +1,29 @@
 package sample.Controllers;
 
+
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.beans.Observable;
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Control;
+import javafx.scene.control.ListView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -11,24 +31,14 @@ import sample.Handlers.Handler_Alert;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller_ChangePrice implements Initializable {
 
     @FXML
     private AnchorPane rootPane;
-
-    @FXML
-    private ImageView logoView;
-
-    @FXML
-    private TextField changePriceField;
-
-    @FXML
-    private TextField titleField;
-
-    @FXML
-    private TextField artistField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,6 +55,16 @@ public class Controller_ChangePrice implements Initializable {
             System.out.println("IOException found in handleCancel");
         }
     }
+    @FXML
+    void searchForSongs(){
+        List<String> songs = new ArrayList<>();
+
+        songs.add("Test");
+        songs.add("test1");
+
+    }
+
+
 
     @FXML
     void handleHelp(ActionEvent event) {

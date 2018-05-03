@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -25,8 +26,7 @@
       <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
       <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
       <TextField fx:id="changePriceField" alignment="CENTER" layoutX="100.0" layoutY="321.0" prefHeight="29.0" prefWidth="184.0" promptText="CHANGE PRICE" />
-      <TextField fx:id="titleField" alignment="CENTER" layoutX="99.0" layoutY="217.0" prefHeight="29.0" prefWidth="184.0" promptText="TITLE" />
       <Button layoutX="139.0" layoutY="384.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #33adff;" text="SAVE" textFill="WHITE" />
-      <TextField fx:id="artistField" alignment="CENTER" layoutX="100.0" layoutY="266.0" prefHeight="29.0" prefWidth="184.0" promptText="ARTIST" />
+      <ComboBox layoutX="100.0" layoutY="248.0" onAction="#searchForSongs" prefHeight="29.0" prefWidth="184.0" style="-fx-text-fill: #FFFFFF; -fx-background-color: #d5f1ff;" styleClass="-fx-text-fill" />
    </children>
 </AnchorPane>
