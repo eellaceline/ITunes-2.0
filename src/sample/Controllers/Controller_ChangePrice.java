@@ -1,32 +1,13 @@
 package sample.Controllers;
 
-
-
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.beans.Observable;
-import javafx.beans.property.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Control;
-import javafx.scene.control.ListView;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-
-import java.util.ArrayList;
-import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+
 import javafx.scene.layout.AnchorPane;
+import org.controlsfx.control.textfield.TextFields;
 import sample.Handlers.Handler_Alert;
 
 import java.io.IOException;
@@ -40,6 +21,8 @@ public class Controller_ChangePrice implements Initializable {
     @FXML
     private AnchorPane rootPane;
 
+    @FXML
+    private TextField searchField;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -57,10 +40,11 @@ public class Controller_ChangePrice implements Initializable {
     }
     @FXML
     void searchForSongs(){
-        List<String> songs = new ArrayList<>();
 
-        songs.add("Test");
-        songs.add("test1");
+        //TODO Arraylist<Song> for the search-function
+        String[] testSongs = {"Fix you", "Scientist"};
+        TextFields.bindAutoCompletion(searchField, testSongs);
+
 
     }
 
