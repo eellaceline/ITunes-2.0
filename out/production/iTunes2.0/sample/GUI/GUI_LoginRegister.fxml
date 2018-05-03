@@ -12,7 +12,7 @@
    <children>
       <Button layoutX="132.0" layoutY="242.0" mnemonicParsing="false" onAction="#paneChangeToLogin" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
       <Button layoutX="132.0" layoutY="333.0" mnemonicParsing="false" onAction="#paneChangeToRegister" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="CREATE ACCOUNT" textFill="WHITE" />
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="EXIT" textFill="WHITE" />
       <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
       <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="106.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
