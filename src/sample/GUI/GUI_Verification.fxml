@@ -20,7 +20,7 @@
             <Font name="Agency FB" size="22.0" />
          </font>
       </Text>
-      <Button fx:id="libraryButton" layoutX="114.0" layoutY="352.0" mnemonicParsing="false" onAction="#paneToLibrary" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #33adff;" text="LIBRARY" textFill="WHITE" />
+      <Button layoutX="114.0" layoutY="352.0" mnemonicParsing="false" onAction="#paneToLibrary" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #33adff;" text="LIBRARY" textFill="WHITE" />
       <Separator layoutX="99.0" layoutY="183.0" prefWidth="200.0" />
       <Text fill="#797979" layoutX="24.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR YOUR PURSHASE!">
          <font>

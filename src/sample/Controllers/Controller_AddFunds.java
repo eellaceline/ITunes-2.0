@@ -56,7 +56,7 @@ public class Controller_AddFunds implements Initializable {
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is where you add funds to your account. \n Choose between 5$, 15$ and 25$.",
+                "This is where you add funds to your account. \nChoose between 5$, 15$ and 25$.",
                 false
         );
 

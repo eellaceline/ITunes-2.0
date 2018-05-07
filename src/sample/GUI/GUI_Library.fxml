@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -13,9 +9,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Library">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Library">
     <children>
-        <Button fx:id="storeButton" mnemonicParsing="false" onAction="#paneChangeToStore" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #33adff;" text="STORE" textFill="WHITE" />
+        <Button mnemonicParsing="false" onAction="#paneChangeToStore" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #33adff;" text="STORE" textFill="WHITE" />
         <Button layoutX="96.0" mnemonicParsing="false" onAction="#handleAccountSettings" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="ACCOUNT" textFill="WHITE" />
         <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="HELP" textFill="WHITE" />
         <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #33adff;" text="LOG OUT" textFill="WHITE" />

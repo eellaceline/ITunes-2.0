@@ -9,7 +9,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_Password;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
@@ -41,7 +40,10 @@ public class Controller_Login implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //Image image = new Image(getClass().getResourceAsStream("photos/logo.png"));
+        //logoView.setImage(image);
     }
+
 
     public void paneChangeToUserAdmin() {
         try {
@@ -68,10 +70,7 @@ public class Controller_Login implements Initializable {
 
     @FXML
     void handleHelp(ActionEvent event) {
-        Handler_Alert.information("Help",
-                "I will show you what to do here ↓",
-                "This is where you log in with your created account. \n If you do not remember your password, click on \n ''forgot password?'' :)",
-                false);
+
     }
 
     @FXML
@@ -89,7 +88,7 @@ public class Controller_Login implements Initializable {
 
             if (Database.getInstance().isAdmin(userNameTextField.getText())) {
                 System.out.println("is admin");
-                paneChangeToUserOrAdmin();
+                paneChangeToUserAdmin();
             }
             else {
                 System.out.println("not admin");
@@ -99,6 +98,7 @@ public class Controller_Login implements Initializable {
         else {
             System.out.println("login failed");
         }
+
 
     }
 
@@ -117,16 +117,6 @@ public class Controller_Login implements Initializable {
     public void paneChangeToLibrary (){
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Library.fxml"));
-            rootPane.getChildren().setAll(pane);
-        }
-        catch (IOException ex) {
-            System.out.println("IOException found in paneChangeToLibrary");
-        }
-    }
-
-    public void paneChangeToUserOrAdmin() {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_UserOrAdmin.fxml"));
             rootPane.getChildren().setAll(pane);
         }
         catch (IOException ex) {

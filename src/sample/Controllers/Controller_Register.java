@@ -144,7 +144,8 @@ public class Controller_Register implements Initializable {
                 "Help",
                 "I will show you what to do here ↓",
                 "This is where you can create your own account." +
-                        "\nEnter your desired username, your email address \n and your password." +
+                        "\nEnter your desired username, your email address " +
+                        "\nand your password." +
                         "\nREMEMBER: You need to confirm you password.",
                 false
         );
@@ -178,8 +179,8 @@ public class Controller_Register implements Initializable {
                 System.out.println("User available");
                 Database.getInstance().saveAccount(userNameTextField.getText(),emailField.getText(),passwordField.getText());
                 Handler_Alert.information(
-                        "Succes",
-                        "Gz",
+                        "Success",
+                        "Congratulation",
                         "You have created an account",
                         false);
                 paneChangeToLogin();

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Database {
     private static Database database;
 
-    private String url = "jdbc:mysql://127.0.0.1:3306/musicdb?user=root&password=root";
+    private String url = "jdbc:mysql://den1.mysql3.gear.host/itunes?user=itunes&password=itunes!";
 
     private Statement statement;
 
@@ -57,8 +57,8 @@ public class Database {
         catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
-                    "SQLEXception",
-                    "Error exececuting getuser query",
+                    "SQLException",
+                    "Error executing getUser query",
                     false);
         }
         return user;
@@ -82,11 +82,79 @@ public class Database {
         catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
-                    "SQLEXception",
-                    "Error exececuting query based on username and email",
+                    "SQLException",
+                    "Error executing query based on username and email",
                     false);
         }
         return user;
+    }
+
+    // SQL statement in this order: Artist, Album, Song
+    public void addSong(String songName, String artistName, String genreName) {
+
+        try {
+            statement.executeUpdate("INSERT INTO songs(songName) VALUES ('" + songName + "')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error when inserting song name",
+                    false
+            );
+        }
+
+        //TODO needs check if the artist already exists
+        try {
+            statement.executeUpdate("INSERT INTO artist(artistName) VALUES ('" + artistName +"')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when adding artist",
+                    false
+            );
+        }
+
+        //TODO check DB if genre exists before executing the update
+        try {
+            ResultSet rs = statement.executeQuery("INSERT INTO genre (genreName) VALUES ('" + genreName +"')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when adding genre",
+                    false
+            );
+        }
+
+        //TODO if statement that checks if a there exists an album or not,
+        // if there is no album to be added a secondary update without the album_album_id needs to be made
+        try {
+            statement.executeUpdate("INSERT INTO songs (songName, songDuration, price, genre_genreName, album_album_id) VALUES ('" + songName +"')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when adding song",
+                    false
+            );
+        }
+    }
+
+    public Song getSong(String songName, String artistName, String genreName) {
+        Song song = null;
+
+        try {
+            ResultSet rs = statement.executeQuery("SELECT songName, artistName, genreName FROM songs, artist, genre");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when getting song",
+                    false
+            );
+        }
+         return song;
     }
 
     public void saveAccount(String username, String email, String password) {
@@ -170,7 +238,7 @@ public class Database {
         catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
-                    "SQLExeception",
+                    "SQLException",
                     "Error reading from DB",
                     false
             );
@@ -190,7 +258,7 @@ public class Database {
         catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
-                    "SQLExeception",
+                    "SQLException",
                     "Error finding song_id's based on user_id",
                     false
             );
@@ -241,8 +309,8 @@ public class Database {
             catch (SQLException ex) {
                 Handler_Alert.alert(
                         "Error",
-                        "SQLExeception",
-                        "Error fecthing artist data",
+                        "SQLException",
+                        "Error fetching artist data",
                         false
                 );
             }

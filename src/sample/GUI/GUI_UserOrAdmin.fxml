@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
@@ -13,10 +8,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_UserOrAdmin">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_UserOrAdmin">
     <children>
-        <Button fx:id="userButton" layoutX="132.0" layoutY="232.0" mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="USER" textFill="WHITE" />
-        <Button fx:id="adminButton" layoutX="133.0" layoutY="325.0" mnemonicParsing="false" onAction="#paneChangeToAdmin" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="ADMIN" textFill="WHITE" />
+        <Button layoutX="132.0" layoutY="232.0" mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="USER" textFill="WHITE" />
+        <Button layoutX="131.0" layoutY="335.0" mnemonicParsing="false" onAction="#paneChangeToAdmin" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="ADMIN" textFill="WHITE" />
         <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../photos/logo.png" />
