@@ -37,7 +37,7 @@ public class Controller_Library implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         User user = LoggedInUser.getInstance().getUser();
-        this.songList = Database.getInstance().getLibraryForUser(user.getUserName());
+        this.songList = Database.getInstance().getLibraryForUser();
 
         final ObservableList<Song> data = FXCollections.observableArrayList();
         for (Song song: songList) {
@@ -46,6 +46,7 @@ public class Controller_Library implements Initializable {
 
         columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
+        columnAlbum.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         //columnGenre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
 

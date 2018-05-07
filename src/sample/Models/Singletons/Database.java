@@ -8,11 +8,12 @@ import sample.Models.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 public class Database {
     private static Database database;
 
-    private String url = "jdbc:mysql://127.0.0.1:3306/musicdb?user=root&password=root";
+    private String url = "jdbc:mysql://den1.mysql3.gear.host:3306/itunes?user=itunes&password=itunes!";
 
     private Statement statement;
 
@@ -38,7 +39,7 @@ public class Database {
 
     }
 
-    public User getUser(String userName) {
+    public User getUser(String userName) throws NullPointerException {
         User user = null;
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + userName + "';");
@@ -63,7 +64,7 @@ public class Database {
         return user;
     }
 
-    public User getUser(String userName, String email) {
+    public User getUser(String userName, String email) throws NullPointerException {
         User user = null;
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM user, WHERE username = '" + userName + "' AND email = '" + email + "';");
@@ -130,12 +131,40 @@ public class Database {
         return pw;
     }
 
+    public ArrayList<Song> getStore(User loggedInUser) {
+        ArrayList<Song> songList = new ArrayList<>();
+        ArrayList<Integer> ownedSongID = new ArrayList<>();
+
+        try {
+            ResultSet rs = statement.executeQuery("SELECT songs_song_id FROM user_has_songs WHERE user_user_id = " + loggedInUser.getUserID() + ";");
+            while(rs.next()) {
+                ownedSongID.add(rs.getInt(1));
+            }
+        }
+        catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLExeception",
+                    "select songs_song_id query failed",
+                    false
+            );
+        }
+
+        try {
+            ResultSet rs = statement.executeQuery("");
+        }
+        catch(SQLException ex) {
+
+        }
+
+        return songList;
+    }
 
     //TODO not optimised for new database
     // fetching the songs to be displayed in a library
-    public ArrayList<Song> getLibraryForUser(String userName) {
+    public ArrayList<Song> getLibraryForUser() {
         ArrayList<Song> songList = new ArrayList<>();
-        String userID = "";
+        int userID;
 
         // these are needed to fill the songList with data later
         ArrayList<Integer> songID = new ArrayList<>();
@@ -144,65 +173,36 @@ public class Database {
         ArrayList<Integer> price = new ArrayList<>();
         ArrayList<ArrayList<Artist>> artists = new ArrayList<>();
         ArrayList<String> genreName = new ArrayList<>();
+        ArrayList<Integer> albumID = new ArrayList<>();
+        ArrayList<String> albumName = new ArrayList<>();
 
         // Selects the userID needed to find songs in the library
-        try {
-            ResultSet rs = statement.executeQuery("SELECT user_id FROM user WHERE userName = '" + userName + "';");
-            while(rs.next()) {
-                userID = rs.getString(1);
-            }
-        }
-        catch (SQLException ex) {
-            Handler_Alert.alert(
-                    "Error",
-                    "SQLExeception",
-                    "Error reading from DB",
-                    false
-            );
-        }
 
-        // fetches songID's dependent on the users library
-        try {
-            ResultSet rs = statement.executeQuery(
-                    "SELECT DISTINCT songs_song_id FROM user_has_songs WHERE user_user_id = " + userID + ";"
-            );
-
-            while(rs.next()) {
-                // cant create the Song object here since we cant fetch all data
-                songID.add(rs.getInt(1));
-            }
-        }
-        catch (SQLException ex) {
-            Handler_Alert.alert(
-                    "Error",
-                    "SQLExeception",
-                    "Error finding song_id's based on user_id",
-                    false
-            );
-        }
+        userID = LoggedInUser.getInstance().getUser().getUserID();
 
         try {
             // a string to complete the WHERE statement in the query
-            String where = "";
-            for (int i=0; i<songID.size(); i++) {
-                if (i == songID.size()-1)
+            /*String where = "";
+            for (int i = 0; i < songID.size(); i++) {
+                if (i == songID.size() - 1)
                     where += "'" + songID.get(i) + "'";
                 else
                     where += "'" + songID.get(i) + "' OR ";
             }
-            System.out.println(where);
+            System.out.println(where);*/
             ResultSet rs = statement.executeQuery(
-                    "SELECT songName, songDuration, price, genre_genreName FROM songs WHERE song_id = " + where + ";"
+                    "SELECT songs.* FROM songs WHERE song_id IN (SELECT DISTINCT songs_song_id FROM user_has_songs WHERE user_user_id = " + userID + ");"
             );
-            while(rs.next()) {
+            while (rs.next()) {
                 // cant create the song objects yet cause artists are missing
-                songName.add(rs.getString(1));
-                songDuration.add(rs.getString(2));
-                price.add(rs.getInt(3));
-                genreName.add(rs.getString(4));
+                songID.add(rs.getInt(1));
+                songName.add(rs.getString(2));
+                songDuration.add(rs.getString(3));
+                price.add(rs.getInt(4));
+                genreName.add(rs.getString(5));
+                albumID.add(rs.getInt(6));
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
                     "SQLExeception",
@@ -210,24 +210,40 @@ public class Database {
                     false
             );
         }
-
         // Gathering the data from artists through the DB
-        for (int i=0; i<songID.size(); i++) {
+        for (int i = 0; i < songID.size(); i++) {
             try {
                 ResultSet rs = statement.executeQuery(
-                        "SELECT DISTINCT artist_id, artistName FROM artist, songs_has_artist WHERE songs_song_id = " + songID.get(i) + ";");
-                while(rs.next()) {
+                        "SELECT artist_artist_id FROM songs_has_artist WHERE songs_song_id " +
+                        "IN (SELECT songs_song_id FROM user_has_songs WHERE user_user_id = 2); + userID + "));");
+                while (rs.next()) {
                     artists.add(artists.size(), new ArrayList<>());
                     artists.get(i).add(new Artist(
                             rs.getInt(1),
                             rs.getString(2)));
                 }
+            } catch (SQLException ex) {
+                Handler_Alert.alert(
+                        "Error",
+                        "SQLExeception",
+                        "Error fetching artist data",
+                        false
+                );
+            }
+        }
+
+        for (int i=0; i<songID.size(); i++) {
+            try {
+                ResultSet rs = statement.executeQuery("SELECT DISTINCT albumName FROM album WHERE album_id = '" + albumID.get(i) + "';");
+                while (rs.next()) {
+                    albumName.add(rs.getString(1));
+                }
             }
             catch (SQLException ex) {
                 Handler_Alert.alert(
                         "Error",
-                        "SQLExeception",
-                        "Error fecthing artist data",
+                        "SQLException",
+                        "SELECT albumName query failed",
                         false
                 );
             }
@@ -241,9 +257,9 @@ public class Database {
                     songDuration.get(i),
                     price.get(i),
                     artists.get(i),
-                    genreName.get(i)));
+                    genreName.get(i),
+                    albumName.get(i)));
         }
-
         return songList;
     }
 

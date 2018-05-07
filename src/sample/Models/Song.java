@@ -9,11 +9,12 @@ public class Song {
     private int price;
     private ArrayList<Artist> artists;
     private String genre;
+    private String album;
 
     // hopefully temporary
     private String artistNames;
 
-    public Song(int songID, String songName, String length, int price, ArrayList<Artist> artists, String genre) {
+    public Song(int songID, String songName, String length, int price, ArrayList<Artist> artists, String genre, String album) {
         this.songID = songID;
         this.songName = songName;
         this.length = length;
@@ -21,6 +22,7 @@ public class Song {
         this.genre = genre;
         this.price = price;
         this.artistNames = combineArtistName();
+        this.album = album;
     }
 
     public Song(Song song) {
@@ -31,6 +33,7 @@ public class Song {
         this.genre = song.getGenre();
         this.price = song.getPrice();
         this.artistNames = combineArtistName();
+        this.album = song.getAlbum();
     }
 
     public String combineArtistName() {
@@ -53,6 +56,7 @@ public class Song {
                 ", price=" + price +
                 ", artists=" + artists +
                 ", genre='" + genre + '\'' +
+                ", album='" + album + '\'' +
                 ", artistNames='" + artistNames + '\'' +
                 '}';
     }
@@ -108,4 +112,13 @@ public class Song {
     public String getArtistNames() {
         return artistNames;
     }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
 }
