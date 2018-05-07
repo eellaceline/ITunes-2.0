@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Database {
     private static Database database;
 
-    private String url = "jdbc:mysql://127.0.0.1:3306/musicdb?user=root&password=root";
+    private String url = "jdbc:mysql://den1.mysql3.gear.host:3306/itunes?user=itunes&password=itunes!";
 
     private Statement statement;
 
@@ -245,6 +245,9 @@ public class Database {
         }
 
         return songList;
+    }
+    public void changeUsername (){
+
     }
 
 }

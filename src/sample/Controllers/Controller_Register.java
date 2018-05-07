@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Handlers.Handler_SendEmail;
 import sample.Models.Singletons.Database;
 import sample.Models.User;
 

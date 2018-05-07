@@ -29,11 +29,20 @@ public class Controller_Cart implements Initializable {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Verification.fxml"));
             rootPane.getChildren().setAll(pane);
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.println("IOException found in handleLogOut");
         }
 
     }
 
+    @FXML
+    void handleCancel() {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Store.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in handleCancel");
+        }
+
+    }
 }

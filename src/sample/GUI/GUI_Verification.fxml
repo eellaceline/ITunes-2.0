@@ -27,7 +27,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Text fill="#797979" layoutX="63.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your purshases songs are now in your library">
+      <Text fill="#797979" layoutX="63.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your purchased songs are now in your library">
          <font>
             <Font size="13.0" />
          </font>

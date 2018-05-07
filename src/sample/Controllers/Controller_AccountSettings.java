@@ -24,9 +24,14 @@ public class Controller_AccountSettings implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+    @FXML
+    void changeUsernameField(ActionEvent event){
+
+    }
 
     @FXML
     void changePasswordField(ActionEvent event) {
+
 
     }
 

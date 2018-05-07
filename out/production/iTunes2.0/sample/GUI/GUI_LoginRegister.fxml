@@ -19,11 +19,11 @@
             <Image url="@../photos/logo.png" />
          </image>
       </ImageView>
-      <Text fill="#797979" layoutX="137.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+      <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
+      <Text fill="#797979" layoutX="136.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
          <font>
-            <Font name="Agency FB" size="22.0" />
+            <Font name="Book Antiqua" size="22.0" />
          </font>
       </Text>
-      <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

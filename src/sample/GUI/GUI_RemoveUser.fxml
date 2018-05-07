@@ -22,10 +22,10 @@
          </font>
       </Text>
       <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
-      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
-      <TextField fx:id="emailField" alignment="CENTER" layoutX="100.0" layoutY="321.0" prefHeight="29.0" prefWidth="184.0" promptText="EMAIL" />
       <TextField fx:id="usernameField" alignment="CENTER" layoutX="100.0" layoutY="252.0" prefHeight="29.0" prefWidth="184.0" promptText="USERNAME" />
+      <TextField fx:id="emailField" alignment="CENTER" layoutX="100.0" layoutY="321.0" prefHeight="29.0" prefWidth="184.0" promptText="EMAIL" />
       <Button layoutX="139.0" layoutY="384.0" mnemonicParsing="false" onAction="#removeUser" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #33adff;" text="REMOVE" textFill="WHITE" />
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
    </children>
 </AnchorPane>

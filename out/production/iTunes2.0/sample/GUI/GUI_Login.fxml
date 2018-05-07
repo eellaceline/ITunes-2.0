@@ -17,9 +17,9 @@
             <image>
                 <Image url="@../photos/logo.png" />
             </image></ImageView>
-        <Text fill="#797979" layoutX="139.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+        <Text fill="#797979" layoutX="137.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
             <font>
-                <Font name="Agency FB" size="22.0" />
+                <Font name="Book Antiqua" size="22.0" />
             </font>
         </Text>
         <Text fill="#00000099" layoutX="154.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERNAME">
@@ -35,8 +35,8 @@
         <TextField fx:id="userNameTextField" layoutX="115.0" layoutY="232.0" />
         <PasswordField fx:id="passwordTextField" layoutX="115.0" layoutY="307.0" />
         <Button layoutX="133.0" layoutY="377.0" mnemonicParsing="false" onAction="#loginVerification" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #33adff;" text="SIGN IN" textFill="WHITE" />
-        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
-        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
+        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
         <Separator layoutX="91.0" layoutY="181.0" prefWidth="200.0" />
         <Hyperlink layoutX="140.0" layoutY="332.0" onAction="#forgotPassword" text="Forgot password?" />
     </children>

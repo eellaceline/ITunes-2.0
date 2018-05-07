@@ -16,11 +16,6 @@
                 <Image url="@../photos/logo.png" />
             </image>
         </ImageView>
-        <Text fill="#797979" layoutX="139.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
-            <font>
-                <Font name="Agency FB" size="22.0" />
-            </font>
-        </Text>
         <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
         <ButtonBar layoutX="90.0" layoutY="217.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f2f2f2;">
             <buttons>
@@ -40,7 +35,12 @@
                 <Button mnemonicParsing="false" onAction="#handleAdd25Dollar" style="-fx-background-color: #33adff;" text="25 $" textFill="WHITE" />
             </buttons>
         </ButtonBar>
-        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
-        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleBackToStore" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="STORE" textFill="WHITE" />
+        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleBackToStore" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="STORE" textFill="WHITE" />
+      <Text fill="#797979" layoutX="137.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
+         <font>
+            <Font name="Book Antiqua" size="22.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

@@ -17,19 +17,20 @@
             <Image url="@../photos/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="260.0" layoutY="415.0" mnemonicParsing="false" onAction="#buy" prefHeight="29.0" prefWidth="90.0" style="-fx-background-color: #33adff;" text="BUY" textFill="WHITE" />
+      <Button layoutX="282.0" layoutY="415.0" mnemonicParsing="false" onAction="#buy" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #33adff;" text="BUY" textFill="WHITE" />
       <Text fill="#00000099" layoutX="30.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🛒 Shopping cart" wrappingWidth="214.8359375">
          <font>
-            <Font size="21.0" />
+            <Font size="26.0" />
          </font>
       </Text>
       <ListView fx:id="listView" layoutX="30.0" layoutY="251.0" prefHeight="151.0" prefWidth="320.0" />
       <TextField fx:id="totalPriceField" disable="true" editable="false" focusTraversable="false" layoutX="30.0" layoutY="415.0" prefHeight="29.0" prefWidth="152.0" promptText="TOTAL PRICE" />
-      <Text fill="#797979" layoutX="137.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITUNES 2.0">
+      <Separator layoutX="90.0" layoutY="188.0" prefWidth="200.0" />
+      <Button layoutX="206.0" layoutY="415.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #33adff;" text="CANCEL" textFill="WHITE" />
+      <Text fill="#797979" layoutX="137.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
          <font>
-            <Font name="Agency FB" size="22.0" />
+            <Font name="Book Antiqua" size="22.0" />
          </font>
       </Text>
-      <Separator layoutX="90.0" layoutY="195.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
