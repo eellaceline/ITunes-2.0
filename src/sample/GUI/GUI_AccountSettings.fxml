@@ -9,26 +9,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AccountSettings">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AccountSettings">
     <children>
         <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../photos/logo.png" />
+                <Image url="@../photos/logotrans.png" />
             </image>
         </ImageView>
         <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
         <TextField alignment="CENTER" layoutX="118.0" layoutY="245.0" onAction="#changeUsernameField" promptText="USERNAME" />
         <TextField alignment="CENTER" layoutX="118.0" layoutY="289.0" onAction="#changePasswordField" promptText="PASSWORD" />
         <TextField alignment="CENTER" layoutX="118.0" layoutY="332.0" onAction="#confirmPasswordField" promptText="CONFIRM PASSWORD" />
-        <Button layoutX="137.0" layoutY="385.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #33adff;" text="SAVE CHANGES" textFill="WHITE" />
-        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
-        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
-      <Text fill="#00000099" layoutX="124.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHANGE SETTINGS">
+        <Button layoutX="137.0" layoutY="385.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8cd1ff;" text="SAVE CHANGES" textFill="WHITE" />
+        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="CANCEL" textFill="WHITE" />
+      <Text fill="WHITE" layoutX="124.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHANGE SETTINGS">
          <font>
             <Font name="Calibri Light" size="18.0" />
          </font>
       </Text>
-      <Text fill="#797979" layoutX="137.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
+      <Text fill="WHITE" layoutX="137.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
          <font>
             <Font name="Book Antiqua" size="22.0" />
          </font>

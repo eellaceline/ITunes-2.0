@@ -58,7 +58,8 @@ public class Controller_Library implements Initializable {
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is you library. You can either go to store, account \n or log out from the application. ",
+                "This is you library. You can either go to store, account " +
+                            "\nor log out from the application. ",
                 false
         );
     }

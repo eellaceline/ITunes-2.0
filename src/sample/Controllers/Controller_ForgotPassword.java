@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Handlers.Handler_SendEmail;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,7 +40,7 @@ public class Controller_ForgotPassword implements Initializable{
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "Here you can reviece a new password if you have forgotten " +
+                "Here you can receive a new password if you have forgotten " +
                         "\nyour old password. " +
                         "Enter your email address " +
                         "\nthat you used when your registered your account and we will" +
@@ -49,9 +50,21 @@ public class Controller_ForgotPassword implements Initializable{
     }
 
     @FXML
-    void loginVerification(ActionEvent event) {
-
-    }
-
-
+    void sendEmail(ActionEvent event) {
+            Handler_SendEmail.sendMail(
+                    "Forgot password",
+                    "Dear customer," +
+                            "\nYou have requested a new password that you need in order to log in. The password in this email is " +
+                            "\nrandom a random generated that you might want to change when you log in." +
+                            "\nHave a good day!"
+            );
+        Handler_Alert.information(
+                "Information",
+                "Dear customer",
+                "You have requested a new password." +
+                        "\nCheck your email for the new password.",
+                false
+        );}
 }
+
+

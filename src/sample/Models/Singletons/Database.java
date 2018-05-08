@@ -1,6 +1,7 @@
 package sample.Models.Singletons;
 
 import com.mysql.jdbc.Connection;
+import javafx.scene.control.TextField;
 import sample.Handlers.Handler_Alert;
 import sample.Models.Artist;
 import sample.Models.Song;
@@ -246,8 +247,9 @@ public class Database {
 
         return songList;
     }
-    public void changeUsername (){
+    public void changeUsername (TextField username){
 
+        //statement.executeUpdate("UPDATE user SET username ='' WHERE='' ")
     }
 
 }

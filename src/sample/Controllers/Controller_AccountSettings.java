@@ -57,7 +57,7 @@ public class Controller_AccountSettings implements Initializable{
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is where you can chang your username and password. \n REMEMBER: You need to confirm your password.",
+                "This is where you can chang your username and password. \nREMEMBER: You need to confirm your password.",
                 false
         );
     }

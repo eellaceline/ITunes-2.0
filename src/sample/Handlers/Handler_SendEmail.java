@@ -16,9 +16,9 @@ public class Handler_SendEmail {
 
         String host = "smtp.gmail.com";
 
-
+        // Get system properties
         Properties properties = System.getProperties();
-
+        // Setup mail server
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.user", from);
@@ -26,7 +26,7 @@ public class Handler_SendEmail {
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.auth", "true");
 
-
+        // Get the default Session object.
         Session session = Session.getDefaultInstance(properties);
 
         try{
@@ -41,10 +41,10 @@ public class Handler_SendEmail {
                     new InternetAddress(to));
 
             // Set Subject: header field
-            message.setSubject("This is the Subject Line!");
+            message.setSubject(subject);
 
             // Now set the actual message
-            message.setText("This is actual message");
+            message.setText(content);
 
             // Send message
             Transport transport = session.getTransport("smtp");

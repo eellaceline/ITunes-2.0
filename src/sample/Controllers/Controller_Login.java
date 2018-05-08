@@ -70,7 +70,9 @@ public class Controller_Login implements Initializable {
     void handleHelp(ActionEvent event) {
         Handler_Alert.information("Help",
                 "I will show you what to do here ↓",
-                "This is where you log in with your created account. \n If you do not remember your password, click on \n ''forgot password?'' :)",
+                "This is where you log in with your created account. " +
+                        "\nIf you do not remember your password, click on " +
+                        "\n''forgot password?'' :)",
                 false);
     }
 
