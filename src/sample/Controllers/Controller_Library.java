@@ -70,6 +70,7 @@ public class Controller_Library implements Initializable {
             rootPane.getChildren().setAll(pane);
         } catch (IOException ex) {
             System.out.println("IOException found in paneChangeToStore");
+            ex.printStackTrace();
         }
 
     }

@@ -32,7 +32,7 @@
                                 <TableColumn fx:id="columnSongName" prefWidth="95.0" style="-fx-background-color: #b3b3b3; -fx-text-fill: #FFFFFF;" text="Title" />
                                 <TableColumn fx:id="columnArtist" prefWidth="95.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
                                 <TableColumn fx:id="columnAlbum" prefWidth="95.0" style="-fx-background-color: #b3b3b3;" text="Album" />
-                                <TableColumn fx:id="columnDuration" prefWidth="95.0" style="-fx-background-color: #CCCCCCs;" text="🕒" />
+                                <TableColumn fx:id="columnDuration" prefWidth="95.0" style="-fx-background-color: #CCCCCC;" text="🕒" />
                             </columns>
                         </TableView>
                     </children>

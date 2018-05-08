@@ -42,6 +42,6 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <TextField alignment="CENTER" layoutX="49.0" layoutY="426.0" onAction="#userBalance" promptText="BALANCE" />
+      <TextField fx:id="userBalanceField" alignment="CENTER" editable="false" layoutX="49.0" layoutY="426.0" onAction="#userBalance" promptText="BALANCE" style="-fx-background-color: #b3b3b3;" />
 </children>
 </AnchorPane>

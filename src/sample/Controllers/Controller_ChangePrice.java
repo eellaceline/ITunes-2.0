@@ -42,7 +42,7 @@ public class Controller_ChangePrice implements Initializable {
     void searchForSongs(){
 
         //TODO Arraylist<Song> for the search-function
-        String[] testSongs = {"Fix you", "Scientist"};
+        String[] testSongs = {"Fix you", "Scientist", "First", "fecond", "fhird"};
         TextFields.bindAutoCompletion(searchField, testSongs);
 
 

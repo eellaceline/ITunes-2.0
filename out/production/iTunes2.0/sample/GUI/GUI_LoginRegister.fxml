@@ -17,8 +17,8 @@
       </ImageView>
       <Button layoutX="132.0" layoutY="242.0" mnemonicParsing="false" onAction="#paneChangeToLogin" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="SIGN IN" textFill="WHITE" />
       <Button layoutX="132.0" layoutY="333.0" mnemonicParsing="false" onAction="#paneChangeToRegister" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="CREATE ACCOUNT" textFill="WHITE" />
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="EXIT" textFill="WHITE" />
-      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
+      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="EXIT" textFill="WHITE" />
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
       <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
       <Text fill="WHITE" layoutX="136.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
          <font>

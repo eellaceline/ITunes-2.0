@@ -1,5 +1,8 @@
 package sample.Handlers;
 
+import java.security.SecureRandom;
+import java.util.Random;
+
 public class Handler_Password {
 
     // This encryption is really simple. Just swapping the letter 5 steps to the right
@@ -29,6 +32,19 @@ public class Handler_Password {
         }
         System.out.println(decryptedPW);
         return decryptedPW;
+    }
+    public static String generateRandomPassword(){
+        Random random = new SecureRandom();
+
+        int password = 8;
+        String letters = "ABCDEFGHJKMNPQRSTUVWXYZ123456789";
+
+        String pw = "";
+        for (int i = 0; i<password; i++){
+            int index = (int)(random.nextInt()*letters.length());
+            pw += letters.substring(index, index+1);
+
+        }return pw;
     }
     
 }

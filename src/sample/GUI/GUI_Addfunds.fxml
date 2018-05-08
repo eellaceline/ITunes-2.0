@@ -20,19 +20,19 @@
         <ButtonBar layoutX="90.0" layoutY="217.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: CCCCCC;">
             <buttons>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
-                <Button mnemonicParsing="false" onAction="#handleAdd5Dollar" style="-fx-background-color: #8cd1ff;" text="5 $" textFill="WHITE" />
+                <Button fx:id="fiveDollar" mnemonicParsing="false" onAction="#handleAdd5Dollar" style="-fx-background-color: #8cd1ff;" text="5 $" textFill="WHITE" />
             </buttons>
         </ButtonBar>
         <ButtonBar layoutX="90.0" layoutY="282.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: CCCCCC;">
             <buttons>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
-                <Button mnemonicParsing="false" onAction="#handleAdd15Dollar" style="-fx-background-color: #8cd1ff;" text="15 $" textFill="WHITE" />
+                <Button fx:id="tenDollar" mnemonicParsing="false" onAction="#handleAdd10Dollar" style="-fx-background-color: #8cd1ff;" text="10 $" textFill="WHITE" />
             </buttons>
         </ButtonBar>
         <ButtonBar layoutX="90.0" layoutY="350.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: CCCCCC;">
             <buttons>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
-                <Button mnemonicParsing="false" onAction="#handleAdd25Dollar" style="-fx-background-color: #8cd1ff;" text="25 $" textFill="WHITE" />
+                <Button fx:id="twentyDollar" mnemonicParsing="false" onAction="#handleAdd20Dollar" style="-fx-background-color: #8cd1ff;" text="20 $" textFill="WHITE" />
             </buttons>
         </ButtonBar>
         <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />

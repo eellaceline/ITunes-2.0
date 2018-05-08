@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.LoggedInUser;
 import sample.Models.User;
 
 import java.io.IOException;
@@ -24,11 +26,12 @@ public class Controller_Store implements Initializable {
     private ImageView logoView;
 
     @FXML
-    private Button userBalance;
+    private TextField userBalanceField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        userBalance();
     }
 
     @FXML
@@ -93,6 +96,10 @@ public class Controller_Store implements Initializable {
 
     @FXML
     void userBalance(){
+        System.out.println(LoggedInUser.getInstance().getUser());
+        System.out.println(LoggedInUser.getInstance().getUser().getBalance());
+        userBalanceField.setText(Integer.toString(LoggedInUser.getInstance().getUser().getBalance()));
+
 
     }
 
