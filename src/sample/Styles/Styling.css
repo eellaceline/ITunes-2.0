@@ -29,6 +29,6 @@
 }
 
 /* Can also do something cool with hovered in the future */
-.button:hovered {
+.button:hover {
     /* do stuff */
 }

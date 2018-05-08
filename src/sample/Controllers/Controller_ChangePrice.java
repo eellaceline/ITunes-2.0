@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.Database;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,13 +56,14 @@ public class Controller_ChangePrice implements Initializable {
                         "\nwith artist and the desired price.",
                 false
         );
-
     }
 
     @FXML
     void saveChanges(ActionEvent event) {
         try {
-
+            if (Database.getInstance().updatePrice(titleField.getText(), artistField.getText(), Integer.parseInt(changePriceField.getText()))) {
+                resetChoice();
+            }
         }catch (Exception ex){
             Handler_Alert.alert(
                     "Error!",
@@ -72,4 +74,9 @@ public class Controller_ChangePrice implements Initializable {
         }
     }
 
+    private void resetChoice() {
+            titleField.setText("");
+            artistField.setText("");
+            changePriceField.setText("");
+    }
 }

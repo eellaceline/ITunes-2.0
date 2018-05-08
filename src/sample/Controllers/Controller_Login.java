@@ -39,7 +39,7 @@ public class Controller_Login implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        rootPane.setId("rootPane");
         //Image image = new Image(getClass().getResourceAsStream("photos/logo.png"));
         //logoView.setImage(image);
     }
@@ -47,7 +47,7 @@ public class Controller_Login implements Initializable {
 
     public void paneChangeToUserAdmin() {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Admin.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_UserOrAdmin.fxml"));
             rootPane.getChildren().setAll(pane);
         }
         catch (IOException ex) {

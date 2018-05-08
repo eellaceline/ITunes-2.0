@@ -89,6 +89,39 @@ public class Database {
         return user;
     }
 
+    // Update the price by admin
+    public boolean updatePrice(String songName, String artistName, int newPrice) {
+        boolean isConfirmed = false;
+        try {
+            int rows = statement.executeUpdate("UPDATE songs, artist SET price = '" + newPrice + "' WHERE songs.songName = '" + songName +"' AND artist.artistName = '" + artistName + "';");
+            isConfirmed = true;
+            System.out.println(rows);
+            if (rows != 0) {
+                Handler_Alert.information(
+                        "Price Changed",
+                        "Price Changed",
+                        "The new price of the song " + songName + " is " + newPrice,
+                        false
+                );
+            } else {
+                Handler_Alert.alert(
+                        "Price Not Changed",
+                        "Price Not Changed",
+                        "The new price could not change",
+                        false
+                );
+            }
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing an update to song price",
+                    false
+            );
+        }
+        return isConfirmed;
+    }
+
     // SQL statement in this order: Artist, Album, Song
     public void addSong(String songName, String artistName, String genreName) {
 
