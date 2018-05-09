@@ -260,17 +260,44 @@ public class Database {
         int clumpedIndex = 0;
         int Ti = 0;
         int Si = 0;
+        int nextSongID = 0;
 
         //TODO needed for later
         // artists.add(artists.size(), new ArrayList<>());
 
         for (int i=0; i<songID.size(); i++) {
             artists.add(artists.size(), new ArrayList<>());
+            System.out.println("i:"+i);
+            Ti = i;
 
             for (int k=0; k<tempArtistsList.size(); k++) {
 
-                if (tempArtistsList.get(k).getArtistID() == artistArtistID.get(i)) {
-//                    if (previousSongID == SongSongID.get(i)) {
+                if (tempArtistsList.get(k).getArtistID() == artistArtistID.get(Ti)) {
+                    boolean continueLoop = true;
+                    artists.get(i).add(tempArtistsList.get(k));
+
+
+                    while (continueLoop) {
+                        System.out.println("Ti:"+Ti);
+                        try {
+                            nextSongID = SongSongID.get(Ti+1);
+                        }
+                        catch (ArrayIndexOutOfBoundsException ex) {
+                            Si = Ti;
+                            continueLoop = false;
+                        }
+
+                        if (nextSongID == SongSongID.get(Ti++)) {
+                            artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
+                        }
+                        else {
+                            continueLoop = false;
+                            Si = Ti;
+                        }
+
+                    }
+
+                    //if (previousSongID == SongSongID.get(i)) {
 //                        boolean continueLoop = true;
 //                        System.out.println("i: "+i);
 //                        Ti = i;
@@ -288,26 +315,6 @@ public class Database {
 //                        }
 //                    }
 
-                    boolean continueLoop = true;
-                    int nextSongID = 0;
-
-                    artists.get(i).add(tempArtistsList.get(k));
-                    if (nextSongID == SongSongID.get(i)) {
-                        while (continueLoop) {
-                            Ti = i;
-                            Si = i;
-                            
-
-                        }
-
-                        try {
-                            nextSongID = SongSongID.get(i++);
-                        }
-                        catch (ArrayIndexOutOfBoundsException ex) {
-                            continueLoop = false;
-                        }
-
-                    }
 
                 }
             }
@@ -315,7 +322,8 @@ public class Database {
 
         System.out.println("sondID"+SongSongID.size());
         System.out.println("artists"+artists.size());
-        System.out.println("" + artists.get(5) + artists.get(6) + artists.get(7) + artists.get(8));
+        System.out.println(artists.toString());
+        //System.out.println("" + artists.get(5) + artists.get(6) + artists.get(7).toString() + artists.get(8));
 
         // takes all the gathered data and makes new Song objects that are added to the songList
         for (int i=0; i<songID.size(); i++) {

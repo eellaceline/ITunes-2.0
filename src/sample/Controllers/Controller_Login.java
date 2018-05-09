@@ -66,6 +66,8 @@ public class Controller_Login implements Initializable {
 
     @FXML
     public void loginVerification() {
+        long startTime = System.nanoTime();
+
         String compare1 = "";
         String compare2 = "";
         try {
@@ -120,7 +122,9 @@ public class Controller_Login implements Initializable {
                     "Login failed",
                     false);
         }
-
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println("login time(ms): "+duration/1000000);
     }
 
     @FXML
