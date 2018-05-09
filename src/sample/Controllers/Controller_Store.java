@@ -51,13 +51,17 @@ public class Controller_Store implements Initializable {
         for (Song song: songList) {
             data.add(song);
         }
+        columnSongID = new TableColumn<>();
+        tableView.getColumns().add(columnSongID);
 
+        columnSongID.setCellValueFactory(new PropertyValueFactory<Song, Integer>("songID"));
         columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
         //columnGenre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
 
         //columnGenre.visibleProperty().setValue(false);
+        columnSongID.visibleProperty().setValue(false);
 
         tableView.setItems(data);
     }

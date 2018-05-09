@@ -39,7 +39,7 @@ public class Song {
     public String combineArtistName() {
         String finalString = "";
         for (int i=0; i<artists.size(); i++) {
-            if (artists.size() == 1)
+            if (artists.size() == 1 || artists.size()-1 == i)
                 finalString += artists.get(i).toString();
             else
                 finalString += artists.get(i).toString() + ", ";

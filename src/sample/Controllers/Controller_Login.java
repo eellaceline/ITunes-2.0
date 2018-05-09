@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_Password;
 import sample.Models.Singletons.Database;
