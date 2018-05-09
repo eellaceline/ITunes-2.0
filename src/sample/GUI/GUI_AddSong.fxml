@@ -25,11 +25,11 @@
       <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
       <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
       <TextField fx:id="titleField" alignment="CENTER" layoutX="17.0" layoutY="248.0" promptText="TITLE" />
-      <TextField fx:id="priceField" alignment="CENTER" layoutX="217.0" layoutY="363.0" promptText="PRICE" />
-      <TextField fx:id="durationField" alignment="CENTER" layoutX="217.0" layoutY="305.0" promptText="DURATION" />
-      <TextField fx:id="albumField" alignment="CENTER" layoutX="217.0" layoutY="248.0" promptText="ALBUM" />
       <TextField fx:id="artistField" alignment="CENTER" layoutX="17.0" layoutY="305.0" promptText="ARTIST" />
       <TextField fx:id="genreField" alignment="CENTER" layoutX="16.0" layoutY="364.0" promptText="GENRE" />
+      <TextField fx:id="albumField" alignment="CENTER" layoutX="217.0" layoutY="248.0" promptText="ALBUM" />
+      <TextField fx:id="durationField" alignment="CENTER" layoutX="217.0" layoutY="305.0" promptText="DURATION" />
+      <TextField fx:id="priceField" alignment="CENTER" layoutX="217.0" layoutY="363.0" promptText="PRICE" />
       <Button layoutX="156.0" layoutY="409.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="29.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="SAVE" textFill="WHITE" />
    </children>
 </AnchorPane>
