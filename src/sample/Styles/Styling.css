@@ -15,6 +15,7 @@
 #wrongTextField {
     -fx-border-width: 2px;
     -fx-border-color: RED;
+
 }
 
 /* Adds NOTHING to the normal button, so it knows that nothing should happen when it's not in the "pressed" state*/
@@ -29,6 +30,6 @@
 }
 
 /* Can also do something cool with hovered in the future */
-.button:hovered {
+.button:hover {
     /* do stuff */
 }

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,7 +33,10 @@
                 <Font size="14.0" />
             </font>
         </Text>
-        <TextField fx:id="userNameTextField" layoutX="115.0" layoutY="232.0" />
+        <TextField fx:id="userNameTextField" layoutX="115.0" layoutY="232.0">
+         <tooltip>
+            <Tooltip text="Enter your registered username" />
+         </tooltip></TextField>
         <PasswordField fx:id="passwordTextField" layoutX="115.0" layoutY="307.0" />
         <Button layoutX="133.0" layoutY="377.0" mnemonicParsing="false" onAction="#loginVerification" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="SIGN IN" textFill="WHITE" />
         <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />

@@ -59,6 +59,11 @@ public class Controller_ChangePrice implements Initializable {
 }
 
     @FXML
+    void searchForSongs(){
+
+    }
+
+    @FXML
     void saveChanges(ActionEvent event) {
         try {
             if (Database.getInstance().updatePrice(titleField.getText(), artistField.getText(), Integer.parseInt(changePriceField.getText()))) {

@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
@@ -40,6 +41,15 @@ public class Controller_Login implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        final Tooltip usernameTooltip = new Tooltip();
+        final Tooltip passwordTooltip = new Tooltip();
+
+        usernameTooltip.setText("Enter your username");
+        userNameTextField.setTooltip(usernameTooltip);
+
+        passwordTooltip.setText("Enter your password");
+        passwordTextField.setTooltip(passwordTooltip);
 
     }
 

@@ -13,6 +13,7 @@ import sample.Handlers.Handler_Alert;
 import sample.Models.Singletons.Database;
 import sample.Models.User;
 
+import javax.tools.Tool;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,6 +50,26 @@ public class Controller_Register implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        final Tooltip usernameTooltip = new Tooltip();
+        final Tooltip emailTooltip = new Tooltip();
+        final Tooltip passwordTooltip = new Tooltip();
+        final Tooltip confirmPasswordTooltip = new Tooltip();
+
+        usernameTooltip.setText("Enter your desired username");
+        userNameTextField.setTooltip(usernameTooltip);
+
+        emailTooltip.setText("Enter your email-address");
+        emailField.setTooltip(emailTooltip);
+
+        passwordTooltip.setText("Enter your desired password");
+        passwordField.setTooltip(passwordTooltip);
+
+        confirmPasswordTooltip.setText("Enter your password again");
+        confirmField.setTooltip(confirmPasswordTooltip);
+
+
+
         //This will request focus on the pane so the fields will update since they are updating the moment they lose focus
         rootPane.setOnMouseClicked(event -> rootPane.requestFocus());
         //userName

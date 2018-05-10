@@ -19,7 +19,7 @@
         <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
         <TextField fx:id="usernameField" alignment="CENTER" layoutX="118.0" layoutY="245.0" promptText="USERNAME" />
         <TextField fx:id="passwordField" alignment="CENTER" layoutX="118.0" layoutY="289.0" promptText="PASSWORD" />
-        <TextField fx:id="conFirmPassword" alignment="CENTER" layoutX="118.0" layoutY="332.0" promptText="CONFIRM PASSWORD" />
+        <TextField fx:id="confirmPassword" alignment="CENTER" layoutX="118.0" layoutY="332.0" promptText="CONFIRM PASSWORD" />
         <Button layoutX="137.0" layoutY="385.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8cd1ff;" text="SAVE CHANGES" textFill="WHITE" />
         <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
         <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="CANCEL" textFill="WHITE" />

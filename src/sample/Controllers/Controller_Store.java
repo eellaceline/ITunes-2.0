@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
@@ -30,6 +31,10 @@ public class Controller_Store implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        final Tooltip userBalanceTooltip = new Tooltip();
+        userBalanceTooltip.setText("This is your current balance");
+        userBalanceField.setTooltip(userBalanceTooltip);
 
         userBalance();
     }

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
@@ -31,12 +32,22 @@ public class Controller_AccountSettings implements Initializable{
     private TextField passwordField;
 
     @FXML
-    private TextField conFirmPassword;
+    private TextField confirmPassword;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        final Tooltip usernameTooltip = new Tooltip();
+        final Tooltip passwordTooltip = new Tooltip();
+        final Tooltip confirmPasswordTooltip = new Tooltip();
+
+        usernameTooltip.setText("Enter your new desired username");
+        usernameField.setTooltip(usernameTooltip);
+        passwordTooltip.setText("Enter your new desired password");
+        passwordField.setTooltip(passwordTooltip);
+        confirmPasswordTooltip.setText("Enter your password again");
+        confirmPassword.setTooltip(confirmPasswordTooltip);
     }
 
     @FXML
@@ -44,7 +55,7 @@ public class Controller_AccountSettings implements Initializable{
 
         try {
 
-            if (!conFirmPassword.getText().equals(passwordField.getText())) {
+            if (!confirmPassword.getText().equals(passwordField.getText())) {
 
                 System.out.println("Password confirmed");
                 saveChanges();
@@ -105,7 +116,7 @@ public class Controller_AccountSettings implements Initializable{
     private void clearChanges(){
         usernameField.setText("");
         passwordField.setText("");
-        conFirmPassword.setText("");
+        confirmPassword.setText("");
     }
 
 }
