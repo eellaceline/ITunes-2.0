@@ -98,6 +98,10 @@ public class Controller_Login implements Initializable {
                 LoggedInUser.getInstance().setUser(user);
                 System.out.println(user.getUserName());
 
+                long endTime = System.nanoTime();
+                long duration = (endTime - startTime);
+                System.out.println("login time(ms): "+duration/1000000);
+
                 if (Database.getInstance().isAdmin(userNameTextField.getText())) {
                     System.out.println("is admin");
                     paneChangeToUserOrAdmin();
@@ -122,9 +126,6 @@ public class Controller_Login implements Initializable {
                     "Login failed",
                     false);
         }
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        System.out.println("login time(ms): "+duration/1000000);
     }
 
     @FXML

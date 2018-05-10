@@ -14,6 +14,7 @@ public class Database {
     private static Database database;
 
     private String url = "jdbc:mysql://den1.mysql3.gear.host:3306/itunes?user=itunes&password=itunes!";
+    //String url = "jdbc:mysql://127.0.0.1:3306/musicdb?user=root&password=root";
 
     private Statement statement;
 
@@ -267,30 +268,39 @@ public class Database {
 
         for (int i=0; i<songID.size(); i++) {
             artists.add(artists.size(), new ArrayList<>());
+            System.out.println("---------------");
             System.out.println("i:"+i);
-            Ti = i;
 
             for (int k=0; k<tempArtistsList.size(); k++) {
 
                 if (tempArtistsList.get(k).getArtistID() == artistArtistID.get(Ti)) {
                     boolean continueLoop = true;
                     artists.get(i).add(tempArtistsList.get(k));
-
-
+                    System.out.println("Added artist on i=" + i);
                     while (continueLoop) {
                         System.out.println("Ti:"+Ti);
-                        try {
-                            nextSongID = SongSongID.get(Ti+1);
-                        }
-                        catch (ArrayIndexOutOfBoundsException ex) {
-                            Si = Ti;
-                            continueLoop = false;
-                        }
 
-                        if (nextSongID == SongSongID.get(Ti++)) {
+                            if (Ti+1 >= SongSongID.size()) {
+                                continueLoop = false;
+                                nextSongID = 0;
+                            }
+                            else {
+                                nextSongID = SongSongID.get(Ti+1);
+                            }
+
+                        System.out.println("currentID:"+SongSongID.get(Ti));
+                        System.out.println("nextID:"+nextSongID);
+                        if (nextSongID == SongSongID.get(Ti)) {
+                            Ti++;
+                            System.out.println("c:"+SongSongID.get(Ti) + nextSongID);
+                            //System.out.println(artists.get(i).size());
+                            System.out.println("added artist on i=" + i + " size: ");// + Integer.toString(artists.get(i).size()));
                             artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
                         }
                         else {
+                            Ti++;
+                            k=4;
+                            System.out.println("exiting while loop");
                             continueLoop = false;
                             Si = Ti;
                         }

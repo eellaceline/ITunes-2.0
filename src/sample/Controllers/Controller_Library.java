@@ -36,7 +36,7 @@ public class Controller_Library implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        User user = LoggedInUser.getInstance().getUser();
+        //User user = LoggedInUser.getInstance().getUser();
         this.songList = Database.getInstance().getLibraryForUser();
 
         final ObservableList<Song> data = FXCollections.observableArrayList();
