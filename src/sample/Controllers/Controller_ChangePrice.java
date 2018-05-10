@@ -5,15 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import org.controlsfx.control.textfield.TextFields;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.Database;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller_ChangePrice implements Initializable {
@@ -22,7 +20,17 @@ public class Controller_ChangePrice implements Initializable {
     private AnchorPane rootPane;
 
     @FXML
-    private TextField searchField;
+    private ImageView logoView;
+
+    @FXML
+    private TextField changePriceField;
+
+    @FXML
+    private TextField titleField;
+
+    @FXML
+    private TextField artistField;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -38,17 +46,6 @@ public class Controller_ChangePrice implements Initializable {
             System.out.println("IOException found in handleCancel");
         }
     }
-    @FXML
-    void searchForSongs(){
-
-        //TODO Arraylist<Song> for the search-function
-        String[] testSongs = {"Fix you", "Scientist", "First", "fecond", "fhird"};
-        TextFields.bindAutoCompletion(searchField, testSongs);
-
-
-    }
-
-
 
     @FXML
     void handleHelp(ActionEvent event) {
@@ -57,14 +54,29 @@ public class Controller_ChangePrice implements Initializable {
                 "I will show you what to do here ↓",
                 "Here you can change price of a song. Enter the title followed" +
                         "\nwith artist and the desired price.",
-                false
-        );
-
-    }
+            false
+            );
+}
 
     @FXML
     void saveChanges(ActionEvent event) {
-
+        try {
+            if (Database.getInstance().updatePrice(titleField.getText(), artistField.getText(), Integer.parseInt(changePriceField.getText()))) {
+                resetChoice();
+            }
+        }catch (Exception ex){
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in saving",
+                    "You have not any changes to be saved.",
+                    false
+            );
+        }
     }
 
+    private void resetChoice() {
+        titleField.setText("");
+        artistField.setText("");
+        changePriceField.setText("");
+    }
 }

@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
-import sample.Handlers.Handler_SendEmail;
 import sample.Models.Singletons.Database;
 import sample.Models.User;
 
@@ -145,7 +144,8 @@ public class Controller_Register implements Initializable {
                 "Help",
                 "I will show you what to do here ↓",
                 "This is where you can create your own account." +
-                        "\nEnter your desired username, your email address \nand your password." +
+                        "\nEnter your desired username, your email address " +
+                        "\nand your password." +
                         "\nREMEMBER: You need to confirm you password.",
                 false
         );
@@ -154,6 +154,7 @@ public class Controller_Register implements Initializable {
     @FXML
     void registerAccount(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+
         alert.setHeaderText("ERROR!");
         if (!usernameBoolean && !emailBoolean) {
             alert.setContentText("The username and email is in wrong format!");
@@ -173,9 +174,29 @@ public class Controller_Register implements Initializable {
         } else {
             //TODO actual function of the button, so far only regex checks
             User user = Database.getInstance().getUser(userNameTextField.getText(), emailField.getText());
+            System.out.println(user);
             if(user == null) {
-
+                System.out.println("User available");
+                Database.getInstance().saveAccount(userNameTextField.getText(),emailField.getText(),passwordField.getText());
+                Handler_Alert.information(
+                        "Success",
+                        "Congratulation",
+                        "You have created an account",
+                        false);
+                paneChangeToLogin();
             }
+            else
+                System.out.println("user is taken");
+        }
+    }
+
+    public void paneChangeToLogin() {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_LoginRegister.fxml"));
+            rootPane.getChildren().setAll(pane);
+        }
+        catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToLibrary");
         }
     }
 }

@@ -46,7 +46,16 @@ public class Controller_RemoveSong {
 
     @FXML
     void removeSong(ActionEvent event) {
+        try {
 
+        }catch (Exception ex){
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in removing songs",
+                    "You can not remove this song.",
+                    false
+            );
+        }
     }
 
 }

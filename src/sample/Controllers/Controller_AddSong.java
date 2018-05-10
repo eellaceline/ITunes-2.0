@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.Database;
+import sample.Models.Song;
+import sample.Models.User;
 
 import java.io.IOException;
 import java.util.logging.Handler;
@@ -35,6 +38,9 @@ public class Controller_AddSong {
     private TextField artistField;
 
     @FXML
+    private TextField genreField;
+
+    @FXML
     void handleCancel(ActionEvent event) {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Admin.fxml"));
@@ -60,7 +66,21 @@ public class Controller_AddSong {
 
     @FXML
     void saveChanges(ActionEvent event) {
-
+        Song song = Database.getInstance().getSong(titleField.getText(), artistField.getText(), genreField.getText());
+        try {
+            if(song == null) {
+                Database.getInstance().addSong(titleField.getText(), artistField.getText(), genreField.getText());
+            }
+            else {
+                System.out.println("This song is already added");
+            }
+        }catch (Exception ex){
+            Handler_Alert.alert(
+                    "Error!",
+                    "Error in saving ",
+                    "You do not any changes to be saved.",
+                    false
+            );
+        }
     }
-
 }

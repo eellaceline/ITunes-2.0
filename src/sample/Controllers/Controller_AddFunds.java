@@ -34,14 +34,10 @@ public class Controller_AddFunds implements Initializable {
             System.out.println(LoggedInUser.getInstance().getUser().getBalance());
         }
 
-
-
     @FXML
     void handleAdd10Dollar(ActionEvent event) {
         LoggedInUser.getInstance().getUser().addBalance(10);
         System.out.println(LoggedInUser.getInstance().getUser().getBalance());
-
-
 
     }
 
