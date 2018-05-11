@@ -97,7 +97,6 @@ public class Controller_Login implements Initializable {
 
             if (user != null) {
                 LoggedInUser.getInstance().setUser(user);
-                System.out.println(user.getUserName());
 
                 long endTime = System.nanoTime();
                 long duration = (endTime - startTime);
