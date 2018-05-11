@@ -44,8 +44,7 @@ public class Controller_Store implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        User user = LoggedInUser.getInstance().getUser();
-        this.songList = Database.getInstance().getStore(user);
+        this.songList = Database.getInstance().getStore();
 
         final ObservableList<Song> data = FXCollections.observableArrayList();
         for (Song song: songList) {

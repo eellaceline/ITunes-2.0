@@ -66,6 +66,7 @@ public class Controller_Login implements Initializable {
 
     @FXML
     public void loginVerification() {
+        System.out.println("logging in...");
         long startTime = System.nanoTime();
 
         String compare1 = "";
@@ -147,6 +148,7 @@ public class Controller_Login implements Initializable {
         }
         catch (IOException ex) {
             System.out.println("IOException found in paneChangeToLibrary");
+            ex.getStackTrace();
         }
     }
 

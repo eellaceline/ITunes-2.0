@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/Controller_Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/Controller_Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controllers/Controller_Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/Controller_Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/Controller_Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/Controller_Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Models/Singletons/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Models/Singletons/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Models/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Models/Song.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller_Store.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller_Store.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Store.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="59" column="85" selection-start-line="59" selection-start-column="85" selection-end-line="59" selection-end-column="85" />
+            <state relative-caret-position="309">
+              <caret line="57" column="84" selection-start-line="57" selection-start-column="84" selection-end-line="57" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -74,26 +76,26 @@
       <file leaf-file-name="Controller_Library.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Library.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="38" column="59" lean-forward="true" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
+            <state relative-caret-position="170">
+              <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Models/Singletons/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="259" column="19" selection-start-line="259" selection-start-column="19" selection-end-line="266" selection-end-column="58" />
+            <state relative-caret-position="302">
+              <caret line="160" column="8" lean-forward="true" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseConnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../JavaSQLTest/src/com/company/DatabaseConnection.java">
+      <file leaf-file-name="Song.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Models/Song.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="85" />
+            <state relative-caret-position="612">
+              <caret line="36" column="28" lean-forward="true" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -123,20 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Song.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Models/Song.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Controller_Login.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="101" column="54" lean-forward="true" selection-start-line="101" selection-start-column="54" selection-end-line="101" selection-end-column="54" />
+            <state relative-caret-position="318">
+              <caret line="67" column="37" lean-forward="true" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -219,13 +212,13 @@
         <option value="$PROJECT_DIR$/src/sample/GUI/GUI_UserOrAdmin.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/Controller_ForgotPassword.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/Controller_Admin.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controllers/Controller_Store.java" />
         <option value="$PROJECT_DIR$/src/sample/Models/Singletons/LoggedInUser.java" />
         <option value="$PROJECT_DIR$/src/sample/Models/Artist.java" />
-        <option value="$PROJECT_DIR$/src/sample/Models/Song.java" />
         <option value="$PROJECT_DIR$/src/sample/Handlers/Handler_Password.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controllers/Controller_Login.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/Controller_Library.java" />
+        <option value="$PROJECT_DIR$/src/sample/Models/Song.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controllers/Controller_Store.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controllers/Controller_Login.java" />
         <option value="$PROJECT_DIR$/src/sample/Models/Singletons/Database.java" />
       </list>
     </option>
@@ -276,13 +269,6 @@
               <item name="iTunes2.0" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iTunes2.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="iTunes2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="Handlers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -311,8 +297,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -457,8 +443,8 @@
       <window_info anchor="right" id="Capture Analysis" order="13" />
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="18" />
       <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.32707354" />
+      <window_info anchor="bottom" id="Version Control" order="18" />
       <window_info anchor="bottom" id="Terminal" order="20" />
       <window_info id="Capture Tool" order="12" />
       <window_info id="Designer" order="9" />
@@ -467,39 +453,20 @@
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="10" />
       <window_info anchor="right" id="Theme Preview" order="14" />
-      <window_info id="Favorites" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info id="Favorites" order="11" side_tool="true" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6703755" visible="true" weight="0.16910689" />
-      <window_info anchor="bottom" id="Problems" order="17" />
-      <window_info anchor="bottom" id="Application Servers" order="19" />
-      <window_info id="UI Designer" order="10" />
-      <window_info anchor="right" id="Palette" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="15" />
-      <window_info anchor="right" id="Maven Projects" order="11" />
-      <window_info anchor="right" id="Theme Preview" order="14" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Profiler" order="16" />
-      <window_info id="Image Layers" order="13" />
-      <window_info anchor="bottom" id="Changes" order="12" />
-      <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Database" order="12" />
-      <window_info id="Capture Tool" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="18" />
-      <window_info anchor="right" id="Capture Analysis" order="13" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="20" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="right" id="JetGradle" order="10" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="4" visible="true" weight="0.32707354" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="Designer" order="9" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Changes" order="12" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="right" id="Database" order="12" />
+      <window_info anchor="bottom" id="Profiler" order="16" />
+      <window_info anchor="bottom" id="Problems" order="17" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Application Servers" order="19" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -777,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Store.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="59" column="85" selection-start-line="59" selection-start-column="85" selection-end-line="59" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Models/Singletons/LoggedInUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -805,24 +765,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Models/Song.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Handlers/Handler_Password.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="101" column="54" lean-forward="true" selection-start-line="101" selection-start-column="54" selection-end-line="101" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -835,15 +781,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Library.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="38" column="59" lean-forward="true" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
+        <state relative-caret-position="170">
+          <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Models/Song.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="28" lean-forward="true" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="67" column="37" lean-forward="true" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Models/Singletons/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="259" column="19" selection-start-line="259" selection-start-column="19" selection-end-line="266" selection-end-column="58" />
+        <state relative-caret-position="302">
+          <caret line="160" column="8" lean-forward="true" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller_Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="57" column="84" selection-start-line="57" selection-start-column="84" selection-end-line="57" selection-end-column="84" />
         </state>
       </provider>
     </entry>
