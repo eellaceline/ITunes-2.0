@@ -13,9 +13,9 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_RemoveSong">
    <children>
-      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../photos/logotrans.png" />
+            <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
       <Text fill="#797979" layoutX="116.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REMOVE SONG">
@@ -31,7 +31,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="370.0">
                <children>
-                  <TableView layoutX="-1.0" prefHeight="274.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;">
+                  <TableView layoutX="-1.0" prefHeight="274.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC;">
                      <columns>
                         <TableColumn prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Title" />
                         <TableColumn prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
@@ -44,5 +44,10 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+      <ImageView fx:id="logoView" fitHeight="130.0" fitWidth="470.0" layoutX="116.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../photos/logo-float.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

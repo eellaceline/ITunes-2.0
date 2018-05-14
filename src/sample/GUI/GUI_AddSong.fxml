@@ -11,12 +11,17 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AddSong">
    <children>
-      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="781.0" fitWidth="945.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../photos/logotrans.png" />
+            <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
-      <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
+      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="132.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../photos/logo-float.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
       <TextField fx:id="titleField" alignment="CENTER" layoutX="17.0" layoutY="235.0" promptText="TITLE" />
       <TextField fx:id="artistField" alignment="CENTER" layoutX="16.0" layoutY="292.0" promptText="ARTIST" />
       <TextField fx:id="genreField" alignment="CENTER" layoutX="17.0" layoutY="351.0" promptText="GENRE" />
@@ -26,9 +31,9 @@
       <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
       <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
       <Button layoutX="156.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="34.0" prefWidth="68.0" style="-fx-background-color: #8cd1ff;" text="SAVE" textFill="WHITE" />
-      <Text fill="WHITE" layoutX="137.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
+      <Text fill="WHITE" layoutX="132.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
          <font>
-            <Font name="Book Antiqua" size="22.0" />
+            <Font name="Book Antiqua" size="26.0" />
          </font>
       </Text>
    </children>

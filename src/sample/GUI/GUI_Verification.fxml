@@ -8,8 +8,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Verification">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Verification">
    <children>
+      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="122.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../photos/logo-float.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../photos/L0WKsYH.gif" />
+         </image>
+      </ImageView>
       <Button layoutX="114.0" layoutY="352.0" mnemonicParsing="false" onAction="#paneToLibrary" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #8cd1ff;" text="LIBRARY" textFill="WHITE" />
       <Text fill="WHITE" layoutX="26.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR YOUR PURSHASE!">
          <font>
@@ -18,18 +28,13 @@
       </Text>
       <Text fill="WHITE" layoutX="64.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your purchased songs are now in your library.">
          <font>
-            <Font size="13.0" />
+            <Font size="15.0" />
          </font>
       </Text>
-      <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="109.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/logotrans.png" />
-         </image>
-      </ImageView>
-      <Separator layoutX="93.0" layoutY="191.0" prefWidth="200.0" />
-      <Text fill="WHITE" layoutX="139.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
+      <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
+      <Text fill="WHITE" layoutX="132.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
          <font>
-            <Font name="Book Antiqua" size="22.0" />
+            <Font name="Book Antiqua" size="26.0" />
          </font>
       </Text>
    </children>

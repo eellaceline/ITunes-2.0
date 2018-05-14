@@ -9,12 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.faceless.pdf2.PDF;
-import org.faceless.pdf2.PDFPage;
-import org.faceless.pdf2.PDFStyle;
-import org.faceless.pdf2.StandardFont;
+
 import sample.Models.Order;
 import sample.Models.User;
 
