@@ -21,8 +21,9 @@ public class Database {
         try {
             Connection c = (Connection) DriverManager.getConnection(url);
             statement = c.createStatement();
-        } catch (SQLException ex) {
-            System.out.println("the connection fails");
+        }
+        catch (SQLException ex) {
+            System.out.println("the connection to DB failed");
         }
     }
 
@@ -185,13 +186,17 @@ public class Database {
 
         int Ti = 0;
         int nextSongID = 0;
-        System.out.println(songList.size());
+
         for (int i=0; i<songList.size(); i++) {
-            artists.add(artists.size(), new ArrayList<>());
+            artists.add(new ArrayList<>());
+
             for (int k=0; k<tempArtistsList.size(); k++) {
+
                 if (tempArtistsList.get(k).getArtistID() == artistArtistID.get(Ti)) {
+
                     boolean continueLoop = true;
                     artists.get(i).add(tempArtistsList.get(k));
+
                     while (continueLoop) {
                         if (Ti+1 >= SongSongID.size()) {
                             continueLoop = false;
@@ -201,13 +206,11 @@ public class Database {
                             nextSongID = SongSongID.get(Ti+1);
                         }
 
-                        if (nextSongID == SongSongID.get(Ti)) {
-                            Ti++;
+                        if (nextSongID == SongSongID.get(Ti++)) {
 
                             artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
                         }
                         else {
-                            Ti++;
                             k=4;
                             continueLoop = false;
                         }
@@ -215,8 +218,6 @@ public class Database {
                 }
             }
         }
-        System.out.println("got here");
-        System.out.println(artists.toString());
 
         for (int i=0; i<songList.size(); i++) {
             songList.get(i).setArtists(artists.get(i));
@@ -323,24 +324,21 @@ public class Database {
                     boolean continueLoop = true;
                     artists.get(i).add(tempArtistsList.get(k));
                     while (continueLoop) {
-                            if (Ti+1 >= SongSongID.size()) {
-                                continueLoop = false;
-                                nextSongID = 0;
-                            }
-                            else {
-                                nextSongID = SongSongID.get(Ti+1);
-                            }
-                        if (nextSongID == SongSongID.get(Ti)) {
-                            Ti++;
-
-                            artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
+                        if (Ti+1 >= SongSongID.size()) {
+                            continueLoop = false;
+                            nextSongID = 0;
                         }
                         else {
-                            Ti++;
+                            nextSongID = SongSongID.get(Ti+1);
+                        }
+
+                        if (nextSongID == SongSongID.get(Ti++)) {
+                                artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
+                        }
+                        else {
                             k=4;
                             continueLoop = false;
                         }
-
                     }
                 }
             }

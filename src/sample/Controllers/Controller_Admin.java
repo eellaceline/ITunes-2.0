@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_HelpCancel;
+import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.LoggedInUser;
 
 import java.io.IOException;
@@ -61,6 +62,7 @@ public class Controller_Admin implements  Handler_HelpCancel, Initializable {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
             rootPane.getChildren().setAll(pane);
             LoggedInUser.getInstance().setUser(null);
+            Cart.getInstance().setSongList(null);
         }
         catch (IOException ex) {
             System.out.println("IOException found in handleCancel");

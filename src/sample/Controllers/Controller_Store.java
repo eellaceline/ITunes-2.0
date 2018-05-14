@@ -6,18 +6,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
 import sample.Models.Song;
-import sample.Models.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,38 +34,66 @@ public class Controller_Store implements Initializable {
     private ImageView logoView;
 
     @FXML
-    private TableView tableView;
+    private TableView<Song> tableView;
 
     @FXML
-    private TableColumn<Song, String> columnSongName, columnArtist, columnGenre, columnDuration, columnAlbum, columnPrice;
-
-    private TableColumn<Song, Integer> columnSongID;
+    private TableColumn<Song, String> columnSongName, columnArtist, columnDuration, columnAlbum, columnPrice;
 
     private ArrayList<Song> songList;
 
+    private ArrayList<Song> songCart = new ArrayList<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        tableView.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+
+                if (!searchCartForExistingValue(tableView.getSelectionModel().getSelectedItem().getSongID())) {
+                    songCart.add(tableView.getSelectionModel().getSelectedItem());
+                    System.out.println("added song to cart");
+                }
+
+                else
+                    Handler_Alert.alert(
+                            "Error",
+                            "Found duplicate",
+                            "Cant add same song twice to the cart",
+                            false
+                    );
+
+            }
+        });
+
         this.songList = Database.getInstance().getStore();
 
         final ObservableList<Song> data = FXCollections.observableArrayList();
         for (Song song: songList) {
             data.add(song);
         }
-        columnSongID = new TableColumn<>();
-        tableView.getColumns().add(columnSongID);
 
-        columnSongID.setCellValueFactory(new PropertyValueFactory<Song, Integer>("songID"));
         columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
         columnAlbum.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
-        //columnGenre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
         columnPrice.setCellValueFactory(new PropertyValueFactory<Song, String>("price"));
 
-        //columnGenre.visibleProperty().setValue(false);
-        columnSongID.visibleProperty().setValue(false);
 
         tableView.setItems(data);
+    }
+
+    // returns true if value exists, false if it doesnt exist
+    public boolean searchCartForExistingValue(int songID) {
+        if (songCart.size() != 0) {
+            for (int i=0; i<songCart.size(); i++) {
+                if (songCart.get(i).getSongID() == songID)
+                    return true;
+            }
+        }
+        else
+            return false;
+
+        return false;
     }
 
     @FXML
@@ -110,6 +139,8 @@ public class Controller_Store implements Initializable {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
             rootPane.getChildren().setAll(pane);
+            LoggedInUser.getInstance().setUser(null);
+            Cart.getInstance().setSongList(null);
         }
         catch (IOException ex) {
             System.out.println("IOException found in handleLogOut");
@@ -118,11 +149,13 @@ public class Controller_Store implements Initializable {
     @FXML
     void addToCart () {
         try {
+            Cart.getInstance().setSongList(songCart);
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Cart.fxml"));
             rootPane.getChildren().setAll(pane);
         }
         catch (IOException ex) {
             System.out.println("IOException found in addToCart");
+            ex.getStackTrace();
         }
     }
 

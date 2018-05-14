@@ -11,9 +11,7 @@ public class Song {
     private String genre;
     private String album;
 
-    // hopefully temporary
-    private String artistNames;
-
+    // constructor for every value
     public Song(int songID, String songName, String length, int price, ArrayList<Artist> artists, String genre, String album) {
         this.songID = songID;
         this.songName = songName;
@@ -21,10 +19,10 @@ public class Song {
         this.artists = artists;
         this.genre = genre;
         this.price = price;
-        this.artistNames = combineArtistName();
         this.album = album;
     }
 
+    // constructor without assigning artist arraylist
     public Song(int songID, String songName, String length, int price, String genre, String album) {
         this.songID = songID;
         this.songName = songName;
@@ -34,6 +32,7 @@ public class Song {
         this.album = album;
     }
 
+    // constructor with a Song object as parameter
     public Song(Song song) {
         this.songID = song.getSongID();
         this.songName = song.getSongName();
@@ -41,11 +40,10 @@ public class Song {
         this.artists = song.getArtists();
         this.genre = song.getGenre();
         this.price = song.getPrice();
-        this.artistNames = combineArtistName();
         this.album = song.getAlbum();
     }
 
-    public String combineArtistName() {
+    private String combineArtistName() {
         String finalString = "";
         for (int i=0; i<artists.size(); i++) {
             if (artists.size() == 1 || artists.size()-1 == i)
@@ -66,7 +64,7 @@ public class Song {
                 ", artists=" + artists +
                 ", genre='" + genre + '\'' +
                 ", album='" + album + '\'' +
-                ", artistNames='" + artistNames + '\'' +
+                ", artistNames='" + combineArtistName() + '\'' +
                 '}';
     }
 
@@ -100,7 +98,7 @@ public class Song {
 
     public void setArtists(ArrayList<Artist> artists) {
         this.artists = artists;
-        this.artistNames = combineArtistName();
+        //this.artistNames = combineArtistName();
     }
 
     public String getGenre() {
@@ -120,7 +118,7 @@ public class Song {
     }
 
     public String getArtistNames() {
-        return artistNames;
+        return combineArtistName();
     }
 
     public String getAlbum() {

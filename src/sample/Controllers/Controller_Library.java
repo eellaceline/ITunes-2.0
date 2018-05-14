@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_HelpCancel;
+import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
 import sample.Models.Song;
@@ -36,7 +37,7 @@ public class Controller_Library implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //User user = LoggedInUser.getInstance().getUser();
+
         this.songList = Database.getInstance().getLibraryForUser();
 
         final ObservableList<Song> data = FXCollections.observableArrayList();
@@ -78,7 +79,10 @@ public class Controller_Library implements Initializable {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
             rootPane.getChildren().setAll(pane);
-        } catch (IOException ex) {
+            LoggedInUser.getInstance().setUser(null);
+            Cart.getInstance().setSongList(null);
+        }
+        catch (IOException ex) {
             System.out.println("IOException found in handleLogOut");
         }
 
