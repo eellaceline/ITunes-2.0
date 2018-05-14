@@ -100,6 +100,7 @@ public class Song {
 
     public void setArtists(ArrayList<Artist> artists) {
         this.artists = artists;
+        this.artistNames = combineArtistName();
     }
 
     public String getGenre() {

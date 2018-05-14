@@ -36,7 +36,7 @@ public class Controller_Store implements Initializable {
     private TableView tableView;
 
     @FXML
-    private TableColumn<Song, String> columnSongName, columnArtist, columnGenre, columnDuration, columnAlbum;
+    private TableColumn<Song, String> columnSongName, columnArtist, columnGenre, columnDuration, columnAlbum, columnPrice;
 
     private TableColumn<Song, Integer> columnSongID;
 
@@ -56,8 +56,10 @@ public class Controller_Store implements Initializable {
         columnSongID.setCellValueFactory(new PropertyValueFactory<Song, Integer>("songID"));
         columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
+        columnAlbum.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         //columnGenre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
+        columnPrice.setCellValueFactory(new PropertyValueFactory<Song, String>("price"));
 
         //columnGenre.visibleProperty().setValue(false);
         columnSongID.visibleProperty().setValue(false);

@@ -157,8 +157,70 @@ public class Database {
             );
         }
 
-        // getting all artists from DB
+
+        ArrayList<Integer> SongSongID = new ArrayList<>();
+        ArrayList<Integer> artistArtistID = new ArrayList<>();
+
+        try {
+            ResultSet rs = statement.executeQuery(
+                    "SELECT * FROM songs_has_artist WHERE NOT songs_song_id " +
+                            "IN (SELECT songs_song_id FROM user_has_songs WHERE user_user_id = " + userID + ") ORDER BY songs_song_id;");
+            while (rs.next()) {
+                SongSongID.add(rs.getInt(1));
+                artistArtistID.add(rs.getInt(2));
+            }
+        }
+        catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLExeception",
+                    "Error fetching artistID data",
+                    false
+            );
+        }
+
+
         ArrayList<Artist> tempArtistsList = getArtists();
+        ArrayList<ArrayList<Artist>> artists = new ArrayList<>();
+
+        int Ti = 0;
+        int nextSongID = 0;
+        System.out.println(songList.size());
+        for (int i=0; i<songList.size(); i++) {
+            artists.add(artists.size(), new ArrayList<>());
+            for (int k=0; k<tempArtistsList.size(); k++) {
+                if (tempArtistsList.get(k).getArtistID() == artistArtistID.get(Ti)) {
+                    boolean continueLoop = true;
+                    artists.get(i).add(tempArtistsList.get(k));
+                    while (continueLoop) {
+                        if (Ti+1 >= SongSongID.size()) {
+                            continueLoop = false;
+                            nextSongID = 0;
+                        }
+                        else {
+                            nextSongID = SongSongID.get(Ti+1);
+                        }
+
+                        if (nextSongID == SongSongID.get(Ti)) {
+                            Ti++;
+
+                            artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
+                        }
+                        else {
+                            Ti++;
+                            k=4;
+                            continueLoop = false;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("got here");
+        System.out.println(artists.toString());
+
+        for (int i=0; i<songList.size(); i++) {
+            songList.get(i).setArtists(artists.get(i));
+        }
 
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
@@ -187,8 +249,6 @@ public class Database {
         ArrayList<String> albumName = new ArrayList<>();
         ArrayList<Integer> artistArtistID = new ArrayList<>();
         ArrayList<Integer> albumArtist = new ArrayList<>();
-
-
 
         // Selects the userID needed to find songs in the library
 
@@ -250,7 +310,6 @@ public class Database {
         // getting all artists from DB
         ArrayList<Artist> tempArtistsList = getArtists();
 
-
         int Ti = 0;
         int nextSongID = 0;
 
@@ -259,16 +318,11 @@ public class Database {
 
         for (int i=0; i<songID.size(); i++) {
             artists.add(artists.size(), new ArrayList<>());
-
-
             for (int k=0; k<tempArtistsList.size(); k++) {
-
                 if (tempArtistsList.get(k).getArtistID() == artistArtistID.get(Ti)) {
                     boolean continueLoop = true;
                     artists.get(i).add(tempArtistsList.get(k));
-
                     while (continueLoop) {
-
                             if (Ti+1 >= SongSongID.size()) {
                                 continueLoop = false;
                                 nextSongID = 0;
@@ -276,8 +330,6 @@ public class Database {
                             else {
                                 nextSongID = SongSongID.get(Ti+1);
                             }
-
-
                         if (nextSongID == SongSongID.get(Ti)) {
                             Ti++;
 
@@ -313,8 +365,6 @@ public class Database {
 
         return songList;
     }
-
-
 
     public ArrayList<Artist> getArtists() {
         ArrayList<Artist> tempArtistsList = new ArrayList<>();
@@ -353,8 +403,6 @@ public class Database {
         ArrayList<Integer> artistArtistID = new ArrayList<>();
         ArrayList<Integer> albumArtist = new ArrayList<>();
 
-
-
         // Selects the userID needed to find songs in the library
 
         userID = LoggedInUser.getInstance().getUser().getUserID();
@@ -384,7 +432,8 @@ public class Database {
                 albumName.add(rs.getString(8));
                 albumArtist.add(rs.getInt(9));
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
                     "SQLExeception",
