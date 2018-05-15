@@ -9,9 +9,21 @@ public class Song {
     private int price;
     private ArrayList<Artist> artists;
     private String genre;
+    private String album;
 
     // hopefully temporary
     private String artistNames;
+
+    public Song(int songID, String songName, String length, int price, ArrayList<Artist> artists, String genre, String album) {
+        this.songID = songID;
+        this.songName = songName;
+        this.length = length;
+        this.artists = artists;
+        this.genre = genre;
+        this.price = price;
+        this.artistNames = combineArtistName();
+        this.album = album;
+    }
 
     public Song(int songID, String songName, String length, int price, ArrayList<Artist> artists, String genre) {
         this.songID = songID;
@@ -23,6 +35,24 @@ public class Song {
         this.artistNames = combineArtistName();
     }
 
+
+    public Song(int songID, String songName, String album, String length, int price){
+        this.songID = songID;
+        this.songName = songName;
+        this.album = album;
+        this.length = length;
+        this.price = price;
+    }
+
+    public Song(int songID, String songName, String length, int price, String genre, String album) {
+        this.songID = songID;
+        this.songName = songName;
+        this.length = length;
+        this.price = price;
+        this.genre = genre;
+        this.album = album;
+    }
+
     public Song(Song song) {
         this.songID = song.getSongID();
         this.songName = song.getSongName();
@@ -31,12 +61,13 @@ public class Song {
         this.genre = song.getGenre();
         this.price = song.getPrice();
         this.artistNames = combineArtistName();
+        this.album = song.getAlbum();
     }
 
     public String combineArtistName() {
         String finalString = "";
         for (int i=0; i<artists.size(); i++) {
-            if (artists.size() == 1)
+            if (artists.size() == 1 || artists.size()-1 == i)
                 finalString += artists.get(i).toString();
             else
                 finalString += artists.get(i).toString() + ", ";
@@ -53,6 +84,7 @@ public class Song {
                 ", price=" + price +
                 ", artists=" + artists +
                 ", genre='" + genre + '\'' +
+                ", album='" + album + '\'' +
                 ", artistNames='" + artistNames + '\'' +
                 '}';
     }
@@ -87,6 +119,7 @@ public class Song {
 
     public void setArtists(ArrayList<Artist> artists) {
         this.artists = artists;
+        this.artistNames = combineArtistName();
     }
 
     public String getGenre() {
@@ -108,4 +141,13 @@ public class Song {
     public String getArtistNames() {
         return artistNames;
     }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
 }

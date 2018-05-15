@@ -9,6 +9,10 @@ public class Artist {
         this.artistName = artistName;
     }
 
+    public Artist(Artist artist) {
+        this.artistID = artist.getArtistID();
+    }
+
     public String toString() {
         return artistName;
     }

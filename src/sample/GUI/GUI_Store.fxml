@@ -30,11 +30,11 @@
                <children>
                   <TableView layoutY="-1.0" prefHeight="464.0" prefWidth="380.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Title" />
-                        <TableColumn prefWidth="75.0" text="Artist" />
-                        <TableColumn prefWidth="75.0" text="Album" />
-                        <TableColumn prefWidth="75.0" text="DURATION" />
-                        <TableColumn prefWidth="75.0" text="PRICE" />
+                        <TableColumn fx:id="columnSongName" prefWidth="75.0" text="Title" />
+                        <TableColumn fx:id="columnArtist" prefWidth="75.0" text="Artist" />
+                        <TableColumn fx:id="columnAlbum" prefWidth="75.0" text="Album" />
+                        <TableColumn fx:id="columnDuration" prefWidth="75.0" text="Duration" />
+                        <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Price" />
                      </columns>
                   </TableView>
                </children>
