@@ -55,13 +55,14 @@ public class Controller_Admin implements  Handler_HelpCancel, Initializable {
         }
     }
 
+
     @FXML
-    void paneChangeToRemoveUser(ActionEvent event) {
+    void paneChangeToUserList(){
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_RemoveUser.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Userlist.fxml"));
             rootPane.getChildren().setAll(pane);
         } catch (IOException ex) {
-            System.out.println("IOException found in paneChangeToRemoveUser");
+            System.out.println("IOException found in paneChangeToUserList");
         }
     }
 

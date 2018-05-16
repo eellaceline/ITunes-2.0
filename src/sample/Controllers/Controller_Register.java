@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Handlers.Handler_SendEmail;
 import sample.Models.Singletons.Database;
 import sample.Models.User;
 
@@ -198,12 +199,20 @@ public class Controller_Register implements Initializable {
             System.out.println(user);
             if(user == null) {
                 System.out.println("User available");
+
                 Database.getInstance().saveAccount(userNameTextField.getText(),emailField.getText(),passwordField.getText());
+
                 Handler_Alert.information(
                         "Success",
                         "Congratulation",
                         "You have created an account",
                         false);
+
+                Handler_SendEmail.sendMail(
+                        "Account created",
+                        "Dear newly customer, you have created an account at Soundwave."
+                );
+
                 paneChangeToLogin();
             }
             else
