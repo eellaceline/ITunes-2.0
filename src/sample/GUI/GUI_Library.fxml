@@ -33,10 +33,10 @@
                     <children>
                         <TableView fx:id="tableView" layoutY="-1.0" prefHeight="464.0" prefWidth="380.0">
                             <columns>
-                                <TableColumn fx:id="columnSongName" prefWidth="95.0" text="Title" />
-                                <TableColumn fx:id="columnArtist" prefWidth="95.0" text="Artist" />
-                                <TableColumn fx:id="columnAlbum" prefWidth="95.0" text="Album" />
-                                <TableColumn fx:id="columnDuration" prefWidth="95.0" text="🕒" />
+                                <TableColumn fx:id="songNameColumn" prefWidth="95.0" text="Title" />
+                                <TableColumn fx:id="artistColumn" prefWidth="95.0" text="Artist" />
+                                <TableColumn fx:id="albumColumn" prefWidth="95.0" text="Album" />
+                                <TableColumn fx:id="durationColumn" prefWidth="95.0" text="🕒" />
                             </columns>
                         </TableView>
                     </children>

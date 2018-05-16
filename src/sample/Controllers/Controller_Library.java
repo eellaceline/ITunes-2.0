@@ -7,10 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_HelpCancel;
+import sample.Models.Library;
+import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
 import sample.Models.Song;
@@ -27,17 +30,19 @@ public class Controller_Library implements Initializable {
     private AnchorPane rootPane;
 
     @FXML
-    private TableView tableView;
+    private TableView<Song> tableView;
 
     @FXML
-    private TableColumn<Song, String> columnSongName, columnArtist, columnGenre, columnDuration, columnAlbum;
+    private TableColumn<Song, String> columnSongName, columnArtist, columnAlbum, columnDuration;
 
     private ArrayList<Song> songList;
 
+    private TextField searchSongField = new TextField();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        User user = LoggedInUser.getInstance().getUser();
-        this.songList = Database.getInstance().getLibraryForUser(user.getUserName());
+
+        this.songList = Database.getInstance().getLibraryForUser();
 
         final ObservableList<Song> data = FXCollections.observableArrayList();
         for (Song song: songList) {
@@ -46,10 +51,9 @@ public class Controller_Library implements Initializable {
 
         columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
-        //columnGenre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
+        columnAlbum.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
 
-        //columnGenre.visibleProperty().setValue(false);
 
         tableView.setItems(data);
     }
@@ -77,7 +81,10 @@ public class Controller_Library implements Initializable {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
             rootPane.getChildren().setAll(pane);
-        } catch (IOException ex) {
+            LoggedInUser.getInstance().setUser(null);
+            Cart.getInstance().setSongList(null);
+        }
+        catch (IOException ex) {
             System.out.println("IOException found in handleLogOut");
         }
 
@@ -92,6 +99,5 @@ public class Controller_Library implements Initializable {
         }
 
     }
-
 
 }

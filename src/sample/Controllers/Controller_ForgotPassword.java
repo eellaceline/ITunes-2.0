@@ -39,18 +39,13 @@ public class Controller_ForgotPassword implements Initializable{
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "Here you can reviece a new password if you have forgotten " +
+                "Here you can receive a new password if you have forgotten " +
                         "\nyour old password. " +
                         "Enter your email address " +
                         "\nthat you used when your registered your account and we will" +
                         "\nsend you a new one. ",
                 false
         );
-    }
-
-    @FXML
-    void loginVerification(ActionEvent event) {
-
     }
 
 
