@@ -11,6 +11,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Admin">
     <children>
+<<<<<<< HEAD
       <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/L0WKsYH.gif" />
@@ -19,6 +20,11 @@
         <Button fx:id="cancelButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: cccccc;" text="CANCEL" textFill="WHITE" />
         <Button fx:id="settingsButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="HELP" textFill="WHITE" />
         <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="122.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+=======
+        <Button fx:id="cancelButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
+        <Button fx:id="settingsButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+        <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="106.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> Admin
             <image>
                 <Image url="@../photos/logo-float.png" />
             </image>
@@ -47,10 +53,30 @@
                 <Font name="Book Antiqua" size="26.0" />
             </font>
         </Text>
+<<<<<<< HEAD
       <ButtonBar layoutX="90.0" layoutY="379.0" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #cccccc;">
          <buttons>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="USERLIST" wrappingWidth="79.9921875" />
             <Button minWidth="60.0" mnemonicParsing="false" onAction="#paneChangeToUserList" prefHeight="25.0" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
+=======
+        <Separator layoutX="90.0" layoutY="190.0" prefWidth="200.0" />
+      <ButtonBar layoutX="92.0" layoutY="212.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f2f2f2;">
+         <buttons>
+            <Text fill="#00000099" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD SONG" wrappingWidth="79.9921875" />
+            <Button minWidth="67.0" mnemonicParsing="false" onAction="#paneChangeToAddSong" prefHeight="25.0" style="-fx-background-color: #33adff;" textFill="WHITE" />
+         </buttons>
+      </ButtonBar>
+      <ButtonBar layoutX="90.0" layoutY="279.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f2f2f2;">
+         <buttons>
+            <Text fill="#00000099" strokeType="OUTSIDE" strokeWidth="0.0" text="REMOVE SONG" wrappingWidth="89.192138671875" />
+            <Button mnemonicParsing="false" onAction="#paneChangeToRemoveSong" style="-fx-background-color: #33adff;" textFill="WHITE" />
+         </buttons>
+      </ButtonBar>
+      <ButtonBar layoutX="90.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f2f2f2;">
+         <buttons>
+            <Text fill="#00000099" strokeType="OUTSIDE" strokeWidth="0.0" text="CHANGE PRICE" wrappingWidth="81.19219970703125" />
+            <Button mnemonicParsing="false" onAction="#paneChangeToChangePrice" style="-fx-background-color: #33adff;" textFill="WHITE" />
+>>>>>>> Admin
          </buttons>
       </ButtonBar>
     </children>

@@ -73,13 +73,10 @@ public class Controller_ForgotPassword implements Initializable {
     }
 
     public static String generateNewPassword() {
-
         String pw = "";
         pw = Handler_Password.encryption(Handler_Password.generateRandomPassword());
         return pw;
     }
-
-
 }
 
 

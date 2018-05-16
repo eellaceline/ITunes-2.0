@@ -102,7 +102,5 @@ public class Controller_Library implements Initializable {
         } catch (IOException ex) {
             System.out.println("IOException found in handleAccountSettings");
         }
-
     }
-
 }

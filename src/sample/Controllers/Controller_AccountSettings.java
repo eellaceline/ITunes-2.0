@@ -19,6 +19,7 @@ import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Handler;
 
 public class Controller_AccountSettings implements Initializable{
 
@@ -68,7 +69,6 @@ public class Controller_AccountSettings implements Initializable{
                     false
             );
         }
-
     }
 
 
@@ -118,5 +118,4 @@ public class Controller_AccountSettings implements Initializable{
         passwordField.setText("");
         confirmPassword.setText("");
     }
-
 }

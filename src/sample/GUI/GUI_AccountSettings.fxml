@@ -11,17 +11,23 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AccountSettings">
     <children>
+<<<<<<< HEAD
       <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
         <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+=======
+        <Button layoutX="137.0" layoutY="385.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #33adff;" text="SAVE CHANGES" textFill="WHITE" />
+        <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="168.0" layoutX="107.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> Admin
             <image>
                 <Image url="@../photos/logo-float.png" />
             </image>
         </ImageView>
         <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
+<<<<<<< HEAD
         <TextField fx:id="usernameField" alignment="CENTER" layoutX="118.0" layoutY="245.0" promptText="USERNAME" />
         <TextField fx:id="passwordField" alignment="CENTER" layoutX="118.0" layoutY="289.0" promptText="PASSWORD" />
         <TextField fx:id="confirmPassword" alignment="CENTER" layoutX="118.0" layoutY="332.0" promptText="CONFIRM PASSWORD" />
@@ -38,5 +44,12 @@
                 <Font name="Book Antiqua" size="26.0" />
             </font>
         </Text>
+=======
+        <TextField alignment="CENTER" layoutX="118.0" layoutY="219.0" onAction="#changeUsernameField" promptText="USERNAME" />
+        <TextField alignment="CENTER" layoutX="118.0" layoutY="274.0" onAction="#changePasswordField" promptText="PASSWORD" />
+        <TextField alignment="CENTER" layoutX="118.0" layoutY="332.0" onAction="#confirmPasswordField" promptText="CONFIRM PASSWORD" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="HELP" textFill="WHITE" />
+        <Button layoutX="316.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: dee0e2;" text="CANCEL" textFill="WHITE" />
+>>>>>>> Admin
     </children>
 </AnchorPane>
