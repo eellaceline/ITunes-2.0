@@ -7,10 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_HelpCancel;
+import sample.Models.Library;
 import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
@@ -28,12 +30,14 @@ public class Controller_Library implements Initializable {
     private AnchorPane rootPane;
 
     @FXML
-    private TableView tableView;
+    private TableView<Song> tableView;
 
     @FXML
     private TableColumn<Song, String> columnSongName, columnArtist, columnGenre, columnDuration, columnAlbum;
 
     private ArrayList<Song> songList;
+
+    private TextField searchSongField = new TextField();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -97,6 +101,5 @@ public class Controller_Library implements Initializable {
         }
 
     }
-
 
 }

@@ -158,7 +158,6 @@ public class Database {
             );
         }
 
-
         ArrayList<Integer> SongSongID = new ArrayList<>();
         ArrayList<Integer> artistArtistID = new ArrayList<>();
 
@@ -179,7 +178,6 @@ public class Database {
                     false
             );
         }
-
 
         ArrayList<Artist> tempArtistsList = getArtists();
         ArrayList<ArrayList<Artist>> artists = new ArrayList<>();
@@ -207,7 +205,6 @@ public class Database {
                         }
 
                         if (nextSongID == SongSongID.get(Ti++)) {
-
                             artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
                         }
                         else {
@@ -280,7 +277,8 @@ public class Database {
                 albumName.add(rs.getString(8));
                 albumArtist.add(rs.getInt(9));
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
                     "SQLExeception",
