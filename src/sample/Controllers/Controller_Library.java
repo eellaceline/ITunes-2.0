@@ -33,7 +33,7 @@ public class Controller_Library implements Initializable {
     private TableView<Song> tableView;
 
     @FXML
-    private TableColumn<Song, String> columnSongName, columnArtist, columnAlbum, columnDuration;
+    private TableColumn<Song, String> songNameColumn, artistColumn, albumColumn , columnDuration;
 
     private ArrayList<Song> songList;
 
@@ -43,15 +43,15 @@ public class Controller_Library implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         this.songList = Database.getInstance().getLibraryForUser();
-
+        System.out.println(songList);
         final ObservableList<Song> data = FXCollections.observableArrayList();
         for (Song song: songList) {
             data.add(song);
         }
 
-        columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
-        columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
-        columnAlbum.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
+        songNameColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
+        artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
+        albumColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
 
 
@@ -62,7 +62,8 @@ public class Controller_Library implements Initializable {
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is you library. You can either go to store, account \n or log out from the application. ",
+                "This is you library. You can either go to store, account " +
+                            "\nor log out from the application. ",
                 false
         );
     }
@@ -73,6 +74,7 @@ public class Controller_Library implements Initializable {
             rootPane.getChildren().setAll(pane);
         } catch (IOException ex) {
             System.out.println("IOException found in paneChangeToStore");
+            ex.printStackTrace();
         }
 
     }
@@ -87,6 +89,9 @@ public class Controller_Library implements Initializable {
         catch (IOException ex) {
             System.out.println("IOException found in handleLogOut");
         }
+
+    }
+    public void searchForSongs(){
 
     }
 

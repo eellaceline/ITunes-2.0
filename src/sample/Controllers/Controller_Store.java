@@ -8,20 +8,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+
 import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
 import sample.Models.Song;
+
+import sample.Models.Singletons.LoggedInUser;
+import sample.Models.User;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,11 +52,20 @@ public class Controller_Store implements Initializable {
     private TableColumn<Song, String> columnSongName, columnArtist, columnDuration, columnAlbum, columnPrice;
 
     private ArrayList<Song> songList;
-
     private ArrayList<Song> songCart = new ArrayList<>();
+
+    @FXML
+    private TextField userBalanceField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        final Tooltip userBalanceTooltip = new Tooltip();
+        userBalanceTooltip.setText("This is your current balance");
+        userBalanceField.setTooltip(userBalanceTooltip);
+
+        userBalance();
+
 
         tableView.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -104,9 +122,9 @@ public class Controller_Store implements Initializable {
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is where you buy your desired songs. You can sort by the lowest " +
-                        "\n and highest price. Mark the song or songs that you want and " +
-                        "n click on the cart-button.",
+                "This is where you buy your desired songs. " +
+                        "\nMark the song or songs that you want and click on " +
+                        "\nthe cart-button.",
                 false
         );
     }
@@ -162,4 +180,14 @@ public class Controller_Store implements Initializable {
         }
     }
 
-}
+    @FXML
+    void userBalance(){
+        System.out.println(LoggedInUser.getInstance().getUser());
+        System.out.println(LoggedInUser.getInstance().getUser().getBalance());
+        userBalanceField.setText(Integer.toString(LoggedInUser.getInstance().getUser().getBalance()));
+
+
+    }
+
+    }
+

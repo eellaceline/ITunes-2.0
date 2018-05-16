@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -42,6 +43,15 @@ public class Controller_Login implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        final Tooltip usernameTooltip = new Tooltip();
+        final Tooltip passwordTooltip = new Tooltip();
+
+        usernameTooltip.setText("Enter your username");
+        userNameTextField.setTooltip(usernameTooltip);
+
+        passwordTooltip.setText("Enter your password");
+        passwordTextField.setTooltip(passwordTooltip);
+
     }
 
     @FXML
@@ -60,7 +70,9 @@ public class Controller_Login implements Initializable {
     void handleHelp(ActionEvent event) {
         Handler_Alert.information("Help",
                 "I will show you what to do here ↓",
-                "This is where you log in with your created account. \n If you do not remember your password, click on \n ''forgot password?'' :)",
+                "This is where you log in with your created account. " +
+                        "\nIf you do not remember your password, click on " +
+                        "\n''forgot password?'' :)",
                 false);
     }
 

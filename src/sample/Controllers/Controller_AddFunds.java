@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.LoggedInUser;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,25 +20,31 @@ public class Controller_AddFunds implements Initializable {
     @FXML
     private AnchorPane rootPane;
 
+    @FXML private Button fiveDollar, tenDollar, twentyDollar;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
-    @FXML
-    void handleAdd15Dollar(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleAdd25Dollar(ActionEvent event) {
-
-    }
-
     @FXML
     void handleAdd5Dollar(ActionEvent event) {
 
+            LoggedInUser.getInstance().getUser().addBalance(5);
+            System.out.println(LoggedInUser.getInstance().getUser().getBalance());
+        }
+
+    @FXML
+    void handleAdd10Dollar(ActionEvent event) {
+        LoggedInUser.getInstance().getUser().addBalance(10);
+        System.out.println(LoggedInUser.getInstance().getUser().getBalance());
+
+    }
+
+    @FXML
+    void handleAdd20Dollar(ActionEvent event) {
+        LoggedInUser.getInstance().getUser().addBalance(20);
+        System.out.println(LoggedInUser.getInstance().getUser().getBalance());
     }
 
     @FXML
@@ -56,7 +63,7 @@ public class Controller_AddFunds implements Initializable {
         Handler_Alert.information(
                 "Help",
                 "I will show you what to do here ↓",
-                "This is where you add funds to your account. \n Choose between 5$, 15$ and 25$.",
+                "This is where you add funds to your account. \nChoose between 5$, 15$ and 25$.",
                 false
         );
 

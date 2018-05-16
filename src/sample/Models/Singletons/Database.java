@@ -1,12 +1,14 @@
 package sample.Models.Singletons;
 
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.log.Log;
 import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_Password;
 import sample.Models.Artist;
 import sample.Models.Song;
 import sample.Models.User;
 
+import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Handler;
@@ -16,6 +18,7 @@ public class Database {
 
     private String url = "jdbc:mysql://den1.mysql3.gear.host:3306/itunes?user=itunes&password=itunes!";
     //String url = "jdbc:mysql://127.0.0.1:3306/musicdb?user=root&password=root";
+
     private Statement statement;
 
     private Database() {
@@ -54,8 +57,8 @@ public class Database {
         catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
-                    "SQLEXception",
-                    "Error exececuting getuser query",
+                    "SQLException",
+                    "Error executing getUser query",
                     false);
         }
         return user;
@@ -79,12 +82,190 @@ public class Database {
         catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
-                    "SQLEXception",
-                    "Error exececuting query based on username and email",
+                    "SQLException",
+                    "Error executing query based on username and email",
                     false);
         }
         return user;
     }
+
+    //Update password
+    public boolean changePassword(String username, String password ){
+        boolean isConfirmed = false;
+        System.out.println(username + password);
+        String tempPw = Handler_Password.encryption(password);
+
+        System.out.println("UPDATE user SET password = '" + password + "' WHERE username = '" + username + "'");
+
+        try {
+
+            int rows = statement.executeUpdate("UPDATE user SET password = '" + tempPw + "' WHERE username = '" + username + "'");
+            isConfirmed = true;
+            System.out.println(rows);
+            if (rows != 0){
+                Handler_Alert.information(
+                        "Information",
+                        "Password Changed",
+                        "Your new password is " + password + ".",
+                        false
+                );
+            }else{
+                Handler_Alert.alert(
+                        "Error",
+                        "Password not changed",
+                        "Your password could not be saved.",
+                        false
+                );
+            }
+        }catch (SQLException ex){  Handler_Alert.alert(
+                "Error",
+                "SQLException",
+                "Error executing an update to changing password",
+                false
+        );
+        }
+
+
+        return isConfirmed;
+    }
+
+    //Update username
+    public boolean changeUsername(String username, String newUsername){
+        boolean isConfirmed = false;
+
+        try {
+
+            int rows = statement.executeUpdate("UPDATE user SET username = '" + newUsername + "' WHERE username = '" + username + "'");
+            isConfirmed = true;
+            System.out.println(rows);
+            if (rows != 0){
+                Handler_Alert.information(
+                        "Information",
+                        "Username Changed",
+                        "Your new username is " + newUsername + ".",
+                        false
+                );
+                LoggedInUser.getInstance().getUser().setUserName(newUsername    );
+            }else{
+                Handler_Alert.alert(
+                        "Error",
+                        "Username not changed",
+                        "Your username could not be saved.",
+                        false
+                );
+            }
+        }catch (SQLException ex){  Handler_Alert.alert(
+                "Error",
+                "SQLException",
+                "Error executing an update to changing username",
+                false
+                );
+        }
+
+
+        return isConfirmed;
+    }
+    // Update the price by admin
+    public boolean updatePrice(String songName, String artistName, int newPrice) {
+        boolean isConfirmed = false;
+        try {
+            int rows = statement.executeUpdate("UPDATE songs, artist SET price = '" + newPrice + "' WHERE songs.songName = '" + songName +"' AND artist.artistName = '" + artistName + "';");
+            isConfirmed = true;
+            System.out.println(rows);
+            if (rows != 0) {
+                Handler_Alert.information(
+                        "Price Changed",
+                        "Price Changed",
+                        "The new price of the song " + songName + " is " + newPrice,
+                        false
+                );
+            } else {
+                Handler_Alert.alert(
+                        "Price Not Changed",
+                        "Price Not Changed",
+                        "The new price could not change",
+                        false
+                );
+            }
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing an update to song price",
+                    false
+            );
+        }
+        return isConfirmed;
+    }
+
+    // SQL statement in this order: Artist, Album, Song
+    public void addSong(String songName, String artistName, String genreName) {
+
+        try {
+            statement.executeUpdate("INSERT INTO songs(songName) VALUES ('" + songName + "')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error when inserting song name",
+                    false
+            );
+        }
+
+        //TODO needs check if the artist already exists
+        try {
+            statement.executeUpdate("INSERT INTO artist(artistName) VALUES ('" + artistName +"')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when adding artist",
+                    false
+            );
+        }
+
+        //TODO check DB if genre exists before executing the update
+        try {
+            ResultSet rs = statement.executeQuery("INSERT INTO genre (genreName) VALUES ('" + genreName +"')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when adding genre",
+                    false
+            );
+        }
+
+        //TODO if statement that checks if a there exists an album or not,
+        // if there is no album to be added a secondary update without the album_album_id needs to be made
+        try {
+            statement.executeUpdate("INSERT INTO songs (songName, songDuration, price, genre_genreName, album_album_id) VALUES ('" + songName +"')");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when adding song",
+                    false
+            );
+        }
+    }
+
+    public Song getSong(String songName, String artistName, String genreName) {
+        Song song = null;
+
+        try {
+            ResultSet rs = statement.executeQuery("SELECT songName, artistName, genreName FROM songs, artist, genre");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when getting song",
+                    false
+            );
+        }
+        return song;
+    }
+
 
     public void saveAccount(String username, String email, String password) {
         password = Handler_Password.encryption(password);
@@ -298,6 +479,7 @@ public class Database {
                     "Error",
                     "SQLExeception",
                     "Error fecthing song data",
+
                     false
             );
         }
@@ -390,6 +572,7 @@ public class Database {
                     "Error",
                     "SQLException",
                     "Error getting data from artists",
+
                     false
             );
         }
@@ -543,6 +726,7 @@ public class Database {
 
                 }
             }
+
         }
 
         System.out.println(artists.toString());

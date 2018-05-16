@@ -25,12 +25,25 @@ public class User extends Account {
         this.isAnAdmin = user.isAnAdmin();
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "balance=" + balance +
+                ", library=" + library +
+                ", isAnAdmin=" + isAnAdmin +
+                '}';
+    }
+
     public int getBalance() {
         return balance;
     }
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public void addBalance(int balance){
+        this.balance+=balance;
     }
 
     public Library getLibrary() {

@@ -17,7 +17,7 @@ public class Controller_UserOrAdmin {
             rootPane.getChildren().setAll(pane);
         }
         catch (IOException ex) {
-            System.out.println("IOException found in paneChangeToUserAdmin");
+            System.out.println("IOException found in paneChangeAdmin");
         }
     }
 
