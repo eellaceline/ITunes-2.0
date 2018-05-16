@@ -52,7 +52,7 @@ public class Controller_Library implements Initializable {
         artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
         albumColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         durationColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
-
+        
         tableView.setItems(data);
     }
 

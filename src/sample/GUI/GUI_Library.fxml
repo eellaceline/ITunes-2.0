@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Library">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Library">
     <children>
       <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -47,6 +47,6 @@
                 </AnchorPane>
             </content>
         </ScrollPane>
-      <TextField fx:id="searchField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="100.0" layoutY="422.0" onAction="#searchForSongs" prefHeight="27.0" prefWidth="176.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
+      <TextField fx:id="searchField" alignment="CENTER" focusTraversable="false" layoutX="75.0" layoutY="422.0" onAction="#searchForSongs" prefHeight="27.0" prefWidth="221.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
     </children>
 </AnchorPane>

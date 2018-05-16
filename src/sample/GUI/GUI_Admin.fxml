@@ -23,7 +23,7 @@
                 <Image url="@../photos/logo-float.png" />
             </image>
         </ImageView>
-        <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
+        <Separator layoutX="90.0" layoutY="195.0" prefWidth="200.0" />
       <ButtonBar layoutX="90.0" layoutY="221.0" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #cccccc;">
          <buttons>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD SONG" wrappingWidth="79.9921875" />
@@ -42,7 +42,7 @@
             <Button mnemonicParsing="false" onAction="#paneChangeToChangePrice" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
          </buttons>
       </ButtonBar>
-        <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
+        <Text fill="WHITE" layoutX="102.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
             <font>
                 <Font name="Book Antiqua" size="26.0" />
             </font>
@@ -50,7 +50,7 @@
       <ButtonBar layoutX="90.0" layoutY="379.0" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #cccccc;">
          <buttons>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="USERLIST" wrappingWidth="79.9921875" />
-            <Button minWidth="60.0" mnemonicParsing="false" onAction="#paneChangeToUserList" prefHeight="25.0" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
+                <Button minWidth="60.0" mnemonicParsing="false" onAction="#paneChangeToUserList" prefHeight="25.0" style="-fx-background-color: #33adff;" text="OK" textFill="WHITE" />
          </buttons>
       </ButtonBar>
     </children>
