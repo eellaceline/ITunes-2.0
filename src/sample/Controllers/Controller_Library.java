@@ -33,7 +33,7 @@ public class Controller_Library implements Initializable {
     private TableView<Song> tableView;
 
     @FXML
-    private TableColumn<Song, String> songNameColumn, artistColumn, albumColumn , columnDuration;
+    private TableColumn<Song, String> songNameColumn, artistColumn, albumColumn , durationColumn;
 
     private ArrayList<Song> songList;
 
@@ -43,7 +43,6 @@ public class Controller_Library implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         this.songList = Database.getInstance().getLibraryForUser();
-        System.out.println(songList);
         final ObservableList<Song> data = FXCollections.observableArrayList();
         for (Song song: songList) {
             data.add(song);
@@ -52,8 +51,7 @@ public class Controller_Library implements Initializable {
         songNameColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
         albumColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
-        columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
-
+        durationColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
 
         tableView.setItems(data);
     }
