@@ -27,7 +27,7 @@
       <Button layoutX="139.0" layoutY="371.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #8cd1ff;" text="SAVE" textFill="WHITE" />
       <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="CANCEL" textFill="WHITE" />
       <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
-      <Text fill="WHITE" layoutX="132.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
+      <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>
             <Font name="Book Antiqua" size="26.0" />
          </font>

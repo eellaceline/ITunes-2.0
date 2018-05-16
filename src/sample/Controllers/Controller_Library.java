@@ -84,6 +84,9 @@ public class Controller_Library implements Initializable {
         }
 
     }
+    public void searchForSongs(){
+
+    }
 
     public void handleAccountSettings () {
         try {

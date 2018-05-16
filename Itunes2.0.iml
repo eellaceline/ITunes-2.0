@@ -13,5 +13,6 @@
     <orderEntry type="library" name="mail" level="project" />
     <orderEntry type="library" name="bfopdf" level="project" />
     <orderEntry type="library" name="pdfbox-app-2.0.9" level="project" />
+    <orderEntry type="library" name="mailapi" level="project" />
   </component>
 </module>

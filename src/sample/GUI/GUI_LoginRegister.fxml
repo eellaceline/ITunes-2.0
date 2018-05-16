@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-image: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_LoginRegister">
    <children>
-      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-210.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
@@ -25,7 +25,7 @@
       <Button fx:id="exitButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #e6e6e6;" text="EXIT" textFill="WHITE" />
       <Button fx:id="helpButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #e6e6e6;" text="HELP" textFill="WHITE" />
       <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
-      <Text fill="WHITE" layoutX="125.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
+      <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>
             <Font name="Book Antiqua" size="26.0" />
          </font>

@@ -18,11 +18,11 @@
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="132.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE" textAlignment="CENTER">
-         <font>
-            <Font name="Book Antiqua" size="26.0" />
-         </font>
-      </Text>
+        <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
+            <font>
+                <Font name="Book Antiqua" size="26.0" />
+            </font>
+        </Text>
         <TextField fx:id="userNameTextField" alignment="CENTER" layoutX="117.0" layoutY="214.0" promptText="USERNAME" />
         <TextField fx:id="emailField" alignment="CENTER" layoutX="117.0" layoutY="256.0" promptText="EMAIL" />
         <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="116.0" layoutY="301.0" promptText="PASSWORD" />

@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AccountSettings">
     <children>
-      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
@@ -33,10 +33,10 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="124.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
-         <font>
-            <Font name="Book Antiqua" size="27.0" />
-         </font>
-      </Text>
+        <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
+            <font>
+                <Font name="Book Antiqua" size="26.0" />
+            </font>
+        </Text>
     </children>
 </AnchorPane>

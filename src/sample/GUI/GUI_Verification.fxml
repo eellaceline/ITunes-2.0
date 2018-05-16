@@ -32,7 +32,7 @@
          </font>
       </Text>
       <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
-      <Text fill="WHITE" layoutX="132.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNTUNE">
+      <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>
             <Font name="Book Antiqua" size="26.0" />
          </font>

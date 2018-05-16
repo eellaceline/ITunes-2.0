@@ -18,9 +18,9 @@
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
-      <Text fill="#797979" layoutX="116.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REMOVE SONG">
+      <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>
-            <Font name="Agency FB" size="22.0" />
+            <Font name="Book Antiqua" size="26.0" />
          </font>
       </Text>
       <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />

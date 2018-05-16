@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -28,11 +29,11 @@
             <Image url="@../photos/logo-float.png" />
          </image>
         </ImageView>
-        <ScrollPane layoutY="105.0" prefHeight="358.0" prefWidth="380.0">
+        <ScrollPane layoutY="111.0" prefHeight="294.0" prefWidth="380.0">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="378.0">
-                    <children>
-                        <TableView fx:id="tableView" layoutY="-1.0" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="378.0">
+               <children>
+                        <TableView fx:id="tableView" layoutX="-1.0" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC;">
                             <columns>
                                 <TableColumn fx:id="columnSongName" prefWidth="95.0" style="-fx-background-color: #b3b3b3; -fx-text-fill: #FFFFFF;" text="Title" />
                                 <TableColumn fx:id="columnArtist" prefWidth="95.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
@@ -40,9 +41,10 @@
                                 <TableColumn fx:id="columnDuration" prefWidth="95.0" style="-fx-background-color: #CCCCCC;" text="🕒" />
                             </columns>
                         </TableView>
-                    </children>
+               </children>
                 </AnchorPane>
             </content>
         </ScrollPane>
+      <TextField fx:id="searchField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="100.0" layoutY="422.0" onAction="#searchForSongs" prefHeight="27.0" prefWidth="176.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
     </children>
 </AnchorPane>
