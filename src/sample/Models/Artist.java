@@ -2,13 +2,19 @@ package sample.Models;
 
 public class Artist {
     private int artistID;
-    private String firstName;
-    private String lastName;
+    private String artistName;
 
-    public Artist(int artistID, String firstName, String lastName) {
+    public Artist(int artistID, String artistName) {
         this.artistID = artistID;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.artistName = artistName;
+    }
+
+    public Artist(Artist artist) {
+        this.artistID = artist.getArtistID();
+    }
+
+    public String toString() {
+        return artistName;
     }
 
     public int getArtistID() {
@@ -19,19 +25,12 @@ public class Artist {
         this.artistID = artistID;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }

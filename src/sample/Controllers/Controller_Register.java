@@ -4,13 +4,18 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import sample.Models.Database;
+import sample.Handlers.Handler_Alert;
+import sample.Handlers.Handler_SendEmail;
+import sample.Models.Singletons.Database;
 import sample.Models.User;
 
+import javax.tools.Tool;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -46,6 +51,26 @@ public class Controller_Register implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        final Tooltip usernameTooltip = new Tooltip();
+        final Tooltip emailTooltip = new Tooltip();
+        final Tooltip passwordTooltip = new Tooltip();
+        final Tooltip confirmPasswordTooltip = new Tooltip();
+
+        usernameTooltip.setText("Enter your desired username");
+        userNameTextField.setTooltip(usernameTooltip);
+
+        emailTooltip.setText("Enter your email-address");
+        emailField.setTooltip(emailTooltip);
+
+        passwordTooltip.setText("Enter your desired password");
+        passwordField.setTooltip(passwordTooltip);
+
+        confirmPasswordTooltip.setText("Enter your password again");
+        confirmField.setTooltip(confirmPasswordTooltip);
+
+
+
         //This will request focus on the pane so the fields will update since they are updating the moment they lose focus
         rootPane.setOnMouseClicked(event -> rootPane.requestFocus());
         //userName
@@ -127,17 +152,31 @@ public class Controller_Register implements Initializable {
 
     @FXML
     void handleCancel(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_LoginRegister.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in handleCancel");
+        }
     }
 
     @FXML
     void handleHelp(ActionEvent event) {
-
+        Handler_Alert.information(
+                "Help",
+                "I will show you what to do here ↓",
+                "This is where you can create your own account." +
+                        "\nEnter your desired username, your email address " +
+                        "\nand your password." +
+                        "\nREMEMBER: You need to confirm you password.",
+                false
+        );
     }
 
     @FXML
     void registerAccount(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+
         alert.setHeaderText("ERROR!");
         if (!usernameBoolean && !emailBoolean) {
             alert.setContentText("The username and email is in wrong format!");
@@ -157,9 +196,37 @@ public class Controller_Register implements Initializable {
         } else {
             //TODO actual function of the button, so far only regex checks
             User user = Database.getInstance().getUser(userNameTextField.getText(), emailField.getText());
+            System.out.println(user);
             if(user == null) {
+                System.out.println("User available");
 
+                Database.getInstance().saveAccount(userNameTextField.getText(),emailField.getText(),passwordField.getText());
+
+                Handler_Alert.information(
+                        "Success",
+                        "Congratulation",
+                        "You have created an account",
+                        false);
+
+                Handler_SendEmail.sendMail(
+                        "Account created",
+                        "Dear newly customer, you have created an account at Soundwave."
+                );
+
+                paneChangeToLogin();
             }
+            else
+                System.out.println("user is taken");
+        }
+    }
+
+    public void paneChangeToLogin() {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_LoginRegister.fxml"));
+            rootPane.getChildren().setAll(pane);
+        }
+        catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToLibrary");
         }
     }
 }

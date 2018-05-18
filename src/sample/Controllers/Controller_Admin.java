@@ -1,78 +1,93 @@
 package sample.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import sample.Handlers.Handler_Alert;
+import sample.Handlers.Handler_HelpCancel;
+import sample.Models.Singletons.Cart;
+import sample.Models.Singletons.LoggedInUser;
 
-import javax.swing.text.html.ImageView;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-public class Controller_Admin implements Initializable{
+public class Controller_Admin implements  Handler_HelpCancel, Initializable {
 
     @FXML
     private AnchorPane rootPane;
-
-    @FXML
-    private Button addSongButton;
-
-    @FXML
-    private Button cancelButton;
-
-    @FXML
-    private Button settingsButton;
-
-    @FXML
-    private Button removeUserButton;
-
-    @FXML
-    private Button changePriceButton;
-
-    @FXML
-    private TextField addSongField;
-
-    @FXML
-    private TextField removeUserField;
-
-    @FXML
-    private TextField changePriceField;
-
-    @FXML
-    private TextField removeSongField;
-
-    @FXML
-    private Button removeSongButton;
-
-    @FXML
-    private ImageView logoView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public boolean removeSongs() {
-        boolean success = false;
-
-        return success;
+    @FXML
+    void paneChangeToAddSong(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_AddSong.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToAddSong");
+        }
     }
 
-    public void addSongs() {
-
+    @FXML
+    void paneChangeToChangePrice(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_ChangePrice.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToChangePrice");
+        }
     }
 
-    public boolean removeUser() {
-        boolean success = false;
-
-        return success;
+    @FXML
+    void paneChangeToRemoveSong(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_RemoveSong.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToRemoveSong");
+        }
     }
 
-    public boolean changePrice() {
-        boolean success = false;
 
-        return success;
+    @FXML
+    void paneChangeToUserList(){
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Userlist.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            System.out.println("IOException found in paneChangeToUserList");
+        }
+    }
+
+    @Override
+    public void handleHelp() {
+        Handler_Alert.information(
+                "Help",
+                "I will show you what to do here ↓",
+                "This is for admins. Here you can remove and add songs, " +
+                        "\nremove and add users and change price.",
+                false
+        );
+    }
+
+    @Override
+    public void handleCancel() {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Login.fxml"));
+            rootPane.getChildren().setAll(pane);
+            LoggedInUser.getInstance().setUser(null);
+            Cart.getInstance().setSongList(null);
+        }
+        catch (IOException ex) {
+            System.out.println("IOException found in handleCancel");
+        }
+
     }
 }
