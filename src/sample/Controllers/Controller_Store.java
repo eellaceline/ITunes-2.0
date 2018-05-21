@@ -1,5 +1,7 @@
 package sample.Controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -57,7 +59,7 @@ public class Controller_Store implements Initializable {
     private ArrayList<Song> songCart = new ArrayList<>();
 
     @FXML
-    private TextField userBalanceField;
+    private TextField userBalanceField, searchField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,6 +70,12 @@ public class Controller_Store implements Initializable {
 
         userBalance();
 
+        searchField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                searchForSongs();
+            }
+        });
 
         tableView.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -84,16 +92,16 @@ public class Controller_Store implements Initializable {
                             "Cant add same song twice to the cart",
                             false
                     );
-
             }
         });
 
         this.songList = Database.getInstance().getStore();
+        updateTable(songList);
+    }
 
+    public void updateTable(ArrayList<Song> songList) {
         final ObservableList<Song> data = FXCollections.observableArrayList();
-        for (Song song: songList) {
-            data.add(song);
-        }
+        data.addAll(songList);
 
         columnSongName.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         columnArtist.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
@@ -101,8 +109,25 @@ public class Controller_Store implements Initializable {
         columnDuration.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
         columnPrice.setCellValueFactory(new PropertyValueFactory<Song, String>("price"));
 
-
         tableView.setItems(data);
+    }
+
+    public void searchForSongs() {
+        ArrayList<Song> searchedSongList = new ArrayList<>();
+
+        // searches if the searchField isn't empty
+        if (!searchField.getText().equals("")) {
+            for (Song song : songList) {
+                if (song.getSongName().toLowerCase().startsWith(searchField.getText().toLowerCase())) {
+                    searchedSongList.add(song);
+                }
+            }
+            updateTable(searchedSongList);
+        }
+        // if it is empty it switches back to the original list
+        else {
+            updateTable(songList);
+        }
     }
 
     // returns true if value exists, false if it doesnt exist
@@ -184,12 +209,8 @@ public class Controller_Store implements Initializable {
 
     @FXML
     void userBalance(){
-        System.out.println(LoggedInUser.getInstance().getUser());
-        System.out.println(LoggedInUser.getInstance().getUser().getBalance());
         userBalanceField.setText(Integer.toString(LoggedInUser.getInstance().getUser().getBalance()));
-
-
     }
 
-    }
+}
 

@@ -12,7 +12,11 @@ public class Handler_Password {
 
         for (int i=0; i < letters.length; i++) {
             //System.out.println("BE: " + Character.toString((char)letters[i]));
+            System.out.println("i: "+i);
+            System.out.println("BE: " + letters[i] + (char)letters[i]);
             letters[i] = (byte) (letters[i] + 5);
+            System.out.println("EF: " + letters[i] + (char)letters[i]);
+            System.out.println("---------------");
             encryptedPW += Character.toString((char)letters[i]);
             //System.out.println("AE: " + Character.toString((char)letters[i]));
         }
@@ -35,11 +39,11 @@ public class Handler_Password {
         Random random = new SecureRandom();
 
         int password = 8;
-        String letters = "ABCDEFGHJKMNPQRSTUVWXYZ123456789";
+        String letters = "abcdefgh123456";
 
         String pw = "";
         for (int i = 0; i<password; i++){
-            int index = (int)(random.nextInt()*letters.length());
+            int index = (random.nextInt(letters.length()));
             pw += letters.substring(index, index+1);
 
         }return pw;

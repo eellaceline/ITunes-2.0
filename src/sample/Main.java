@@ -13,9 +13,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("GUI/GUI_LoginRegister.fxml"));
-        primaryStage.setTitle("Suntune");
+        primaryStage.setTitle("Soundwave");
         primaryStage.setScene(new Scene(root));
-        primaryStage.getIcons().add(new Image("sample/photos/logodark.png"));
+        primaryStage.getIcons().add(new Image("sample/photos/soundwave_music_wave_sound_audio-512.png"));
         primaryStage.show();
 
     }

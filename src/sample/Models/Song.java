@@ -53,6 +53,15 @@ public class Song {
         this.album = album;
     }
 
+    // constructor without assigning artist arraylist and without album
+    public Song(int songID, String songName, String length, int price, String genre) {
+        this.songID = songID;
+        this.songName = songName;
+        this.length = length;
+        this.price = price;
+        this.genre = genre;
+    }
+
     // constructor with a Song object as parameter
     public Song(Song song) {
         this.songID = song.getSongID();
@@ -86,7 +95,7 @@ public class Song {
                 ", artists=" + artists +
                 ", genre='" + genre + '\'' +
                 ", album='" + album + '\'' +
-                ", artistNames='" + combineArtistName() + '\'' +
+                //", artistNames='" + combineArtistName() + '\'' +
                 '}';
     }
 

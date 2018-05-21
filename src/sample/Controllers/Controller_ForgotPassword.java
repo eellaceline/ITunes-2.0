@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
 import sample.Handlers.Handler_Password;
 import sample.Handlers.Handler_SendEmail;
+import sample.Models.Singletons.Database;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,9 @@ public class Controller_ForgotPassword implements Initializable {
 
     @FXML
     private AnchorPane rootPane;
+
+    @FXML
+    private TextField emailField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,7 +52,7 @@ public class Controller_ForgotPassword implements Initializable {
                         "\nyour old password. " +
                         "Enter your email address " +
                         "\nthat you used when your registered your account and we will" +
-                        "\nsend you a new one. ",
+                        "\nsend you a new password. ",
                 false
         );
     }
@@ -56,27 +60,39 @@ public class Controller_ForgotPassword implements Initializable {
 
     @FXML
     void sendEmail(ActionEvent event) {
-        Handler_SendEmail.sendMail(
-                "Forgot password",
-                "Dear customer," +
-                        "\nYou have requested a new password that you need in order to log in. The password in this email is " +
-                        "\nrandom a random generated that you might want to change when you log in." +
-                        "\nHave a good day!"
-        );
-        Handler_Alert.information(
-                "Information",
-                "Dear customer",
-                "You have requested a new password." +
-                        "\nCheck your email for the new password.",
-                false
-        );
-    }
+        String newPW = Handler_Password.generateRandomPassword();
+        try {
+            Handler_SendEmail.sendMail(
+                    "Forgot password",
+                    "Dear " + emailField.getText() +
+                            "\n" +
+                            "\nYou have requested a new password that you need in order to log in. The password in this email is " +
+                            "\nrandom a random generated that you might want to change when you log in." +
+                            "\n\nYour new password is: " + newPW +
+                            "\n\nHave a good day!"
+            );
+            Handler_Alert.information(
+                    "Information",
+                    "Dear customer",
+                    "You have requested a new password." +
+                            "\nCheck your email for the new password.",
+                    false
+            );
 
-    public static String generateNewPassword() {
-        String pw = "";
-        pw = Handler_Password.encryption(Handler_Password.generateRandomPassword());
-        return pw;
+            Database.getInstance().updatePassword(emailField.getText(), newPW);
+
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
+
+            Handler_Alert.alert(
+                    "Error!",
+                    "NullPointerException",
+                    "You cant leave this field empty",
+                    false
+            );
+        }
     }
 }
+
 
 

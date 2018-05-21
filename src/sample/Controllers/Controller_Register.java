@@ -69,8 +69,6 @@ public class Controller_Register implements Initializable {
         confirmPasswordTooltip.setText("Enter your password again");
         confirmField.setTooltip(confirmPasswordTooltip);
 
-
-
         //This will request focus on the pane so the fields will update since they are updating the moment they lose focus
         rootPane.setOnMouseClicked(event -> rootPane.requestFocus());
         //userName
@@ -210,7 +208,8 @@ public class Controller_Register implements Initializable {
 
                 Handler_SendEmail.sendMail(
                         "Account created",
-                        "Dear newly customer, you have created an account at Soundwave."
+                        "Dear newly customer, you have created an account at Soundwave." +
+                                "\nAn email has been sent to you as a comfirmation."
                 );
 
                 paneChangeToLogin();
