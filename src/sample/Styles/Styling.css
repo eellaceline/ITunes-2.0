@@ -25,8 +25,8 @@
 
 /* Adds a small BLACK (For now) color around buttons when pressed, to add some visual feedback that he button works*/
 .button:pressed {
-    -fx-border-width: 2px;
-    -fx-border-color: BLACK;
+    -fx-border-width: 1px;
+    -fx-border-color: WHITE;
 }
 
 /* Can also do something cool with hovered in the future */
