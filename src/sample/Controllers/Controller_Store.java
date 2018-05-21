@@ -1,5 +1,7 @@
 package sample.Controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -65,7 +67,14 @@ public class Controller_Store implements Initializable {
         userBalanceField.setTooltip(userBalanceTooltip);
 
         userBalance();
-                
+
+        searchField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                searchForSongs();
+            }
+        });
+
         tableView.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
 
@@ -102,9 +111,9 @@ public class Controller_Store implements Initializable {
     }
 
     public void searchForSongs() {
-
         ArrayList<Song> searchedSongList = new ArrayList<>();
 
+        System.out.println("workwork");
         // searches if the searchField isn't empty
         if (!searchField.getText().equals("")) {
             for (Song song : songList) {

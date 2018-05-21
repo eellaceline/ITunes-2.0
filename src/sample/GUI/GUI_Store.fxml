@@ -48,6 +48,6 @@
          </content>
       </ScrollPane>
       <TextField fx:id="userBalanceField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="170.0" layoutY="426.0" onAction="#userBalance" prefHeight="25.0" prefWidth="76.0" promptText="BALANCE" style="-fx-background-color: #cccccc;" />
-      <TextField fx:id="searchField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="23.0" layoutY="426.0" onAction="#searchForSongs" prefHeight="25.0" prefWidth="128.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
+      <TextField fx:id="searchField" alignment="CENTER" focusTraversable="false" layoutX="23.0" layoutY="426.0" onAction="#searchForSongs" prefHeight="25.0" prefWidth="128.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
 </children>
 </AnchorPane>
