@@ -46,6 +46,10 @@ public class User extends Account {
         this.balance+=balance;
     }
 
+    public void reduceBalance(int balance) {
+        this.balance-=balance;
+    }
+
     public Library getLibrary() {
         return library;
     }

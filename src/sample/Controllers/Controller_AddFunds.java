@@ -9,8 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,16 +31,14 @@ public class Controller_AddFunds implements Initializable {
     }
     @FXML
     void handleAdd5Dollar(ActionEvent event) {
-
-            LoggedInUser.getInstance().getUser().addBalance(5);
-            System.out.println(LoggedInUser.getInstance().getUser().getBalance());
-        }
+        LoggedInUser.getInstance().getUser().addBalance(5);
+        System.out.println(LoggedInUser.getInstance().getUser().getBalance());
+    }
 
     @FXML
     void handleAdd10Dollar(ActionEvent event) {
         LoggedInUser.getInstance().getUser().addBalance(10);
         System.out.println(LoggedInUser.getInstance().getUser().getBalance());
-
     }
 
     @FXML
@@ -49,6 +49,8 @@ public class Controller_AddFunds implements Initializable {
 
     @FXML
     void handleBackToStore(ActionEvent event) {
+        Database.getInstance().changeBalance();
+
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Store.fxml"));
             rootPane.getChildren().setAll(pane);

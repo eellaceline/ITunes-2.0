@@ -19,11 +19,13 @@ public class Database {
     private String url = "jdbc:mysql://den1.mysql3.gear.host:3306/itunes?user=itunes&password=itunes!";
     //String url = "jdbc:mysql://127.0.0.1:3306/musicdb?user=root&password=root";
 
+    private PreparedStatement ps;
     private Statement statement;
+    private Connection c;
 
     private Database() {
         try {
-            Connection c = (Connection) DriverManager.getConnection(url);
+            c = (Connection) DriverManager.getConnection(url);
             statement = c.createStatement();
         }
         catch (SQLException ex) {
@@ -42,7 +44,12 @@ public class Database {
     public User getUser(String userName) throws NullPointerException {
         User user = null;
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + userName + "';");
+            ps = c.prepareStatement("SELECT * FROM user WHERE username = ?");
+            ps.setString(1, userName);
+
+            ResultSet rs = ps.executeQuery();
+
+            //ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + userName + "';");
 
             while(rs.next()) {
                 user = new User(
@@ -67,7 +74,13 @@ public class Database {
     public User getUser(String userName, String email) throws NullPointerException {
         User user = null;
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + userName + "' AND email = '" + email + "';");
+            ps = c.prepareStatement("SELECT * FROM user WHERE username = ? AND email = ?");
+            ps.setString(1, userName);
+            ps.setString(2, email);
+
+            ResultSet rs = ps.executeQuery();
+
+            //ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + userName + "' AND email = '" + email + "';");
 
             while(rs.next()) {
                 user = new User(
@@ -89,23 +102,74 @@ public class Database {
         return user;
     }
 
+    public void addOrder() {
+
+
+    }
+
+    public boolean changeBalance() {
+        try {
+            ps = c.prepareStatement("UPDATE user SET balance = ? WHERE user_id = ?");
+            ps.setInt(1, LoggedInUser.getInstance().getUser().getBalance());
+            ps.setInt(2, LoggedInUser.getInstance().getUser().getUserID());
+
+            int rows = ps.executeUpdate();
+
+            //int rows = statement.executeUpdate("UPDATE user SET balance = " + LoggedInUser.getInstance().getUser().getBalance() + " WHERE user_id = " + LoggedInUser.getInstance().getUser().getUserID());
+            if (rows != 0) {
+                Handler_Alert.information(
+                        "Information",
+                        "Balance changed",
+                        "Your balance is " + LoggedInUser.getInstance().getUser().getBalance() + ".",
+                        false
+                );
+                return true;
+            }
+            else {
+                Handler_Alert.alert(
+                        "Error",
+                "Balance not changed",
+                "Your balance wasnt changed",
+                false
+                );
+
+                return false;
+            }
+        }
+        catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing changeBalance",
+                    false
+            );
+
+            return false;
+        }
+    }
+
     //Update password
     public boolean changePassword(String username, String password ){
         boolean isConfirmed = false;
         System.out.println(username + password);
         String tempPw = Handler_Password.encryption(password);
 
-        System.out.println("UPDATE user SET password = '" + password + "' WHERE username = '" + username + "'");
+        //System.out.println("UPDATE user SET password = '" + password + "' WHERE username = '" + username + "'");
 
         try {
+            ps = c.prepareStatement("UPDATE user SET password = ? WHERE username = ?");
+            ps.setString(1, tempPw);
+            ps.setString(2, username);
 
-            int rows = statement.executeUpdate("UPDATE user SET password = '" + tempPw + "' WHERE username = '" + username + "'");
+            int rows = ps.executeUpdate();
+
+            //int rows = statement.executeUpdate("UPDATE user SET password = '" + tempPw + "' WHERE username = '" + username + "'");
             isConfirmed = true;
             System.out.println(rows);
             if (rows != 0){
                 Handler_Alert.information(
                         "Information",
-                        "Password Changed",
+                        "Password changed",
                         "Your new password is " + password + ".",
                         false
                 );
@@ -117,7 +181,8 @@ public class Database {
                         false
                 );
             }
-        }catch (SQLException ex){  Handler_Alert.alert(
+        }catch (SQLException ex){
+            Handler_Alert.alert(
                 "Error",
                 "SQLException",
                 "Error executing an update to changing password",
@@ -134,8 +199,13 @@ public class Database {
         boolean isConfirmed = false;
 
         try {
+            ps = c.prepareStatement("UPDATE user SET username = ? WHERE username = ?");
+            ps.setString(1, newUsername);
+            ps.setString(2, username);
 
-            int rows = statement.executeUpdate("UPDATE user SET username = '" + newUsername + "' WHERE username = '" + username + "'");
+            int rows = ps.executeUpdate();
+
+            //int rows = statement.executeUpdate("UPDATE user SET username = '" + newUsername + "' WHERE username = '" + username + "'");
             isConfirmed = true;
             System.out.println(rows);
             if (rows != 0){
@@ -169,7 +239,14 @@ public class Database {
     public boolean updatePrice(String songName, String artistName, int newPrice) {
         boolean isConfirmed = false;
         try {
-            int rows = statement.executeUpdate("UPDATE songs, artist SET price = '" + newPrice + "' WHERE songs.songName = '" + songName +"' AND artist.artistName = '" + artistName + "';");
+            ps = c.prepareStatement("UPDATE songs, artist SET price = ? WHERE songs.songName = ? AND artist.artistName = ?;");
+            ps.setInt(1, newPrice);
+            ps.setString(2, songName);
+            ps.setString(3, artistName);
+
+            int rows = ps.executeUpdate();
+
+            //int rows = statement.executeUpdate("UPDATE songs, artist SET price = '" + newPrice + "' WHERE songs.songName = '" + songName +"' AND artist.artistName = '" + artistName + "';");
             isConfirmed = true;
             System.out.println(rows);
             if (rows != 0) {
@@ -198,71 +275,312 @@ public class Database {
         return isConfirmed;
     }
 
-    // SQL statement in this order: Artist, Album, Song
-    public void addSong(String songName, String artistName, String genreName) {
+    public void addSongsForUser(ArrayList<Integer> songID) {
 
-        try {
-            statement.executeUpdate("INSERT INTO songs(songName) VALUES ('" + songName + "')");
-        } catch (SQLException ex) {
-            Handler_Alert.alert(
-                    "Error",
-                    "SQLException",
-                    "Error when inserting song name",
-                    false
-            );
+        String where = "";
+        for (int i=0; i<songID.size(); i++) {
+            if (i == songID.size() - 1)
+                where += "(" + LoggedInUser.getInstance().getUser().getUserID() + "," + songID.get(i) + ");";
+
+            else
+                where += "(" + LoggedInUser.getInstance().getUser().getUserID() + "," + songID.get(i) + "),";
         }
+        System.out.println(where);
 
-        //TODO needs check if the artist already exists
         try {
-            statement.executeUpdate("INSERT INTO artist(artistName) VALUES ('" + artistName +"')");
-        } catch (SQLException ex) {
-            Handler_Alert.alert(
-                    "Error",
-                    "SQLException",
-                    "Error executing when adding artist",
-                    false
-            );
+            ps = c.prepareStatement("INSERT INTO user_has_songs(user_user_id, songs_song_id) VALUES ?");
+            ps.setString(1, where);
+
+            //ps.executeUpdate();
+            statement.executeUpdate("INSERT INTO user_has_songs(user_user_id, songs_song_id) VALUES " + where);
         }
-
-        //TODO check DB if genre exists before executing the update
-        try {
-            ResultSet rs = statement.executeQuery("INSERT INTO genre (genreName) VALUES ('" + genreName +"')");
-        } catch (SQLException ex) {
+        catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
                     "SQLException",
-                    "Error executing when adding genre",
-                    false
-            );
-        }
-
-        //TODO if statement that checks if a there exists an album or not,
-        // if there is no album to be added a secondary update without the album_album_id needs to be made
-        try {
-            statement.executeUpdate("INSERT INTO songs (songName, songDuration, price, genre_genreName, album_album_id) VALUES ('" + songName +"')");
-        } catch (SQLException ex) {
-            Handler_Alert.alert(
-                    "Error",
-                    "SQLException",
-                    "Error executing when adding song",
+                    "Error executing query addSongForUser",
                     false
             );
         }
     }
 
-    public Song getSong(String songName, String artistName, String genreName) {
-        Song song = null;
+    // SQL statement in this order: Artist, Album, Song
+    public void addSong(String songName, String songDuration, int price, String genreName, String albumName, String artistName) {
+        long startTime = System.nanoTime();
+
+        Artist artist = null;
+        boolean foundArtist = false;
 
         try {
-            ResultSet rs = statement.executeQuery("SELECT songName, artistName, genreName FROM songs, artist, genre");
-        } catch (SQLException ex) {
+            ps = c.prepareStatement("SELECT * FROM artist WHERE artistName = ?");
+            ps.setString(1, artistName);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                foundArtist = true;
+                artist = new Artist(rs.getInt(1), rs.getString(2));
+            }
+        }
+        catch (SQLException ex) {
+
+        }
+
+        //TODO needs check if the artist already exists
+        if (!foundArtist) {
+            try {
+                statement.executeUpdate("INSERT INTO artist(artistName) VALUES ('" + artistName + "')");
+            } catch (SQLException ex) {
+                Handler_Alert.alert(
+                        "Error",
+                        "SQLException",
+                        "Error executing when adding artist",
+                        false
+                );
+            }
+        }
+
+        boolean foundGenre = false;
+        try {
+            ps = c.prepareStatement("SELECT * FROM genre WHERE genreName = ?");
+            ps.setString(1, genreName);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                foundGenre = true;
+            }
+        }
+        catch (SQLException ex) {
+
+        }
+
+
+        //TODO check DB if genre exists before executing the update
+        if (!foundGenre) {
+            try {
+                statement.executeUpdate("INSERT INTO genre (genreName) VALUES ('" + genreName + "')");
+            } catch (SQLException ex) {
+                Handler_Alert.alert(
+                        "Error",
+                        "SQLException",
+                        "Error executing when adding genre",
+                        false
+                );
+            }
+        }
+
+        System.out.println(albumName);
+        boolean foundAlbum = false;
+        try {
+            ps = c.prepareStatement("SELECT * FROM album WHERE albumName = ?");
+            ps.setString(1, albumName);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                foundAlbum = true;
+            }
+        }
+        catch (SQLException ex) {
+
+        }
+
+        if (!foundAlbum) {
+            if (artist == null) {
+                try {
+                    ps = c.prepareStatement("SELECT * FROM artist WHERE artistName = ?");
+                    ps.setString(1, artistName);
+
+                    ResultSet rs = ps.executeQuery();
+
+                    while (rs.next()) {
+                        artist = new Artist(rs.getInt(1), rs.getString(2));
+                    }
+                }
+                catch (SQLException ex) {
+
+                }
+            }
+
+
+            System.out.println(artist.getArtistID());
+            try {
+                ps = c.prepareStatement("INSERT INTO album(albumName,artist_artist_id) VALUES (?,?)");
+                ps.setString(1, albumName);
+                ps.setInt(2, artist.getArtistID());
+
+                ps.executeUpdate();
+            }
+            catch (SQLException ex) {
+                Handler_Alert.alert(
+                        "Error",
+                        "SQLException",
+                        "Error when insert into album",
+                        false
+                );
+            }
+        }
+
+        //TODO if statement that checks if a there exists an album or not,
+        // if there is no album to be added a secondary update without the album_album_id needs to be made
+        if (albumName.equals("")) {
+            System.out.println("add song without album");
+            try {
+                ps = c.prepareStatement("INSERT INTO songs (songName, songDuration, price, genre_genreName) VALUES (?,?,?,?)");
+                ps.setString(1, songName);
+                ps.setString(2, songDuration);
+                ps.setInt(3, price);
+                ps.setString(4, genreName);
+                //statement.executeUpdate("INSERT INTO songs (songName, songDuration, price, genre_genreName, album_album_id) VALUES ('" + songName +"')");
+            } catch (SQLException ex) {
+                Handler_Alert.alert(
+                        "Error",
+                        "SQLException",
+                        "Error executing when adding song",
+                        false
+                );
+            }
+        }
+        else {
+            System.out.println("add song with album");
+            int albumID = 0;
+            try {
+                ps = c.prepareStatement("SELECT album_id FROM album WHERE albumName = ?");
+                ps.setString(1, albumName);
+
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    albumID = rs.getInt(1);
+                }
+            }
+            catch (SQLException ex) {
+                Handler_Alert.alert(
+                        "Error",
+                        "SQLException",
+                        "Error when selecting album_id",
+                        false
+                );
+            }
+            try {
+                ps = c.prepareStatement("INSERT INTO songs (songName, songDuration, price, genre_genreName, album_album_id) VALUES (?,?,?,?,?)");
+                ps.setString(1, songName);
+                ps.setString(2, songDuration);
+                ps.setInt(3, price);
+                ps.setString(4, genreName);
+                ps.setInt(5, albumID);
+
+                ps.executeUpdate();
+                //statement.executeUpdate("INSERT INTO songs (songName, songDuration, price, genre_genreName, album_album_id) VALUES ('" + songName +"')");
+            } catch (SQLException ex) {
+                Handler_Alert.alert(
+                        "Error",
+                        "SQLException",
+                        "Error executing when adding song",
+                        false
+                );
+            }
+        }
+
+        int songID = 0;
+        try {
+            ps = c.prepareStatement("SELECT song_id FROM songs ORDER BY song_id DESC LIMiT 1;");
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                songID = rs.getInt(1);
+            }
+        }
+        catch (SQLException ex) {
             Handler_Alert.alert(
                     "Error",
                     "SQLException",
-                    "Error executing when getting song",
+                    "Error when getting latest added song_id | row488",
                     false
             );
         }
+
+        try {
+            ps = c.prepareStatement("INSERT INTO songs_has_artist(songs_song_id,artist_artist_id) VALUES (?,?)");
+            ps.setInt(1, songID);
+            ps.setInt(2, artist.getArtistID());
+
+            ps.executeUpdate();
+        }
+        catch (SQLException ex) {
+
+        }
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println("addSong execute time(ms): "+duration/1000000);
+    }
+
+    public Song getSong(String songName, String artistName, String genreName) {
+        Song song = null;
+
+        ArrayList<Artist> tempArtistsList = new ArrayList<>();
+        Artist artist = null;
+
+        try {
+            ps = c.prepareStatement("SELECT * FROM artist WHERE artist_id IN(SELECT artist_artist_id FROM songs_has_artist WHERE songs_song_id IN(SELECT song_ID FROM songs WHERE songName = ? AND genre_genreName = ?))");
+            ps.setString(1, songName);
+            ps.setString(2, genreName);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                tempArtistsList.add(new Artist(rs.getInt(1), rs.getString(2)));
+            }
+
+            // if the result is null jump out of function
+            if (tempArtistsList.isEmpty()) {
+                System.out.println("no songs");
+                return song;
+            }
+
+            else {
+                for (Artist tempArtist: tempArtistsList) {
+                    if (tempArtist.getArtistName().equals(artistName)) {
+                        artist = tempArtist;
+                    }
+                }
+            }
+        }
+        catch (SQLException ex) {
+            System.out.println("error finding artist");
+        }
+
+        // if artist is null jump out of function
+        if (artist == null) {
+            return song;
+        }
+
+        try {
+            ps = c.prepareStatement("SELECT * FROM songs WHERE song_id IN(SELECT songs_song_id FROM songs_has_artist WHERE songs_song_id IN(SELECT song_ID FROM songs WHERE songName = ? AND genre_genreName = ?) AND artist_artist_id = ?)");
+            ps.setString(1, songName);
+            ps.setString(2, genreName);
+            ps.setInt(3, artist.getArtistID());
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                song = new Song(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getString(5),
+                        rs.getString(6)
+                );
+            }
+        }
+        catch (SQLException ex) {
+
+        }
+
         return song;
     }
 
@@ -579,6 +897,8 @@ public class Database {
         return tempArtistsList;
     }
 
+
+    // a version that prints most values in console
     public ArrayList<Song> getLibraryForUserDebug() {
         long startTime = System.nanoTime();
 

@@ -69,8 +69,6 @@ public class Controller_Register implements Initializable {
         confirmPasswordTooltip.setText("Enter your password again");
         confirmField.setTooltip(confirmPasswordTooltip);
 
-
-
         //This will request focus on the pane so the fields will update since they are updating the moment they lose focus
         rootPane.setOnMouseClicked(event -> rootPane.requestFocus());
         //userName

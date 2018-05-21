@@ -1,5 +1,7 @@
 package sample.Controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,13 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
-import sample.Handlers.Handler_HelpCancel;
-import sample.Models.Library;
 import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.Database;
 import sample.Models.Singletons.LoggedInUser;
 import sample.Models.Song;
-import sample.Models.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,22 +36,46 @@ public class Controller_Library implements Initializable {
 
     private ArrayList<Song> songList;
 
-    private TextField searchSongField = new TextField();
+    @FXML
+    private TextField searchField;
+
+    Thread backgroundThread = new Thread(() -> {
+        this.songList = Database.getInstance().getLibraryForUser();
+    });
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        searchField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                searchForSongs();
+            }
+        });
+
         this.songList = Database.getInstance().getLibraryForUser();
+        updateTable(songList);
+
+    }
+
+//    public void updateSongListFromDB() {
+//        System.out.println("update");
+//        if (backgroundThread.getState() == Thread.State.TERMINATED || backgroundThread.getState() == Thread.State.NEW) {
+//            System.out.println("thread started");
+//            backgroundThread.start();
+//        }
+//    }
+
+    public void updateTable(ArrayList<Song> songList) {
+
         final ObservableList<Song> data = FXCollections.observableArrayList();
-        for (Song song: songList) {
-            data.add(song);
-        }
+        data.addAll(songList);
 
         songNameColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songName"));
         artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artistNames"));
         albumColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         durationColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("length"));
-        
+
         tableView.setItems(data);
     }
 
@@ -87,20 +110,33 @@ public class Controller_Library implements Initializable {
         catch (IOException ex) {
             System.out.println("IOException found in handleLogOut");
         }
-
     }
-    public void searchForSongs(){
 
+    public void searchForSongs() {
+        ArrayList<Song> searchedSongList = new ArrayList<>();
+
+        // searches if the searchField isn't empty
+        if (!searchField.getText().equals("")) {
+            for (Song song : songList) {
+                if (song.getSongName().toLowerCase().startsWith(searchField.getText().toLowerCase())) {
+                    searchedSongList.add(song);
+                }
+            }
+            updateTable(searchedSongList);
+        }
+        // if it is empty it switches back to the original list
+        else {
+            updateTable(songList);
+        }
     }
 
     public void handleAccountSettings () {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_AccountSettings.fxml"));
             rootPane.getChildren().setAll(pane);
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             System.out.println("IOException found in handleAccountSettings");
         }
-
     }
-
 }

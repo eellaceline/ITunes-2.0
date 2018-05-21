@@ -12,7 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import sample.Handlers.Handler_Alert;
 import sample.Models.Singletons.Cart;
+import sample.Models.Singletons.Database;
+import sample.Models.Singletons.LoggedInUser;
 import sample.Models.Song;
 
 import sample.Models.Order;
@@ -70,7 +73,6 @@ public class Controller_Cart implements Initializable {
         totalPriceTooltip.setText("This is the total price of the songs");
         totalPriceField.setTooltip(totalPriceTooltip);
 
-
     }
 
     @FXML
@@ -97,14 +99,34 @@ public class Controller_Cart implements Initializable {
         }
         */
 
+       if (LoggedInUser.getInstance().getUser().getBalance() >= Integer.parseInt(totalPriceField.getText())) {
+           ArrayList<Integer> songID = new ArrayList<>();
 
-       try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Verification.fxml"));
-            rootPane.getChildren().setAll(pane);
-        } catch (IOException ex) {
-            System.out.println("IOException found in handleLogOut");
-            ex.getStackTrace();
-        }
+           for(Song song: Cart.getInstance().getSongList()) {
+               songID.add(song.getSongID());
+           }
+
+           Database.getInstance().addSongsForUser(songID);
+           LoggedInUser.getInstance().getUser().reduceBalance(Integer.parseInt(totalPriceField.getText()));
+           Database.getInstance().changeBalance();
+
+           try {
+               AnchorPane pane = FXMLLoader.load(getClass().getResource("../GUI/GUI_Verification.fxml"));
+               rootPane.getChildren().setAll(pane);
+           }
+           catch (IOException ex) {
+               System.out.println("IOException found in handleLogOut");
+               ex.getStackTrace();
+           }
+       }
+       else {
+           Handler_Alert.alert(
+                   "Error",
+                   "Balance",
+                   "Not enough funds",
+                   true);
+       }
+
 
     }
 
