@@ -1,4 +1,0 @@
-.idea
-out
-iTunes2.0.iml
-.idea/workspace.xml
