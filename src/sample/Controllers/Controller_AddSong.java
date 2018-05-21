@@ -69,7 +69,7 @@ public class Controller_AddSong {
         Song song = Database.getInstance().getSong(titleField.getText(), artistField.getText(), genreField.getText());
         try {
             if(song == null) {
-                Database.getInstance().addSong(titleField.getText(), artistField.getText(), genreField.getText());
+                Database.getInstance().addSong(titleField.getText(), durationField.getText(), Integer.parseInt(priceField.getText()) ,genreField.getText(), albumField.getText(), artistField.getText());
             }
             else {
                 System.out.println("This song is already added");

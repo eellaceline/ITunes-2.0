@@ -33,10 +33,10 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="378.0">
                <children>
-                        <TableView fx:id="tableView" layoutX="-1.0" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC;">
+                        <TableView fx:id="tableView" layoutX="-1.0" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC; -fx-selection-bar: #000000;">
                             <columns>
 
-                                <TableColumn fx:id="songNameColumn" prefWidth="95.0" style="-fx-background-color: #b3b3b3; " text="Title" />
+                                <TableColumn fx:id="songNameColumn" prefWidth="95.0" style="-fx-background-color: #b3b3b3;" text="Title" />
                                 <TableColumn fx:id="artistColumn" prefWidth="95.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
                                 <TableColumn fx:id="albumColumn" prefWidth="95.0" style="-fx-background-color: #b3b3b3;" text="Album" />
                                 <TableColumn fx:id="durationColumn" prefWidth="95.0" style="-fx-background-color: #CCCCCC;" text="🕒" />
@@ -47,6 +47,6 @@
                 </AnchorPane>
             </content>
         </ScrollPane>
-      <TextField fx:id="searchField" alignment="CENTER" focusTraversable="false" layoutX="75.0" layoutY="422.0" onAction="#searchForSongs" prefHeight="27.0" prefWidth="221.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
+      <TextField fx:id="searchField" alignment="CENTER" focusTraversable="false" layoutX="75.0" layoutY="422.0" prefHeight="27.0" prefWidth="221.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
     </children>
 </AnchorPane>

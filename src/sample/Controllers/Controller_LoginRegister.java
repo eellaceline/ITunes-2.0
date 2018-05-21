@@ -27,6 +27,9 @@ public class Controller_LoginRegister implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+//        for (int c=32; c<128; c++) {
+//            System.out.println(c + ": " + (char)c);
+//        }
     }
 
     public void paneChangeToLogin() {
