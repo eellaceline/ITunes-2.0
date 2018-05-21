@@ -11,56 +11,44 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #7A7A7A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Store">
-   <children>
-      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/L0WKsYH.gif" />
-         </image>
-      </ImageView>
-      <Button mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #8cd1ff;" text="LIBRARY" textFill="WHITE" />
-      <Button layoutX="96.0" mnemonicParsing="false" onAction="#AddFunds" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="ADD FUND" textFill="WHITE" />
-      <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="HELP" textFill="WHITE" />
-      <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="LOG OUT" textFill="WHITE" />
-      <Separator layoutX="95.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
-      <Separator layoutX="190.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
-      <Separator layoutX="284.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="7.0" />
-      <ImageView fx:id="logoView" fitHeight="121.0" fitWidth="256.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/logo-float.png" />
-         </image>
-      </ImageView>
-<<<<<<< HEAD
-      <Button layoutX="270.0" layoutY="421.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="35.0" prefWidth="88.0" style="-fx-background-color: #8cd1ff;" text="🛒" textFill="WHITE" />
-=======
-      <Button layoutX="112.0" layoutY="418.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #33adff;" text="🛒" textFill="WHITE" />
->>>>>>> Admin
-      <ScrollPane layoutX="-1.0" layoutY="117.0" prefHeight="295.0" prefWidth="380.0">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="378.0">
-               <children>
-                   <TableView layoutX="-1.0" fx:id="tableView" prefHeight="445.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC;">
-                     <columns>
-<<<<<<< HEAD
-                        <TableColumn fx:id="columnSongName" prefWidth="75.0" style="-FX-background-color: #b3b3b3;" text="Title" />
-                        <TableColumn fx:id="columnArtist" prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
-                        <TableColumn fx:id="columnAlbum"  prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Album" />
-                        <TableColumn fx:id="columnDuration" prefWidth="75.0" style="-fx-background-color: #cccccc;" text="DURATION" />
-                        <TableColumn fx:id="columnPrice" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="PRICE" />
+    <children>
+        <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/L0WKsYH.gif" />
+            </image>
+        </ImageView>
+        <Button mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #8cd1ff;" text="LIBRARY" textFill="WHITE" />
+        <Button layoutX="96.0" mnemonicParsing="false" onAction="#AddFunds" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="ADD FUND" textFill="WHITE" />
+        <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="HELP" textFill="WHITE" />
+        <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="LOG OUT" textFill="WHITE" />
+        <Separator layoutX="95.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
+        <Separator layoutX="190.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
+        <Separator layoutX="284.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="7.0" />
+        <ImageView fx:id="logoView" fitHeight="121.0" fitWidth="256.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/logo-float.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="270.0" layoutY="421.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="35.0" prefWidth="88.0" style="-fx-background-color: #8cd1ff;" text="🛒" textFill="WHITE" />
+        <ScrollPane layoutX="-1.0" layoutY="117.0" prefHeight="295.0" prefWidth="380.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="378.0">
+                    <children>
+                        <TableView layoutX="-1.0" fx:id="tableView" prefHeight="445.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC;">
+                            <columns>
+                                <TableColumn fx:id="columnSongName" prefWidth="75.0" style="-FX-background-color: #b3b3b3;" text="Title" />
+                                <TableColumn fx:id="columnArtist" prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
+                                <TableColumn fx:id="columnAlbum"  prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Album" />
+                                <TableColumn fx:id="columnDuration" prefWidth="75.0" style="-fx-background-color: #cccccc;" text="DURATION" />
+                                <TableColumn fx:id="columnPrice" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="PRICE" />
 
-=======
-                        <TableColumn fx:id="columnSongName" prefWidth="75.0" text="Title" />
-                        <TableColumn fx:id="columnArtist" prefWidth="75.0" text="Artist" />
-                        <TableColumn fx:id="columnAlbum" prefWidth="75.0" text="Album" />
-                        <TableColumn fx:id="columnDuration" prefWidth="75.0" text="Duration" />
-                        <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Price" />
->>>>>>> Admin
-                     </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-      <TextField fx:id="userBalanceField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="170.0" layoutY="426.0" onAction="#userBalance" prefHeight="25.0" prefWidth="76.0" promptText="BALANCE" style="-fx-background-color: #cccccc;" />
-      <TextField fx:id="searchField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="23.0" layoutY="426.0" onAction="#userBalance" prefHeight="25.0" prefWidth="128.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
-</children>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <TextField fx:id="userBalanceField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="170.0" layoutY="426.0" onAction="#userBalance" prefHeight="25.0" prefWidth="76.0" promptText="BALANCE" style="-fx-background-color: #cccccc;" />
+        <TextField fx:id="searchField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="23.0" layoutY="426.0" onAction="#userBalance" prefHeight="25.0" prefWidth="128.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
+    </children>
 </AnchorPane>
