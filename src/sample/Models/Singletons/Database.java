@@ -1070,5 +1070,52 @@ public class Database {
 
         return songList;
     }
+    public ArrayList<User> getUsers(){
+        ArrayList<User> userList = new ArrayList<>();
 
+        try {
+            ResultSet rs = statement.executeQuery("SELECT * FROM user");
+
+            while(rs.next()) {
+                userList.add(new User(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getBoolean(6)));
+
+            }
+
+        }catch (SQLException ex){
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Failed to get all users",
+                    false
+            );
+
+        }return userList;
+    }
+    public boolean updatePassword(String email, String password){
+        boolean isConfirmed = false;
+        String tempPw;
+        tempPw = Handler_Password.encryption(password);
+        System.out.println(tempPw);
+
+        try {
+            int rows = statement.executeUpdate("UPDATE user set password = '" + tempPw + "' WHERE email = '" + email + "' ");
+            isConfirmed = true;
+            System.out.println(rows);
+
+        }catch (SQLException ex){
+            Handler_Alert.alert(
+
+            "Error",
+                    "SQLException",
+                    "Error executing an update to changing password",
+                    false
+            );
+        }return isConfirmed;
+    }
 }

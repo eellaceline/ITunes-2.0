@@ -210,7 +210,8 @@ public class Controller_Register implements Initializable {
 
                 Handler_SendEmail.sendMail(
                         "Account created",
-                        "Dear newly customer, you have created an account at Soundwave."
+                        "Dear newly customer, you have created an account at Soundwave." +
+                                "\nAn email has been sent to you as a comfirmation."
                 );
 
                 paneChangeToLogin();

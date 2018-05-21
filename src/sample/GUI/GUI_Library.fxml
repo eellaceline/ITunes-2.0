@@ -14,7 +14,7 @@
     <children>
       <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../photos/stilla.png" />
+            <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
         <Button mnemonicParsing="false" onAction="#paneChangeToStore" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #8cd1ff;" text="STORE" textFill="WHITE" />
@@ -24,7 +24,7 @@
         <Separator layoutX="95.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
         <Separator layoutX="190.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
         <Separator layoutX="284.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="7.0" />
-        <ImageView fx:id="logoView" fitHeight="126.0" fitWidth="221.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="logoView" fitHeight="126.0" fitWidth="221.0" layoutX="160.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/logo-float.png" />
          </image>
