@@ -113,7 +113,6 @@ public class Controller_Store implements Initializable {
     public void searchForSongs() {
         ArrayList<Song> searchedSongList = new ArrayList<>();
 
-        System.out.println("workwork");
         // searches if the searchField isn't empty
         if (!searchField.getText().equals("")) {
             for (Song song : songList) {
