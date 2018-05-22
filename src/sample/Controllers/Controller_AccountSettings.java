@@ -56,10 +56,18 @@ public class Controller_AccountSettings implements Initializable{
 
         try {
 
-            if (!confirmPassword.getText().equals(passwordField.getText())) {
+            if (confirmPassword.getText().equals(passwordField.getText())) {
 
                 System.out.println("Password confirmed");
                 saveChanges();
+            }
+            else  {
+                Handler_Alert.alert(
+                        "Error",
+                        "password values",
+                        "different values in password and confirm password",
+                        false
+                );
             }
         }catch (Exception ex){
             Handler_Alert.alert(
@@ -97,11 +105,17 @@ public class Controller_AccountSettings implements Initializable{
     @FXML
     void saveChanges() {
         try {
-           if ((Database.getInstance().changeUsername(LoggedInUser.getInstance().getUser().getUserName(), usernameField.getText()) &&
-                   Database.getInstance().changePassword(LoggedInUser.getInstance().getUser().getUserName(), passwordField.getText()))) {
-               System.out.println("error");
-               clearChanges();
-           }
+            if (!usernameField.getText().isEmpty()) {
+                if ((Database.getInstance().changeUsername(LoggedInUser.getInstance().getUser().getUserName(), usernameField.getText()) &&
+                        Database.getInstance().changePassword(LoggedInUser.getInstance().getUser().getUserName(), passwordField.getText()))) {
+                    clearChanges();
+                }
+            }
+            else {
+                if (Database.getInstance().changePassword(LoggedInUser.getInstance().getUser().getUserName(), passwordField.getText())) {
+                    clearChanges();
+                }
+            }
         }catch (Exception ex){
             Handler_Alert.alert(
                     "Error!",

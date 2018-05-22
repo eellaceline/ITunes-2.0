@@ -22,11 +22,12 @@
          </image>
       </ImageView>
       <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
-      <TextField fx:id="searchField" alignment="CENTER" layoutX="100.0" layoutY="234.0" onAction="#searchForSongs" prefHeight="29.0" prefWidth="184.0" promptText="SEARCH" />
-      <TextField fx:id="changePriceField" alignment="CENTER" layoutX="100.0" layoutY="309.0" prefHeight="29.0" prefWidth="184.0" promptText="CHANGE PRICE" />
-      <Button layoutX="139.0" layoutY="371.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #8cd1ff;" text="SAVE" textFill="WHITE" />
-      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="CANCEL" textFill="WHITE" />
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
+      <TextField fx:id="titleField" alignment="CENTER" layoutX="100.0" layoutY="234.0" onAction="#searchForSongs" prefHeight="29.0" prefWidth="184.0" promptText="SONG NAME" />
+      <TextField fx:id="artistField" alignment="CENTER" layoutX="100.0" layoutY="279.0" onAction="#searchForSongs" prefHeight="29.0" prefWidth="184.0" promptText="ARTIST" />
+      <TextField fx:id="changePriceField" alignment="CENTER" layoutX="100.0" layoutY="324.0" prefHeight="29.0" prefWidth="184.0" promptText="CHANGE PRICE" />
+      <Button layoutX="139.0" layoutY="371.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #66ccff;" text="SAVE" textFill="WHITE" />
+      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="CANCEL" textFill="WHITE" />
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
       <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>
             <Font name="Book Antiqua" size="26.0" />

@@ -15,8 +15,8 @@
                 <Image url="@../photos/L0WKsYH.gif" />
             </image>
         </ImageView>
-        <Button layoutX="132.0" layoutY="259.0" mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="USER" textFill="WHITE" />
-            <Button layoutX="132.0" layoutY="367.0" mnemonicParsing="false" onAction="#paneChangeToAdmin" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="ADMIN" textFill="WHITE" />
+        <Button layoutX="132.0" layoutY="259.0" mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #66ccff;" text="USER" textFill="WHITE" />
+            <Button layoutX="132.0" layoutY="367.0" mnemonicParsing="false" onAction="#paneChangeToAdmin" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #66ccff;" text="ADMIN" textFill="WHITE" />
       <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="122.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/logo-float.png" />

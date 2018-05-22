@@ -27,10 +27,10 @@
             <Image url="@../photos/logo-float.png" />
          </image>
       </ImageView>
-      <Button fx:id="signInButton" layoutX="132.0" layoutY="242.0" mnemonicParsing="false" onAction="#paneChangeToLogin" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="SIGN IN" textFill="WHITE" />
-      <Button fx:id="createAccButton" layoutX="132.0" layoutY="333.0" mnemonicParsing="false" onAction="#paneChangeToRegister" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="CREATE ACCOUNT" textFill="WHITE" />
-      <Button fx:id="exitButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #CCCCCC;" text="EXIT" textFill="WHITE" />
-      <Button fx:id="helpButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #CCCCCC;" text="HELP" textFill="WHITE" />
+      <Button fx:id="signInButton" layoutX="132.0" layoutY="242.0" mnemonicParsing="false" onAction="#paneChangeToLogin" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #66ccff;" text="SIGN IN" textFill="WHITE" />
+      <Button fx:id="createAccButton" layoutX="132.0" layoutY="333.0" mnemonicParsing="false" onAction="#paneChangeToRegister" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #66ccff;" text="CREATE ACCOUNT" textFill="WHITE" />
+      <Button fx:id="exitButton" layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="EXIT" textFill="WHITE" />
+      <Button fx:id="helpButton" layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
       <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
       <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>

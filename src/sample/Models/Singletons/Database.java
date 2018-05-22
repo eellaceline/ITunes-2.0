@@ -513,6 +513,13 @@ public class Database {
 
         }
 
+        Handler_Alert.information(
+                "Info",
+                "Added song",
+                "Added song to database",
+                false
+        );
+
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
         System.out.println("addSong execute time(ms): "+duration/1000000);

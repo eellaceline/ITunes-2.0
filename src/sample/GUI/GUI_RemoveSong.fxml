@@ -31,9 +31,9 @@
       </Text>
       <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
 
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
-      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="CANCEL" textFill="WHITE" />
-      <Button layoutX="146.0" layoutY="410.0" mnemonicParsing="false" onAction="#removeSong" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #8cd1ff;" text="REMOVE" textFill="WHITE" />
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
+      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="CANCEL" textFill="WHITE" />
+      <Button layoutX="146.0" layoutY="410.0" mnemonicParsing="false" onAction="#removeSong" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #66ccff;" text="REMOVE" textFill="WHITE" />
       <ScrollPane layoutY="130.0" prefHeight="267.0" prefWidth="380.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="370.0">

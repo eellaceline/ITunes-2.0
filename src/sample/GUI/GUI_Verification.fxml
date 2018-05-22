@@ -20,7 +20,7 @@
             <Image url="@../photos/logo-float.png" />
          </image>
       </ImageView>
-      <Button layoutX="114.0" layoutY="352.0" mnemonicParsing="false" onAction="#paneToLibrary" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #8cd1ff;" text="LIBRARY" textFill="WHITE" />
+      <Button layoutX="114.0" layoutY="352.0" mnemonicParsing="false" onAction="#paneToLibrary" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #66ccff;" text="LIBRARY" textFill="WHITE" />
       <Text fill="WHITE" layoutX="24.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR YOUR PURSHASE!">
          <font>
             <Font name="System Bold" size="20.0" />

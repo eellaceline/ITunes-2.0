@@ -66,6 +66,7 @@ public class Controller_ChangePrice implements Initializable {
     @FXML
     void saveChanges(ActionEvent event) {
         try {
+            System.out.println("*** Button Clicked ***");
             if (Database.getInstance().updatePrice(titleField.getText(), artistField.getText(), Integer.parseInt(changePriceField.getText()))) {
                 resetChoice();
             }

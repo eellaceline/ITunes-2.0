@@ -22,16 +22,16 @@
             <Image url="@../photos/logo-float.png" />
          </image>
       </ImageView>
-      <Button layoutX="282.0" layoutY="415.0" mnemonicParsing="false" onAction="#buy" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #8cd1ff;" text="BUY" textFill="WHITE" />
+      <Button layoutX="282.0" layoutY="415.0" mnemonicParsing="false" onAction="#buy" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #66ccff;" text="BUY" textFill="WHITE" />
       <Text fill="WHITE" layoutX="30.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping cart 🛒" wrappingWidth="214.8359375">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Text>
       <ListView fx:id="listView" layoutX="30.0" layoutY="262.0" prefHeight="140.0" prefWidth="320.0" />
-      <TextField fx:id="totalPriceField" alignment="CENTER" editable="false" layoutX="30.0" layoutY="415.0" prefHeight="29.0" prefWidth="152.0" promptText="BALANCE" style="-fx-background-color: #cccccc;" />
+      <TextField fx:id="totalPriceField" alignment="CENTER" editable="false" layoutX="30.0" layoutY="415.0" prefHeight="29.0" prefWidth="152.0" promptText="BALANCE" style="-fx-background-color: #a6a6a6;" />
       <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
-      <Button layoutX="206.0" layoutY="415.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #8cd1ff;" text="CANCEL" textFill="WHITE" />
+      <Button layoutX="206.0" layoutY="415.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #66ccff;" text="CANCEL" textFill="WHITE" />
       <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>
             <Font name="Book Antiqua" size="26.0" />
