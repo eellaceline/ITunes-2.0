@@ -51,11 +51,12 @@ public class Controller_AccountSettings implements Initializable{
     }
 
     @FXML
-    void confirmPasswordField(ActionEvent event) {
+    public void confirmPasswordField(ActionEvent event) {
 
         try {
 
-            if (!confirmPassword.getText().equals(passwordField.getText())) {
+            System.out.println(confirmPassword.getText() + " | " + passwordField.getText());
+            if (confirmPassword.getText().equals(passwordField.getText())) {
 
                 System.out.println("Password confirmed");
                 saveChanges();

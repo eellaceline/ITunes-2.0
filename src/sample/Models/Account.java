@@ -3,14 +3,24 @@ package sample.Models;
 public abstract class Account {
     private int userID;
     private String userName;
-    private String password;
     private String email;
+    private String password;
 
-    public Account(int userID, String userName, String password, String email) {
+    public Account(int userID, String userName, String email, String password) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "userID=" + userID +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public int getUserID() {

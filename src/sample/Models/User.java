@@ -5,15 +5,15 @@ public class User extends Account {
     private Library library;
     private boolean isAnAdmin;
 
-    public User(int userID, String userName, String password, String email, int balance, Library library, boolean isAnAdmin) {
-        super(userID, userName, password, email);
+    public User(int userID, String userName, String email, String password, int balance, Library library, boolean isAnAdmin) {
+        super(userID, userName, email, password);
         this.balance = balance;
         this.library = library;
         this.isAnAdmin = isAnAdmin;
     }
 
-    public User(int userID, String userName, String password, String email, int balance, boolean isAnAdmin) {
-        super(userID, userName, password, email);
+    public User(int userID, String userName, String email, String password, int balance, boolean isAnAdmin) {
+        super(userID, userName, email, password);
         this.balance = balance;
         this.isAnAdmin = isAnAdmin;
     }
@@ -25,14 +25,7 @@ public class User extends Account {
         this.isAnAdmin = user.isAnAdmin();
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "balance=" + balance +
-                ", library=" + library +
-                ", isAnAdmin=" + isAnAdmin +
-                '}';
-    }
+
 
     public int getBalance() {
         return balance;

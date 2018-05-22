@@ -1086,6 +1086,7 @@ public class Database {
                         rs.getBoolean(6)));
 
             }
+            System.out.println(userList.toString());
 
         }catch (SQLException ex){
             Handler_Alert.alert(
