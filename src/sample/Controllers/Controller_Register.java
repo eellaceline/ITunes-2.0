@@ -201,8 +201,6 @@ public class Controller_Register implements Initializable {
                 Database.getInstance().saveAccount(userNameTextField.getText(),emailField.getText(),passwordField.getText());
 
                 Handler_Alert.information(
-
-
                         "Success",
                         "Congratulation",
                         "You have created an account",

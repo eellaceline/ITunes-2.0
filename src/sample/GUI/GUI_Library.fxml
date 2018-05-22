@@ -17,10 +17,10 @@
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
-        <Button mnemonicParsing="false" onAction="#paneChangeToStore" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #8cd1ff;" text="STORE" textFill="WHITE" />
-        <Button layoutX="96.0" mnemonicParsing="false" onAction="#handleAccountSettings" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="ACCOUNT" textFill="WHITE" />
-        <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="HELP" textFill="WHITE" />
-        <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="LOG OUT" textFill="WHITE" />
+        <Button mnemonicParsing="false" onAction="#paneChangeToStore" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #66ccff;" text="STORE" textFill="WHITE" />
+        <Button layoutX="96.0" mnemonicParsing="false" onAction="#handleAccountSettings" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #66ccff;" text="ACCOUNT" textFill="WHITE" />
+        <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #66ccff;" text="HELP" textFill="WHITE" />
+        <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #66ccff;" text="LOG OUT" textFill="WHITE" />
         <Separator layoutX="95.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
         <Separator layoutX="190.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
         <Separator layoutX="284.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="7.0" />
@@ -32,7 +32,7 @@
         <ScrollPane layoutY="111.0" prefHeight="294.0" prefWidth="380.0">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="378.0">
-               <children>
+                    <children>
                         <TableView fx:id="tableView" layoutX="-1.0" prefHeight="464.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC; -fx-selection-bar: #000000;">
                             <columns>
 
@@ -43,10 +43,10 @@
 
                             </columns>
                         </TableView>
-               </children>
+                    </children>
                 </AnchorPane>
             </content>
         </ScrollPane>
-      <TextField fx:id="searchField" alignment="CENTER" focusTraversable="false" layoutX="75.0" layoutY="422.0" prefHeight="27.0" prefWidth="221.0" promptText="SEARCH" style="-fx-background-color: #cccccc;" />
+      <TextField fx:id="searchField" alignment="CENTER" focusTraversable="false" layoutX="75.0" layoutY="422.0" prefHeight="27.0" prefWidth="221.0" promptText="SEARCH" style="-fx-background-color: #a6a6a6;" />
     </children>
 </AnchorPane>

@@ -11,37 +11,37 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_AddFunds">
     <children>
-      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/L0WKsYH.gif" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/L0WKsYH.gif" />
+            </image>
+        </ImageView>
         <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="122.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../photos/logo-float.png" />
             </image>
         </ImageView>
         <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
-        <ButtonBar layoutX="90.0" layoutY="217.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: cccccc;">
+        <ButtonBar layoutX="90.0" layoutY="217.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #a6a6a6;">
             <buttons>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
-                <Button fx:id="fiveDollar" mnemonicParsing="false" onAction="#handleAdd5Dollar" style="-fx-background-color: #8cd1ff;" text="5 $" textFill="WHITE" />
+                <Button fx:id="fiveDollar" mnemonicParsing="false" onAction="#handleAdd5Dollar" style="-fx-background-color: #66ccff;" text="5 $" textFill="WHITE" />
             </buttons>
         </ButtonBar>
-        <ButtonBar layoutX="90.0" layoutY="282.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: cccccc;">
+        <ButtonBar layoutX="90.0" layoutY="282.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #a6a6a6;">
             <buttons>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
-                <Button fx:id="tenDollar" mnemonicParsing="false" onAction="#handleAdd10Dollar" style="-fx-background-color: #8cd1ff;" text="10 $" textFill="WHITE" />
+                <Button fx:id="tenDollar" mnemonicParsing="false" onAction="#handleAdd10Dollar" style="-fx-background-color: #66ccff;" text="10 $" textFill="WHITE" />
             </buttons>
         </ButtonBar>
-        <ButtonBar layoutX="90.0" layoutY="350.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: cccccc;">
+        <ButtonBar layoutX="90.0" layoutY="350.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #a6a6a6;">
             <buttons>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FUND" wrappingWidth="79.9921875" />
-                <Button fx:id="twentyDollar" mnemonicParsing="false" onAction="#handleAdd20Dollar" style="-fx-background-color: #8cd1ff;" text="20 $" textFill="WHITE" />
+                <Button fx:id="twentyDollar" mnemonicParsing="false" onAction="#handleAdd20Dollar" style="-fx-background-color: #66ccff;" text="20 $" textFill="WHITE" />
             </buttons>
         </ButtonBar>
-        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="HELP" textFill="WHITE" />
-        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleBackToStore" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="STORE" textFill="WHITE" />
+        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleBackToStore" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="STORE" textFill="WHITE" />
         <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
             <font>
                 <Font name="Book Antiqua" size="26.0" />

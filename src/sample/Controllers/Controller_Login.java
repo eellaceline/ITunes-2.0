@@ -51,7 +51,6 @@ public class Controller_Login implements Initializable {
 
         passwordTooltip.setText("Enter your password");
         passwordTextField.setTooltip(passwordTooltip);
-
     }
 
     @FXML

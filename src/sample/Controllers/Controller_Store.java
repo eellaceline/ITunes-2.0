@@ -13,17 +13,19 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import sample.Handlers.Handler_Alert;
+import sample.Models.Singletons.Database;
+import sample.Models.Singletons.LoggedInUser;
+import sample.Models.Song;
+import sample.Models.User;
 
 import sample.Models.Singletons.Cart;
 import sample.Models.Singletons.Database;

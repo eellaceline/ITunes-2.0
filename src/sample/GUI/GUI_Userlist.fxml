@@ -28,8 +28,8 @@
             <Font name="Book Antiqua" size="26.0" />
          </font>
       </Text>
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="HELP" textFill="WHITE" />
-      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="CANCEL" textFill="WHITE" />
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
+      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="CANCEL" textFill="WHITE" />
       <Separator layoutX="90.0" layoutY="152.0" prefWidth="200.0" />
       <ScrollPane layoutY="162.0" prefHeight="242.0" prefWidth="380.0">
          <content>

@@ -15,11 +15,11 @@
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_Login">
 
     <children>
-      <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/L0WKsYH.gif" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/L0WKsYH.gif" />
+            </image>
+        </ImageView>
         <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="122.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../photos/logo-float.png" />
@@ -31,9 +31,9 @@
         </Text>
         <TextField fx:id="userNameTextField" alignment="CENTER" layoutX="115.0" layoutY="230.0" prefHeight="27.0" prefWidth="149.0" promptText="USERNAME" />
         <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="115.0" layoutY="297.0" promptText="PASSWORD" />
-        <Button layoutX="133.0" layoutY="377.0" mnemonicParsing="false" onAction="#loginVerification" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="SIGN IN" textFill="WHITE" />
-        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="HELP" textFill="WHITE" />
-        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="CANCEL" textFill="WHITE" />
+        <Button layoutX="133.0" layoutY="377.0" mnemonicParsing="false" onAction="#loginVerification" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #66ccff;" text="SIGN IN" textFill="WHITE" />
+        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="CANCEL" textFill="WHITE" />
         <Separator layoutX="90.0" layoutY="201.0" prefWidth="200.0" />
         <Hyperlink layoutX="138.0" layoutY="322.0" onAction="#forgotPassword" text="Forgot password?" textFill="#8cd1ff" />
     </children>

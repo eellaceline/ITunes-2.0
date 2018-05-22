@@ -513,9 +513,32 @@ public class Database {
 
         }
 
+        Handler_Alert.information(
+                "Info",
+                "Added song",
+                "Added song to database",
+                false
+        );
+
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
         System.out.println("addSong execute time(ms): "+duration/1000000);
+    }
+
+    public void deleteSong(int song_id) {
+        try {
+            statement.executeUpdate("DELETE FROM orders_has_songs WHERE songs_song_id = '" + song_id + "'");
+            statement.executeUpdate("DELETE FROM songs_has_artist WHERE songs_song_id = '" + song_id + "'");
+            statement.executeUpdate("DELETE FROM user_has_songs WHERE songs_song_id = '" + song_id + "'");
+            statement.executeUpdate("DELETE FROM songs WHERE song_id = '" + song_id + "' ");
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Error executing when deleting song",
+                    false
+            );
+        }
     }
 
     public Song getSong(String songName, String artistName, String genreName) {
@@ -584,7 +607,6 @@ public class Database {
         return song;
     }
 
-
     public void saveAccount(String username, String email, String password) {
         password = Handler_Password.encryption(password);
         try {
@@ -607,7 +629,6 @@ public class Database {
 
         try {
             ResultSet rs = statement.executeQuery("SELECT isAnAdmin FROM user WHERE username = '" + userName + "';");
-
             while(rs.next()) {
                 isAnAdmin = rs.getInt(1);
                 //System.out.println("ID: " + ID);
@@ -797,7 +818,6 @@ public class Database {
                     "Error",
                     "SQLExeception",
                     "Error fecthing song data",
-
                     false
             );
         }
@@ -922,15 +942,6 @@ public class Database {
         userID = LoggedInUser.getInstance().getUser().getUserID();
 
         try {
-            // a string to complete the WHERE statement in the query
-            /*String where = "";
-            for (int i = 0; i < songID.size(); i++) {
-                if (i == songID.size() - 1)
-                    where += "'" + songID.get(i) + "'";
-                else
-                    where += "'" + songID.get(i) + "' OR ";
-            }
-            System.out.println(where);*/
             ResultSet rs = statement.executeQuery(
                     "SELECT songs.*, album.* FROM songs LEFT JOIN album ON songs.album_album_id = album.album_id  WHERE song_id " +
                             "IN (SELECT DISTINCT songs_song_id FROM user_has_songs WHERE user_user_id = " + userID + ");"
@@ -1024,29 +1035,8 @@ public class Database {
                         }
 
                     }
-
-                    //if (previousSongID == SongSongID.get(i)) {
-//                        boolean continueLoop = true;
-//                        System.out.println("i: "+i);
-//                        Ti = i;
-//                        Si = i;
-//                        while (continueLoop) {
-//
-//                            System.out.println("Ti"+Ti);
-//                            if (previousSongID == SongSongID.get(++Ti)) {
-//
-//                                artists.get(Si).add(tempArtistsList.get(k));
-//                                previousSongID = SongSongID.get(Ti);
-//                            }
-//                                continueLoop = false;
-//                            }
-//                        }
-//                    }
-
-
                 }
             }
-
         }
 
         System.out.println(artists.toString());
@@ -1062,6 +1052,7 @@ public class Database {
                     artists.get(i),
                     genreName.get(i),
                     albumName.get(i)));
+
         }
 
         long endTime = System.nanoTime();
@@ -1098,7 +1089,7 @@ public class Database {
 
         }return userList;
     }
-    public boolean updatePassword(String email, String password){
+    public boolean updatePassword(String email, String password) {
         boolean isConfirmed = false;
         String tempPw;
         tempPw = Handler_Password.encryption(password);
@@ -1109,14 +1100,122 @@ public class Database {
             isConfirmed = true;
             System.out.println(rows);
 
-        }catch (SQLException ex){
-            Handler_Alert.alert(
-
-            "Error",
+        } catch (SQLException ex) {
+            Handler_Alert.alert("Error",
                     "SQLException",
                     "Error executing an update to changing password",
                     false
             );
-        }return isConfirmed;
+        }
+        return isConfirmed;
+    }
+
+    public ArrayList<Song> getAllSong() {
+        ArrayList<Song> songList = new ArrayList<>();
+        //ArrayList<Integer> SongSongID = new ArrayList<>();
+        //ArrayList<Integer> artistArtistID = new ArrayList<>();
+
+
+        try {
+            ResultSet rs = statement.executeQuery("SELECT songs.*, album.* FROM songs LEFT JOIN album ON songs.album_album_id = album.album_id;");
+
+            while (rs.next()) {
+                songList.add(new Song(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(8),
+                        rs.getString(3),
+                        rs.getInt(4)
+                ));
+            }
+        } catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLException",
+                    "Failed to get all songs",
+                    false
+            );
+        }
+
+        ArrayList<Integer> SongSongID = new ArrayList<>();
+        ArrayList<Integer> artistArtistID = new ArrayList<>();
+
+        try {
+            ResultSet rs = statement.executeQuery(
+                    "SELECT * FROM songs_has_artist ORDER BY songs_song_id");
+            while (rs.next()) {
+                SongSongID.add(rs.getInt(1));
+                artistArtistID.add(rs.getInt(2));
+            }
+        }
+        catch (SQLException ex) {
+            Handler_Alert.alert(
+                    "Error",
+                    "SQLExeception",
+                    "Error fetching artistID data",
+                    false
+            );
+        }
+
+        ArrayList<Artist> tempArtistsList = getArtists();
+        ArrayList<ArrayList<Artist>> artists = new ArrayList<>();
+
+        int Ti = 0;
+        int nextSongID = 0;
+        System.out.println(songList.size());
+        for (int i=0; i<songList.size(); i++) {
+            artists.add(new ArrayList<>());
+            System.out.println("---------------");
+            System.out.println(artists.toString());
+            System.out.println("i:"+i);
+
+            for (int k=0; k<tempArtistsList.size(); k++) {
+                System.out.println(artistArtistID.size() +", Ti: "+ Ti);
+                if (tempArtistsList.get(k).getArtistID() == artistArtistID.get(Ti)) {
+                    boolean continueLoop = true;
+                    System.out.println("test");
+                    artists.get(i).add(tempArtistsList.get(k));
+                    System.out.println("Added artist on i=" + i);
+                    while (continueLoop) {
+                        System.out.println("Ti:"+Ti);
+
+                        if (Ti+1 >= SongSongID.size()) {
+                            continueLoop = false;
+                            nextSongID = 0;
+                        }
+                        else {
+                            nextSongID = SongSongID.get(Ti+1);
+                        }
+
+                        System.out.println("currentID:"+SongSongID.get(Ti));
+                        System.out.println("nextID:"+nextSongID);
+                        if (nextSongID == SongSongID.get(Ti)) {
+                            Ti++;
+                            System.out.println("c:"+SongSongID.get(Ti) + nextSongID);
+                            //System.out.println(artists.get(i).size());
+                            System.out.println("added artist on i=" + i + " size: ");// + Integer.toString(artists.get(i).size()));
+                            artists.get(i).add(tempArtistsList.get(k+(Ti-i)));
+                        }
+                        else {
+                            Ti++;
+                            k=4;
+                            System.out.println("exiting while loop");
+                            continueLoop = false;
+                        }
+
+                    }
+                }
+            }
+        }
+        System.out.println("got here");
+        System.out.println(artists.toString());
+
+        for (int i=0; i<songList.size(); i++) {
+            songList.get(i).setArtists(artists.get(i));
+        }
+
+        System.out.println(songList.toString());
+        return songList;
+
     }
 }

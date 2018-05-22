@@ -19,6 +19,7 @@ import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Handler;
 
 public class Controller_AccountSettings implements Initializable{
 
@@ -54,12 +55,18 @@ public class Controller_AccountSettings implements Initializable{
     public void confirmPasswordField(ActionEvent event) {
 
         try {
-
-            System.out.println(confirmPassword.getText() + " | " + passwordField.getText());
             if (confirmPassword.getText().equals(passwordField.getText())) {
 
                 System.out.println("Password confirmed");
                 saveChanges();
+            }
+            else  {
+                Handler_Alert.alert(
+                        "Error",
+                        "password values",
+                        "different values in password and confirm password",
+                        false
+                );
             }
         }catch (Exception ex){
             Handler_Alert.alert(
@@ -69,7 +76,6 @@ public class Controller_AccountSettings implements Initializable{
                     false
             );
         }
-
     }
 
 
@@ -98,11 +104,17 @@ public class Controller_AccountSettings implements Initializable{
     @FXML
     void saveChanges() {
         try {
-           if ((Database.getInstance().changeUsername(LoggedInUser.getInstance().getUser().getUserName(), usernameField.getText()) &&
-                   Database.getInstance().changePassword(LoggedInUser.getInstance().getUser().getUserName(), passwordField.getText()))) {
-               System.out.println("error");
-               clearChanges();
-           }
+            if (!usernameField.getText().isEmpty()) {
+                if ((Database.getInstance().changeUsername(LoggedInUser.getInstance().getUser().getUserName(), usernameField.getText()) &&
+                        Database.getInstance().changePassword(LoggedInUser.getInstance().getUser().getUserName(), passwordField.getText()))) {
+                    clearChanges();
+                }
+            }
+            else {
+                if (Database.getInstance().changePassword(LoggedInUser.getInstance().getUser().getUserName(), passwordField.getText())) {
+                    clearChanges();
+                }
+            }
         }catch (Exception ex){
             Handler_Alert.alert(
                     "Error!",
@@ -119,5 +131,4 @@ public class Controller_AccountSettings implements Initializable{
         passwordField.setText("");
         confirmPassword.setText("");
     }
-
 }

@@ -8,37 +8,50 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_RemoveSong">
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Separator?>
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_RemoveSong">
    <children>
       <ImageView fitHeight="546.0" fitWidth="940.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="HELP" textFill="WHITE" />
-      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #b3b3b3;" text="CANCEL" textFill="WHITE" />
-      <Button layoutX="146.0" layoutY="410.0" mnemonicParsing="false" onAction="#removeSong" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #8cd1ff;" text="REMOVE" textFill="WHITE" />
+
+      <ImageView fx:id="logoView" fitHeight="130.0" fitWidth="470.0" layoutX="116.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../photos/logo-float.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
+         <font>
+            <Font name="Book Antiqua" size="26.0" />
+         </font>
+      </Text>
+      <Separator layoutX="91.0" layoutY="194.0" prefWidth="200.0" />
+
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
+      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="CANCEL" textFill="WHITE" />
+      <Button layoutX="146.0" layoutY="410.0" mnemonicParsing="false" onAction="#removeSong" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #66ccff;" text="REMOVE" textFill="WHITE" />
       <ScrollPane layoutY="130.0" prefHeight="267.0" prefWidth="380.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="370.0">
                <children>
-                  <TableView layoutX="-1.0" prefHeight="274.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC;">
+                  <TableView fx:id="tableView" layoutX="-1.0" prefHeight="274.0" prefWidth="380.0" style="-fx-background-color: #CCCCCC;">
                      <columns>
-                        <TableColumn fx:id="titleColumn" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Title" />
-                        <TableColumn fx:id="artistColumn" prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
-                        <TableColumn fx:id="albumColumn" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Album" />
-                        <TableColumn fx:id="durationColumn" prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="DURATION" />
-                        <TableColumn fx:id="priceColumn" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="PRICE" />
+
+                        <TableColumn fx:id="columnSongName" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Title" />
+                        <TableColumn fx:id="columnArtist" prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
+                        <TableColumn fx:id="columnAlbum" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Album" />
+                        <TableColumn fx:id="columnDuration" prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="Duration  " />
+                        <TableColumn fx:id="columnPrice" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Price" />
+
                      </columns>
                   </TableView>
                </children>
             </AnchorPane>
          </content>
       </ScrollPane>
-      <ImageView fx:id="logoView" fitHeight="130.0" fitWidth="470.0" layoutX="116.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/logo-float.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

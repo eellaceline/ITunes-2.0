@@ -10,13 +10,13 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="380.0"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller_UserOrAdmin">
     <children>
-      <ImageView fitHeight="733.0" fitWidth="920.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/L0WKsYH.gif" />
-         </image>
-      </ImageView>
-        <Button layoutX="132.0" layoutY="259.0" mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="USER" textFill="WHITE" />
-            <Button layoutX="132.0" layoutY="367.0" mnemonicParsing="false" onAction="#paneChangeToAdmin" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #8cd1ff;" text="ADMIN" textFill="WHITE" />
+        <ImageView fitHeight="733.0" fitWidth="920.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../photos/L0WKsYH.gif" />
+            </image>
+        </ImageView>
+        <Button layoutX="132.0" layoutY="259.0" mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #66ccff;" text="USER" textFill="WHITE" />
+            <Button layoutX="132.0" layoutY="367.0" mnemonicParsing="false" onAction="#paneChangeToAdmin" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #66ccff;" text="ADMIN" textFill="WHITE" />
       <ImageView fx:id="logoView" fitHeight="140.0" fitWidth="470.0" layoutX="122.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../photos/logo-float.png" />

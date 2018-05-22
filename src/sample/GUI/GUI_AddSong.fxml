@@ -28,9 +28,9 @@
       <TextField fx:id="albumField" alignment="CENTER" layoutX="217.0" layoutY="235.0" promptText="ALBUM" />
       <TextField fx:id="durationField" alignment="CENTER" layoutX="217.0" layoutY="292.0" promptText="DURATION" />
       <TextField fx:id="priceField" alignment="CENTER" layoutX="217.0" layoutY="351.0" promptText="PRICE" />
-      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: cccccc;" text="CANCEL" textFill="WHITE" />
-      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: cccccc;" text="HELP" textFill="WHITE" />
-      <Button layoutX="156.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="34.0" prefWidth="68.0" style="-fx-background-color: #8cd1ff;" text="SAVE" textFill="WHITE" />
+      <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="CANCEL" textFill="WHITE" />
+      <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
+      <Button layoutX="156.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="34.0" prefWidth="68.0" style="-fx-background-color: #66ccff;" text="SAVE" textFill="WHITE" />
       <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
          <font>
             <Font name="Book Antiqua" size="26.0" />

@@ -25,9 +25,9 @@
         <TextField fx:id="usernameField" alignment="CENTER" layoutX="117.0" layoutY="232.0" promptText="USERNAME" />
         <TextField fx:id="passwordField" alignment="CENTER" layoutX="118.0" layoutY="283.0" promptText="PASSWORD" />
         <TextField fx:id="confirmPassword" alignment="CENTER" layoutX="118.0" layoutY="332.0" promptText="CONFIRM PASSWORD" />
-        <Button layoutX="137.0" layoutY="377.0" mnemonicParsing="false" onAction="#confirmPasswordField" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8cd1ff;" text="SAVE CHANGES" textFill="WHITE" />
-        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="HELP" textFill="WHITE" />
-        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #cccccc;" text="CANCEL" textFill="WHITE" />
+        <Button layoutX="137.0" layoutY="377.0" mnemonicParsing="false" onAction="#confirmPasswordField" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #66ccff;" text="SAVE CHANGES" textFill="WHITE" />
+        <Button layoutX="312.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="HELP" textFill="WHITE" />
+        <Button layoutY="424.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="68.0" style="-fx-background-color: #a6a6a6;" text="CANCEL" textFill="WHITE" />
         <Text fill="WHITE" layoutX="101.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOUNDWAVE">
             <font>
                 <Font name="Book Antiqua" size="26.0" />

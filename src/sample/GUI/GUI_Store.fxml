@@ -17,10 +17,10 @@
             <Image url="@../photos/L0WKsYH.gif" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #8cd1ff;" text="LIBRARY" textFill="WHITE" />
-      <Button layoutX="96.0" mnemonicParsing="false" onAction="#AddFunds" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="ADD FUND" textFill="WHITE" />
-      <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="HELP" textFill="WHITE" />
-      <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #8cd1ff;" text="LOG OUT" textFill="WHITE" />
+      <Button mnemonicParsing="false" onAction="#paneChangeToLibrary" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #66ccff;" text="LIBRARY" textFill="WHITE" />
+      <Button layoutX="96.0" mnemonicParsing="false" onAction="#AddFunds" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #66ccff;" text="ADD FUND" textFill="WHITE" />
+      <Button layoutX="191.0" mnemonicParsing="false" onAction="#handleHelp" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #66ccff;" text="HELP" textFill="WHITE" />
+      <Button layoutX="286.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #66ccff;" text="LOG OUT" textFill="WHITE" />
       <Separator layoutX="95.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
       <Separator layoutX="190.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="1.0" />
       <Separator layoutX="284.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="7.0" />
@@ -29,7 +29,7 @@
             <Image url="@../photos/logo-float.png" />
          </image>
       </ImageView>
-      <Button layoutX="270.0" layoutY="421.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="35.0" prefWidth="88.0" style="-fx-background-color: #8cd1ff;" text="🛒" textFill="WHITE" />
+      <Button layoutX="270.0" layoutY="421.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="35.0" prefWidth="88.0" style="-fx-background-color: #66ccff;" text="🛒" textFill="WHITE" />
       <ScrollPane layoutX="-1.0" layoutY="117.0" prefHeight="295.0" prefWidth="380.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="378.0">
@@ -39,8 +39,8 @@
                         <TableColumn fx:id="columnSongName" prefWidth="75.0" style="-FX-background-color: #b3b3b3;" text="Title" />
                         <TableColumn fx:id="columnArtist" prefWidth="75.0" style="-fx-background-color: #CCCCCC;" text="Artist" />
                         <TableColumn fx:id="columnAlbum"  prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Album" />
-                        <TableColumn fx:id="columnDuration" prefWidth="75.0" style="-fx-background-color: #cccccc;" text="DURATION" />
-                        <TableColumn fx:id="columnPrice" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="PRICE" />
+                        <TableColumn fx:id="columnDuration" prefWidth="75.0" style="-fx-background-color: #cccccc;" text="Duration" />
+                        <TableColumn fx:id="columnPrice" prefWidth="75.0" style="-fx-background-color: #b3b3b3;" text="Price" />
                      </columns>
                   </TableView>
                </children>

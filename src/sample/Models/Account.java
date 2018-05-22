@@ -9,8 +9,8 @@ public abstract class Account {
     public Account(int userID, String userName, String email, String password) {
         this.userID = userID;
         this.userName = userName;
-        this.password = password;
         this.email = email;
+        this.password = password;
     }
 
     @Override
